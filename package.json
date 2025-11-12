@@ -1,7 +1,7 @@
 {
-  "name": "wrdm-ngo",
+  "name": "wonta211",
   "version": "1.0.0",
-  "description": "Wonta Rural Development Mission NGO Website",
+  "description": "Wonta Rural Development Association Website",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
