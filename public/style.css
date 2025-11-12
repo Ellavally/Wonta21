@@ -1,0 +1,284 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f4f8;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ---------------- Header ---------------- */
+header {
+  background-color: #2e8b57;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  background-image: linear-gradient(rgba(46,139,87,0.85), rgba(46,139,87,0.85)), url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f9a826;
+}
+
+/* Hamburger icon (for mobile) */
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: white;
+}
+
+/* ---------------- Main Sections ---------------- */
+.main-content {
+  padding: 40px 20px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.section h1, .section h2 {
+  margin-bottom: 20px;
+  color: #2e8b57;
+}
+
+.section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.btn-donate { background-color: #007BFF; }
+.btn-volunteer { background-color: #28A745; }
+
+.btn-donate:hover { background-color: #0056b3; }
+.btn-volunteer:hover { background-color: #1e7e34; }
+
+/* ---------------- Lists ---------------- */
+.programs-list {
+  list-style: none;
+  padding: 0;
+  line-height: 2;
+  text-align: left;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ---------------- Gallery / Images ---------------- */
+.projects-gallery,
+.contact-gallery,
+.index-gallery,
+.about-gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.projects-gallery img,
+.contact-gallery img,
+.index-gallery img,
+.about-gallery img {
+  width: 22%;
+  min-width: 150px;
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ---------------- Floating animation ---------------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---------------- Moving banner ---------------- */
+.moving-banner {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.moving-banner img {
+  width: 120%;
+  display: block;
+  position: relative;
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% { transform: translateX(-10%); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(-10%); }
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  text-align: center;
+  background-color: #2e8b57;
+  color: white;
+  padding: 25px 20px;
+  margin-top: 40px;
+}
+
+/* ---------------- Contact Form ---------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+form input,
+form textarea {
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form textarea {
+  height: 100px;
+}
+
+form button {
+  padding: 10px 20px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* ---------------- Call-to-Action Section ---------------- */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 1200px) {
+  .projects-gallery img,
+  .contact-gallery img,
+  .index-gallery img,
+  .about-gallery img {
+    width: 30%;
+  }
+}
+
+@media (max-width: 900px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .projects-gallery img,
+  .contact-gallery img,
+  .index-gallery img,
+  .about-gallery img {
+    width: 45%;
+  }
+}
+
+/* --- Mobile Screens --- */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(46, 139, 87, 0.95);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  nav a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav.show {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .projects-gallery img,
+  .contact-gallery img,
+  .index-gallery img,
+  .about-gallery img {
+    width: 90%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  form input, form textarea {
+    width: 90%;
+  }
+}

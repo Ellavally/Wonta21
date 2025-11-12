@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+
+<main style="text-align:center; padding:50px;">
+  <h2>Thank you, <%= name %>!</h2>
+  <p>Your message has been received. We'll get back to you soon.</p>
+  <a href="/">Back to Home</a>
+</main>
+
+<%- include('partials/footer') %>
