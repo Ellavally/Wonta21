@@ -18,27 +18,19 @@
   </nav>
 </header>
 
-<!-- Add this to your /script.js -->
-<script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const navbar = document.getElementById('navbar');
-
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-  });
-</script>
-
-<!-- CSS updates for responsive navbar -->
 <style>
+  /* Header layout */
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #2e8b57;
+    background-color: #2e8b57; /* Dark green */
     color: white;
+    position: relative;
   }
 
+  /* Navbar links */
   #navbar {
     display: flex;
     gap: 20px;
@@ -50,6 +42,12 @@
     font-weight: bold;
   }
 
+  /* Highlight the active page */
+  #navbar a.active-link {
+    color: #f9a826; /* bright yellow for active page */
+  }
+
+  /* Hamburger button */
   .menu-toggle {
     display: none;
     font-size: 1.5em;
@@ -68,20 +66,41 @@
       width: 100%;
       flex-direction: column;
       background-color: #2e8b57;
-      display: none;
+      display: none; /* hide menu by default */
+      gap: 0;
     }
 
     #navbar.active {
       display: flex;
     }
 
-    .menu-toggle {
-      display: block;
-    }
-
     #navbar a {
       padding: 15px;
       border-top: 1px solid rgba(255,255,255,0.2);
     }
+
+    .menu-toggle {
+      display: block;
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    // Toggle mobile menu
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    // Highlight current page
+    const links = navbar.querySelectorAll('a');
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active-link');
+      }
+    });
+  });
+</script>
