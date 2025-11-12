@@ -1,32 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wonta Rural Development Association</title>
+<header>
+  <!-- Logo Section -->
+  <div class="logo">
+    <h1>Wonta Rural Development Association</h1>
+  </div>
 
-  <!-- Styles & Script -->
-  <link rel="stylesheet" href="/style.css">
-  <script src="/script.js" defer></script>
-</head>
+  <!-- Hamburger Icon for Mobile -->
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+    &#9776; <!-- ☰ symbol -->
+  </button>
 
-<body>
-  <header>
-    <!-- Logo Section -->
-    <div class="logo">
-      <h1>Wonta Rural Development Association</h1>
-    </div>
+  <!-- Navigation Links -->
+  <nav id="navbar">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/projects" class="nav-link">Projects</a>
+    <a href="/contact" class="nav-link">Contact</a>
+  </nav>
+</header>
 
-    <!-- Hamburger Icon for Mobile -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-      &#9776; <!-- ☰ symbol -->
-    </button>
+<!-- Add this to your /script.js -->
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
 
-    <!-- Navigation Links -->
-    <nav id="navbar">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/about" class="nav-link">About</a>
-      <a href="/projects" class="nav-link">Projects</a>
-      <a href="/contact" class="nav-link">Contact</a>
-    </nav>
-  </header>
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+</script>
+
+<!-- CSS updates for responsive navbar -->
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2e8b57;
+    color: white;
+  }
+
+  #navbar {
+    display: flex;
+    gap: 20px;
+  }
+
+  #navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Mobile view */
+  @media (max-width: 600px) {
+    #navbar {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background-color: #2e8b57;
+      display: none;
+    }
+
+    #navbar.active {
+      display: flex;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    #navbar a {
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
