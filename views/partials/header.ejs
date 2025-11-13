@@ -1,27 +1,3 @@
-<header>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <h1>Wonta Rural Development Association</h1>
-    </div>
-
-    <!-- Mobile menu toggle button -->
-    <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
-
-    <!-- Navigation -->
-    <nav id="navbar">
-      <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
-      <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About Us</a>
-      <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
-      <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
-    </nav>
-  </div>
+<header style="background: #333; color: white; padding: 20px; text-align: center;">
+  <h1>HEADER WORKS!</h1>
 </header>
-
-<script>
-  // Toggle mobile menu
-  function toggleMenu() {
-    const navbar = document.getElementById('navbar');
-    navbar.classList.toggle('active');
-  }
-</script>
