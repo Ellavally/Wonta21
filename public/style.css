@@ -307,11 +307,16 @@ body.contact-page main {
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
-  /* Navbar stays side by side */
+  /* Navbar stays side by side and hamburger removed */
   #navbar {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+  }
+
+  /* Hide hamburger menu button completely */
+  .menu-toggle {
+    display: none !important;
   }
 
   main {
