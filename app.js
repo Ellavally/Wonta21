@@ -2,34 +2,40 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Serve static files (CSS, JS, images)
+// -------------------------------
+// Middleware
+// -------------------------------
+
+// Serve static files (CSS, JS, images) from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Parse POST request data
-app.use(express.static('public')); // CSS, JS, images folder
+// Parse URL-encoded POST request data (for forms)
+app.use(express.urlencoded({ extended: true }));
+
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // -------------------------------
 // ROUTES
 // -------------------------------
 
-// Home
+// Home Page
 app.get('/', (req, res) => {
   res.render('index', { page: 'home' });
 });
 
-// About
+// About Page
 app.get('/about', (req, res) => {
   res.render('about', { page: 'about' });
 });
 
-// Contact
+// Contact Page
 app.get('/contact', (req, res) => {
   res.render('contact', { page: 'contact' });
 });
 
-// Projects
+// Projects Page
 app.get('/projects', (req, res) => {
   const projects = [
     {
@@ -66,7 +72,6 @@ app.get('/projects', (req, res) => {
     }
   ];
 
-  // Pass data to EJS
   res.render('projects', { projects, page: 'projects' });
 });
 
@@ -82,4 +87,6 @@ app.post('/contact', (req, res) => {
 // Server Startup
 // -------------------------------
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
+});
