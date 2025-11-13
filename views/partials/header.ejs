@@ -1,17 +1,15 @@
 <header>
   <div class="logo">
-    <h1>Wonta Rural Development Association</h1>
+    <h1>Wonta2777 Foundation</h1>
   </div>
-
-  <!-- Hamburger for mobile -->
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-    &#9776;
-  </button>
-
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
   <nav id="navbar">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/about" class="nav-link">About</a>
-    <a href="/projects" class="nav-link">Projects</a>
-    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
+    <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
+    <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
+    <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
   </nav>
 </header>
+
+
+

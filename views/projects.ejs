@@ -14,15 +14,16 @@
     </div>
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     <nav id="navbar">
-      <a href="/">Home</a>
-      <a href="/projects" class="active">Projects</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
+      <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
+      <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
+      <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
     </nav>
   </header>
 
   <!-- Main Content -->
   <main>
+    <!-- Projects Section -->
     <section>
       <h2>Our Projects</h2>
       <p>
@@ -86,8 +87,8 @@
     <p>© <%= new Date().getFullYear() %> Wonta2777 Foundation | Empowering Rural Communities 💚</p>
   </footer>
 
+  <!-- JS for mobile menu -->
   <script>
-    // Toggle menu for mobile
     const toggle = document.querySelector('.menu-toggle');
     const navbar = document.getElementById('navbar');
     toggle.addEventListener('click', () => navbar.classList.toggle('active'));

@@ -17,17 +17,17 @@ app.set('view engine', 'ejs');
 
 // Home
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { page: 'home' });
 });
 
 // About
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about', { page: 'about' });
 });
 
 // Contact
 app.get('/contact', (req, res) => {
-  res.render('contact');
+  res.render('contact', { page: 'contact' });
 });
 
 // -------------------------------
@@ -73,8 +73,8 @@ app.get('/projects', (req, res) => {
     }
   ];
 
-  // Pass data to EJS
-  res.render('projects', { projects });
+  // Pass data and active page to EJS
+  res.render('projects', { projects, page: 'projects' });
 });
 
 // -------------------------------
