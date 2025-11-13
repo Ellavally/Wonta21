@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
-  font-size: clamp(18px, 4vw, 20px); /* Increased base font size */
+  font-size: clamp(18px, 4vw, 20px); /* Base font size */
 }
 
 a {
@@ -25,7 +25,7 @@ h1, h2, h3, h4 {
    Responsive Text Scaling
 -------------------------------- */
 p {
-  font-size: clamp(16px, 4vw, 18px); /* Larger paragraph text */
+  font-size: clamp(16px, 4vw, 18px);
   line-height: 1.6;
 }
 
@@ -38,8 +38,8 @@ h4 { font-size: clamp(20px, 4vw, 28px); }
    Page-Specific Body Backgrounds
 -------------------------------- */
 body.home-page {
-  background-color: #2e8b57;
-  color: white;
+  background-color: #f1f8f3; /* light background behind content */
+  color: #1b3d1b;
 }
 
 body.about-page,
@@ -165,8 +165,8 @@ main {
 }
 
 body.home-page main {
-  background-color: transparent;
-  box-shadow: none;
+  background-color: white; /* main content stays white */
+  box-shadow: 0 0 10px rgba(46, 139, 87, 0.2);
 }
 
 section {
