@@ -3,11 +3,13 @@
     <h1>Wonta Rural Development Association</h1>
   </div>
 
+  <!-- Mobile menu toggle button -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
+  <!-- Navigation -->
   <nav id="navbar">
     <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
-    <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
+    <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About Us</a>
     <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
     <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
   </nav>
@@ -15,6 +17,7 @@
 
 <script>
   function toggleMenu() {
-    document.getElementById('navbar').classList.toggle('active');
+    const navbar = document.getElementById('navbar');
+    navbar.classList.toggle('active');
   }
 </script>
