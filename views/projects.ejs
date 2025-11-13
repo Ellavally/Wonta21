@@ -6,7 +6,9 @@
   <title>Our Projects | Wonta2777 Foundation</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
-<body class="<%= page %>-page">
+ <body class="<%= page %>-page">
+
+  <% include partials/header %>
 <body>
   <!-- Header -->
   <header>
@@ -94,5 +96,6 @@
     const navbar = document.getElementById('navbar');
     toggle.addEventListener('click', () => navbar.classList.toggle('active'));
   </script>
+   <% include partials/footer %>
 </body>
 </html>

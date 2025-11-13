@@ -6,8 +6,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parse POST request data
-app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static('public')); // CSS, JS, images folder
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 
