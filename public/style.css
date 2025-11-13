@@ -49,14 +49,18 @@ body.contact-page {
 /* -------------------------------
    Header
 -------------------------------- */
-header {
-  background-color: lightblue; /* or your preferred color */
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+<header style="background-color: green;">
+  <div class="logo">
+    <h1>Wonta Rural Development Association</h1>
+  </div>
+  <nav id="navbar">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
 header .logo h1 {
   font-size: clamp(28px, 6vw, 38px);
   margin: 0;
