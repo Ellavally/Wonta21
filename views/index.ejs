@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wonta Rural Development Association</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body class="home-page">
+<%- include('partials/header') %>
+<script src="/script.js"></script>
+<link rel="stylesheet" href="/style.css">
 
-  <!-- Header -->
-  <%- include('partials/header') %>
+<main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
-  <!-- Main Content -->
-  <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
-    <section>
-      <h2>Empowering Rural Communities, Transforming Lives</h2>
-      <p>Welcome to <strong>Wonta Rural Development Association</strong>...</p>
-      <!-- images and other content -->
-    </section>
-  </main>
+  <section>
+    <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
-  <!-- Footer -->
-  <%- include('partials/footer') %>
-  <!-- Scripts -->
-  <script src="/script.js"></script>
-</body>
-</html>
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
+      Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves access to education, healthcare, and sustainable livelihoods.
+    </p>
+
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
+      Since our founding, we have been dedicated to creating impactful programs that make a tangible difference in the lives of people in underserved areas. Our focus areas include education, healthcare, women & youth empowerment, and sustainable agriculture.
+    </p>
+
+    <!-- Moving Images -->
+    <div class="moving-gallery" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
+      <img id="home-image1" src="/images/nebir.jpg" alt="Community Work" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
+      <img id="home-image2" src="/images/tota.jpg" alt="Health Program" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
+      <img id="home-image3" src="/images/project1.jpg" alt="Women Empowerment" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
+    </div>
+
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
+      We work hand in hand with communities to implement programs that build strong foundations for growth. Every project is designed with local needs at its heart to ensure meaningful, sustainable change.
+    </p>
+
+    <p style="line-height: 1.8; font-size: 1.1em;">
+      Join us in our mission to create opportunities, transform lives, and uplift rural communities across the region.
+    </p>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
