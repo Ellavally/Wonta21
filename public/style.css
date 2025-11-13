@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
-  font-size: 16px; /* Base desktop font size */
+  font-size: clamp(16px, 4vw, 18px); /* Fluid scaling for base text */
 }
 
 a {
@@ -24,35 +24,15 @@ h1, h2, h3, h4 {
 /* -------------------------------
    Responsive Text Scaling
 -------------------------------- */
-body, p, h1, h2, h3, h4 {
-  margin: 0;
-  padding: 0;
-}
-
 p {
-  font-size: 1em;
+  font-size: clamp(14px, 3.5vw, 16px);
   line-height: 1.6;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.2em; }
-
-@media (max-width: 768px) {
-  body { font-size: 15px; }
-  h1 { font-size: 1.7em; }
-  h2 { font-size: 1.3em; }
-  h3 { font-size: 1.1em; }
-  p  { font-size: 0.95em; }
-}
-
-@media (max-width: 480px) {
-  body { font-size: 14px; }
-  h1 { font-size: 1.5em; }
-  h2 { font-size: 1.2em; }
-  h3 { font-size: 1em; }
-  p  { font-size: 0.9em; }
-}
+h1 { font-size: clamp(24px, 6vw, 36px); }
+h2 { font-size: clamp(20px, 5vw, 30px); }
+h3 { font-size: clamp(18px, 4vw, 24px); }
+h4 { font-size: clamp(16px, 3.5vw, 22px); }
 
 /* -------------------------------
    Page-Specific Body Backgrounds
@@ -84,7 +64,7 @@ header {
 }
 
 header .logo h1 {
-  font-size: 1.8em;
+  font-size: clamp(24px, 5vw, 36px);
   margin: 0;
 }
 
@@ -140,6 +120,7 @@ footer {
 .footer-content h4 {
   color: #cce0cc;
   margin-bottom: 10px;
+  font-size: clamp(16px, 3vw, 20px);
 }
 
 .footer-content a {
@@ -147,6 +128,7 @@ footer {
   color: #ffffff;
   margin-bottom: 8px;
   transition: color 0.3s;
+  font-size: clamp(14px, 2.5vw, 16px);
 }
 
 .footer-content a:hover {
@@ -166,7 +148,7 @@ footer {
   border-top: 1px solid #cce0cc;
   margin-top: 30px;
   padding-top: 15px;
-  font-size: 0.9em;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #e8f5e9;
 }
 
@@ -210,12 +192,12 @@ img:hover {
    Buttons
 -------------------------------- */
 button, .btn {
-  padding: 10px 20px;
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 4vw, 20px);
   border: none;
   background-color: #2e8b57;
   color: white;
   cursor: pointer;
-  font-size: 1em;
+  font-size: clamp(14px, 3vw, 16px);
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.1s;
 }
@@ -242,6 +224,7 @@ button:hover, .btn:hover {
   box-shadow: 0 0 10px rgba(46, 139, 87, 0.2);
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
+  font-size: clamp(14px, 3vw, 16px);
 }
 
 .project-card:hover,
@@ -264,10 +247,11 @@ button:hover, .btn:hover {
 
 .cta-section h2 {
   margin-bottom: 10px;
+  font-size: clamp(22px, 5vw, 32px);
 }
 
 .cta-section p {
-  font-size: 1.2em;
+  font-size: clamp(16px, 4vw, 20px);
   margin-bottom: 20px;
 }
 
@@ -275,6 +259,7 @@ button:hover, .btn:hover {
   background-color: white;
   color: #2e8b57;
   font-weight: bold;
+  font-size: clamp(14px, 3vw, 16px);
 }
 
 .cta-section .btn:hover {
@@ -285,7 +270,6 @@ button:hover, .btn:hover {
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
-  body { font-size: 15px; }
   header { flex-direction: row; }
   #navbar {
     flex-direction: column;
@@ -303,13 +287,9 @@ button:hover, .btn:hover {
 
   .projects-grid,
   .impact-grid { grid-template-columns: 1fr; gap: 20px; }
-
-  .cta-section p { font-size: 1.3em; }
 }
 
 @media (max-width: 480px) {
-  body { font-size: 14px; }
-
   header {
     flex-direction: column;
     align-items: center;
@@ -317,7 +297,7 @@ button:hover, .btn:hover {
     text-align: center;
   }
 
-  header .logo h1 { font-size: 1.5em; margin-bottom: 10px; }
+  header .logo h1 { font-size: clamp(20px, 6vw, 28px); margin-bottom: 10px; }
   #navbar { gap: 10px; }
 
   main { padding: 20px 10px; }
