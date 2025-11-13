@@ -5,7 +5,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e8f5e9; /* Light green background */
-  color: #1b3d1b; /* Dark text for contrast */
+  color: #1b3d1b; /* Dark text */
   line-height: 1.6;
 }
 
@@ -15,7 +15,7 @@ a {
 }
 
 h1, h2, h3, h4 {
-  color: #2e8b57;
+  color: #2e8b57; /* Main green text */
 }
 
 /* -------------------------------
@@ -36,7 +36,7 @@ header .logo h1 {
 }
 
 /* -------------------------------
-   Navigation
+   Navigation (Side by Side)
 -------------------------------- */
 #navbar {
   display: flex;
@@ -51,43 +51,7 @@ header .logo h1 {
 
 #navbar a:hover,
 #navbar a.active {
-  color: #cce0cc;
-}
-
-/* Mobile Navigation */
-.menu-toggle {
-  display: none;
-  font-size: 1.8em;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  #navbar {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background-color: #2e8b57;
-    display: none;
-    z-index: 1000;
-  }
-
-  #navbar.active {
-    display: flex;
-  }
-
-  #navbar a {
-    padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+  color: #cce0cc; /* light green accent */
 }
 
 /* -------------------------------
@@ -161,7 +125,7 @@ button:hover, .btn:hover {
 }
 
 .project-card {
-  background-color: #e8f5e9; /* light green card background */
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(46, 139, 87, 0.2);
   padding: 20px;
@@ -330,7 +294,7 @@ body.contact-page main {
   color: #2e8b57;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
@@ -339,8 +303,21 @@ body.contact-page main {
   transform: scale(1.02);
 }
 
-/* Responsive */
+/* -------------------------------
+   Responsive (Mobile)
+-------------------------------- */
 @media (max-width: 768px) {
+  /* Navbar stays side by side */
+  #navbar {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
