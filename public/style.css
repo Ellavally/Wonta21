@@ -5,7 +5,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e8f5e9; /* Light green background */
-  color: #1b3d1b; /* Darker text for contrast */
+  color: #1b3d1b; /* Dark text for contrast */
   line-height: 1.6;
 }
 
@@ -161,7 +161,7 @@ button:hover, .btn:hover {
 }
 
 .project-card {
-  background-color: #ffffff;
+  background-color: #e8f5e9; /* light green card background */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(46, 139, 87, 0.2);
   padding: 20px;
@@ -252,14 +252,14 @@ button:hover, .btn:hover {
    Contact Page Green Theme
 -------------------------------- */
 body.contact-page main {
-  background-color: #2e8b57; /* Main green background */
+  background-color: #2e8b57;
   padding: 60px 20px;
 }
 
 .contact-section {
   max-width: 1000px;
   margin: auto;
-  background-color: #2e8b57; /* main green */
+  background-color: #2e8b57;
   border-radius: 10px;
   padding: 40px 30px;
   color: white;
@@ -280,14 +280,14 @@ body.contact-page main {
 }
 
 .contact-info {
-  background-color: #246b45; /* darker green box */
+  background-color: #246b45;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info h3 {
-  color: #cce0cc; /* light green accent */
+  color: #cce0cc;
   margin-bottom: 15px;
 }
 
@@ -297,7 +297,7 @@ body.contact-page main {
 }
 
 .contact-form {
-  background-color: #1b3d1b; /* very dark green for contrast */
+  background-color: #1b3d1b;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -317,7 +317,7 @@ body.contact-page main {
   margin-bottom: 20px;
   border: 1px solid #cce0cc;
   border-radius: 5px;
-  background-color: #e8f5e9; /* light green for inputs */
+  background-color: #e8f5e9;
   color: #1b3d1b;
 }
 
@@ -326,11 +326,11 @@ body.contact-page main {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background-color: #cce0cc; /* light green button */
+  background-color: #cce0cc;
   color: #2e8b57;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.1s;
 }
 
 .contact-form button:hover {
