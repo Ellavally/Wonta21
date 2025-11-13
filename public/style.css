@@ -50,32 +50,35 @@ body.contact-page {
    Header
 -------------------------------- */
 header {
-  background-color: #2e8b57; /* green background matching footer */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e8b57; /* your green */
   padding: 10px 20px;
 }
 
-header .logo h1 {
-  color: white; /* white header text */
-  font-size: clamp(28px, 6vw, 38px);
+.logo h1 {
   margin: 0;
+  color: white;
+  font-size: clamp(28px, 6vw, 38px);
   padding-left: 20px;
 }
 
 #navbar {
   display: flex;
   gap: 30px;
+  /* this will already be on the right due to justify-content above */
   padding-right: 20px;
 }
 
 #navbar a {
-  color: white; /* links in header white for contrast */
+  color: white;
   font-weight: bold;
-  text-decoration: none;
 }
 
 #navbar a:hover,
 #navbar a.active {
-  color: #cce0cc; /* lighter green on hover/active */
+  color: #cce0cc;
 }
 
 /* Mobile Menu Toggle */
