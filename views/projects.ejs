@@ -1,44 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Projects | Wonta2777 Foundation</title>
-  <link rel="stylesheet" href="/style.css" />
-</head>
- <body class="<%= page %>-page">
+<%- include('partials/header') %>
+<script src="/script.js"></script>
+<link rel="stylesheet" href="/style.css">
 
-  <% include partials/header %>
-<body>
-  <!-- Header -->
-  <header>
-  <div class="logo">
-    <h1>Wonta2777 Foundation</h1>
-  </div>
-  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-  <nav id="navbar" class="nav-links">
-    <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
-    <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
-    <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
-    <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
-  </nav>
-</header>
+<main class="main-content">
+  <section style="max-width: 1200px; margin: auto; text-align: center;">
+    <h2 style="margin-bottom: 30px;">Our Projects</h2>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Projects Section -->
-    <section>
-      <h2>Our Projects</h2>
-      <p>
-        At Wonta2777 Foundation, we are committed to sustainable rural development
-        through impactful programs in <strong>education, healthcare, agriculture, and
-        women’s empowerment</strong>. Each project is a step toward building
-        self-reliant, thriving communities.
-      </p>
-    </section>
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
+      At <strong>Wonta2777 Foundation</strong>, we are committed to sustainable rural development
+      through impactful programs in <strong>education, healthcare, agriculture, and women’s empowerment</strong>.
+    </p>
 
-    <!-- Project Cards -->
-    <section class="projects-grid">
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
+      Each project is a step toward building self-reliant, thriving communities.
+      Our initiatives are designed hand in hand with local residents to ensure
+      that solutions are meaningful, long-lasting, and community-led.
+    </p>
+  </section>
+
+  <!-- Project Gallery -->
+  <section style="max-width: 1200px; margin: 40px auto; text-align: center;">
+    <div class="projects-grid">
       <% projects.forEach(project => { %>
         <div class="project-card">
           <img src="<%= project.image %>" alt="<%= project.title %>">
@@ -46,56 +28,46 @@
           <h4><%= project.category %></h4>
           <p><%= project.description %></p>
           <p><strong>Impact:</strong> <%= project.impact %></p>
-          <a href="<%= project.link %>" class="btn">Learn More</a>
+          <% if (project.link) { %>
+            <a href="<%= project.link %>" class="btn">Learn More</a>
+          <% } %>
         </div>
       <% }) %>
-    </section>
+    </div>
+  </section>
 
-    <!-- Impact Summary -->
-    <section class="impact-section">
-      <h2>Our Impact</h2>
-      <div class="impact-grid">
-        <div>
-          <h3>🏫 20+</h3>
-          <p>Schools supported</p>
-        </div>
-        <div>
-          <h3>💉 15,000+</h3>
-          <p>People reached with healthcare</p>
-        </div>
-        <div>
-          <h3>🌾 4,500+</h3>
-          <p>Farmers trained</p>
-        </div>
-        <div>
-          <h3>👩‍🌾 600+</h3>
-          <p>Women empowered</p>
-        </div>
+  <!-- Impact Summary -->
+  <section style="max-width: 1000px; margin: 60px auto; text-align: center;">
+    <h2 style="margin-bottom: 30px;">Our Impact</h2>
+    <div class="impact-grid">
+      <div>
+        <h3>🏫 20+</h3>
+        <p>Schools supported</p>
       </div>
-    </section>
+      <div>
+        <h3>💉 15,000+</h3>
+        <p>People reached with healthcare</p>
+      </div>
+      <div>
+        <h3>🌾 4,500+</h3>
+        <p>Farmers trained</p>
+      </div>
+      <div>
+        <h3>👩‍🌾 600+</h3>
+        <p>Women empowered</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <h2>Join Our Mission</h2>
-      <p>
-        Together, we can continue to bring education, health, and sustainable livelihoods
-        to rural communities. Your support makes lasting change possible.
-      </p>
-      <a href="/donate" class="btn">Get Involved</a>
-    </section>
-  </main>
+  <!-- Call to Action -->
+  <section class="cta-section" style="text-align: center; background-color: #2e8b57; color: white; padding: 60px 20px; border-radius: 10px; margin-bottom: 50px;">
+    <h2>Join Our Mission</h2>
+    <p style="font-size: 1.1em; margin-bottom: 30px;">
+      Together, we can continue to bring education, health, and sustainable livelihoods
+      to rural communities. Your support makes lasting change possible.
+    </p>
+    <a href="/contact" class="btn" style="background-color: white; color: #2e8b57; font-weight: bold;">Get Involved</a>
+  </section>
+</main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© <%= new Date().getFullYear() %> Wonta2777 Foundation | Empowering Rural Communities 💚</p>
-  </footer>
-
-  <!-- JS for mobile menu -->
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const navbar = document.getElementById('navbar');
-    toggle.addEventListener('click', () => navbar.classList.toggle('active'));
-  </script>
-   <% include partials/footer %>
-</body>
-</html>
+<%- include('partials/footer') %>
