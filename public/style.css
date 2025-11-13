@@ -249,64 +249,65 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
-   Contact Page (Updated with Green)
+   Contact Page Green Theme
 -------------------------------- */
+body.contact-page main {
+  background-color: #2e8b57; /* Main green background */
+  padding: 60px 20px;
+}
+
 .contact-section {
   max-width: 1000px;
   margin: auto;
-  padding: 40px 20px;
-  background-color: #d8f0e1; /* soft green background */
+  background-color: #2e8b57; /* main green */
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(46, 139, 87, 0.2);
+  padding: 40px 30px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.contact-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #2e8b57; /* dark green */
-}
-
+.contact-section h2,
 .contact-section p {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 1.1em;
-  color: #1b3d1b;
+  color: white;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  margin-top: 30px;
 }
 
 .contact-info {
-  background-color: #2e8b57; /* main green */
-  color: white;
+  background-color: #246b45; /* darker green box */
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46, 139, 87, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info h3 {
+  color: #cce0cc; /* light green accent */
   margin-bottom: 15px;
 }
 
 .contact-info p {
+  color: white;
   margin-bottom: 10px;
 }
 
 .contact-form {
-  background-color: #e8f5e9; /* light green for contrast */
+  background-color: #1b3d1b; /* very dark green for contrast */
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46, 139, 87, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #2e8b57; /* dark green labels */
+  color: #cce0cc;
 }
 
 .contact-form input,
@@ -314,37 +315,31 @@ button:hover, .btn:hover {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 2px solid #2e8b57;
+  border: 1px solid #cce0cc;
   border-radius: 5px;
-  background-color: #f1f8f3; /* soft green input */
+  background-color: #e8f5e9; /* light green for inputs */
   color: #1b3d1b;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #246b45; /* darker green on focus */
-}
-
 .contact-form button {
-  display: inline-block;
   width: 100%;
-  background-color: #2e8b57; /* main green button */
-  color: white;
-  font-weight: bold;
+  padding: 12px;
+  border: none;
   border-radius: 5px;
-  padding: 12px 0;
-  font-size: 1em;
+  background-color: #cce0cc; /* light green button */
+  color: #2e8b57;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
-  background-color: #246b45; /* darker green hover */
+  background-color: #ffffff;
+  color: #2e8b57;
   transform: scale(1.02);
 }
 
-/* Responsive Contact Page */
+/* Responsive */
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
