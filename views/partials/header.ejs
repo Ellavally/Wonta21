@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- VIEWPORT META TAG FOR MOBILE RESPONSIVENESS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Wonta Rural Development Association</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body class="<%= page %>-page">
-
 <header>
   <div class="container">
+    <!-- Logo -->
     <div class="logo">
       <h1>Wonta Rural Development Association</h1>
     </div>
@@ -30,6 +19,7 @@
 </header>
 
 <script>
+  // Toggle mobile menu
   function toggleMenu() {
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('active');
