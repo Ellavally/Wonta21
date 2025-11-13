@@ -1,4 +1,4 @@
-// Mobile menu toggle
+// Mobile Menu Toggle
 const menuToggle = document.getElementById('menu-toggle');
 const navbar = document.getElementById('navbar');
 
@@ -7,29 +7,29 @@ menuToggle.addEventListener('click', () => {
   navbar.classList.toggle('active');
 });
 
-// Optional: Slowly move images
+// Optional: Slowly move images horizontally with animation
 function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
-  if (!img) return;
+  if (!img) return; // If no image with the provided id, exit early
 
   let pos = 0;
   let direction = 1;
 
   function animate() {
     pos += direction * speed;
-    img.style.transform = `translateX(${pos}px)`;
-    if (pos >= distance || pos <= 0) direction *= -1;
-    requestAnimationFrame(animate);
+    img.style.transform = `translateX(${pos}px)`; // Apply horizontal movement
+    if (pos >= distance || pos <= 0) direction *= -1; // Reverse direction when distance is reached
+    requestAnimationFrame(animate); // Keep the animation running
   }
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animate); // Start animation
 }
 
-// Animate images based on page
+// Animate images based on the current page
 window.addEventListener('load', () => {
-  const page = document.body.dataset.page;
+  const page = document.body.dataset.page; // Get current page from body data attribute
 
-  // Create an object to store the animations for each page
+  // Create an object that stores the animation details for each page
   const animations = {
     index: [
       { id: 'home-image1', distance: 50, speed: 0.2 },
@@ -49,13 +49,13 @@ window.addEventListener('load', () => {
     ]
   };
 
-  // Check if the animations for the page are defined and animate the images
+  // Check if the animations for the current page are defined and animate images accordingly
   if (animations[page]) {
     animations[page].forEach(({ id, distance, speed }) => moveImageById(id, distance, speed));
   }
 });
 
-// Add event listener for window resize to adjust mobile menu display on larger screens
+// Add event listener for window resize to adjust the mobile menu display on larger screens
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navbar.classList.remove('active'); // Hide mobile menu on larger screens
