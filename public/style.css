@@ -49,11 +49,39 @@ body.contact-page {
 /* -------------------------------
    Header
 -------------------------------- */
-header {
-  background-color: blue;
-  /* other styles */
-}
-header .logo h1 {
+<style>
+  header {
+    background-color: blue;
+    padding: 10px 20px;
+  }
+
+  .logo h1 {
+    color: white;
+    margin: 0;
+  }
+
+  nav#navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+
+  nav#navbar a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<header>
+  <div class="logo">
+    <h1>Wonta Rural Development Association</h1>
+  </div>
+  <nav id="navbar">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>header .logo h1 {
   font-size: clamp(28px, 6vw, 38px);
   margin: 0;
   padding-left: 20px;
