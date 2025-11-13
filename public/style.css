@@ -3,7 +3,7 @@
 -------------------------------- */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans‑serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
@@ -67,7 +67,6 @@ header {
 #navbar {
   display: flex;
   gap: 30px;
-  /* this will already be on the right due to justify-content above */
   padding-right: 20px;
 }
 
@@ -258,17 +257,41 @@ button:hover, .btn:hover {
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
+  /* Mobile Menu */
   #navbar {
+    display: none;
     flex-direction: column;
     gap: 15px;
-    display: none;
     width: 100%;
     text-align: center;
     margin-top: 10px;
   }
-  #navbar.active { display: flex; }
-  main { padding: 30px 15px; }
-  .projects-grid, .impact-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  #navbar.active {
+    display: flex;
+  }
+
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: block;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .projects-grid, .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -277,7 +300,14 @@ button:hover, .btn:hover {
     align-items: center;
     padding: 15px 10px;
   }
+
   header .logo h1 { margin-bottom: 10px; }
-  main { padding: 20px 10px; }
-  .cta-section { padding: 40px 15px; }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  .cta-section {
+    padding: 40px 15px;
+  }
 }
