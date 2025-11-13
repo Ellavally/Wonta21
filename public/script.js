@@ -30,8 +30,9 @@ window.addEventListener('load', () => {
 
   const animations = {
     index: [
-      { id: 'index-image1', distance: 50, speed: 0.2 },
-      { id: 'index-image2', distance: 60, speed: 0.25 }
+      { id: 'home-image1', distance: 50, speed: 0.2 },
+      { id: 'home-image2', distance: 60, speed: 0.25 },
+      { id: 'home-image3', distance: 40, speed: 0.15 }
     ],
     about: [
       { id: 'about-image1', distance: 50, speed: 0.2 }
