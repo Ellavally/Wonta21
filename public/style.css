@@ -44,6 +44,7 @@ header {
   color: white;
   position: relative;
   flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header .logo h1 {
@@ -83,14 +84,62 @@ header .logo h1 {
 }
 
 /* -------------------------------
-   Footer
+   Footer (Enhanced)
 -------------------------------- */
 footer {
-  text-align: center;
-  padding: 20px;
   background-color: #2e8b57;
   color: white;
-  margin-top: 40px;
+  padding: 40px 20px 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+.footer-content h3,
+.footer-content h4 {
+  color: #cce0cc;
+  margin-bottom: 10px;
+}
+
+.footer-content a {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: #cce0cc;
+}
+
+.footer-contact a {
+  color: #ffffff;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #cce0cc;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 0.9em;
+  color: #e8f5e9;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    text-align: center;
+  }
 }
 
 /* -------------------------------
