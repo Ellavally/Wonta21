@@ -1,15 +1,13 @@
-// ------------------- Mobile Menu Toggle -------------------
+// Mobile menu toggle
 const menuToggle = document.getElementById('menu-toggle');
 const navbar = document.getElementById('navbar');
 
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-  });
-}
+menuToggle.addEventListener('click', () => {
+  navbar.classList.toggle('active');
+});
 
-// ------------------- Image Side-to-Side Animation -------------------
-function moveImageById(id, distance = 50, speed = 0.2) {
+// Optional: slowly move images
+function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
   if (!img) return;
 
@@ -19,17 +17,34 @@ function moveImageById(id, distance = 50, speed = 0.2) {
   function animate() {
     pos += direction * speed;
     img.style.transform = `translateX(${pos}px)`;
-    if (pos >= distance || pos <= -distance) direction *= -1;
+    if (pos >= distance || pos <= 0) direction *= -1;
     requestAnimationFrame(animate);
   }
 
   requestAnimationFrame(animate);
 }
 
-// ------------------- Animate All Images on Page -------------------
+// Animate images based on page
 window.addEventListener('load', () => {
-  const images = document.querySelectorAll('img');
-  images.forEach((img, index) => {
-    moveImageById(img.id || `img-${index}`, 50 + index * 20, 0.2 + index * 0.05);
-  });
+  const page = document.body.dataset.page;
+
+  const animations = {
+    index: [
+      { id: 'index-image1', distance: 50, speed: 0.2 },
+      { id: 'index-image2', distance: 60, speed: 0.25 }
+    ],
+    about: [
+      { id: 'about-image1', distance: 50, speed: 0.2 }
+    ],
+    projects: [
+      { id: 'project-image1', distance: 50, speed: 0.2 }
+    ],
+    contact: [
+      { id: 'contact-image1', distance: 50, speed: 0.2 }
+    ]
+  };
+
+  if (animations[page]) {
+    animations[page].forEach(({ id, distance, speed }) => moveImageById(id, distance, speed));
+  }
 });

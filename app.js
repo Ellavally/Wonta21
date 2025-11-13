@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const app = express();
 
 // Serve static files (CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -11,29 +11,82 @@ app.use(express.urlencoded({ extended: true }));
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 
-// Routes
+// -------------------------------
+// ROUTES
+// -------------------------------
+
+// Home
 app.get('/', (req, res) => {
-  res.render('index'); // home page
+  res.render('index');
 });
 
+// About
 app.get('/about', (req, res) => {
-  res.render('about'); // about page
+  res.render('about');
 });
 
+// Contact
 app.get('/contact', (req, res) => {
-  res.render('contact'); // contact page
+  res.render('contact');
 });
 
+// -------------------------------
+// Projects (Dynamic Data)
+// -------------------------------
 app.get('/projects', (req, res) => {
-  res.render('projects'); // projects page
+  const projects = [
+    {
+      title: "Education for All",
+      category: "Education",
+      image: "https://via.placeholder.com/400x250?text=Education",
+      description:
+        "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
+      impact: "Over 2,000 students enrolled in new rural schools.",
+      link: "#"
+    },
+    {
+      title: "Rural Health Outreach",
+      category: "Healthcare",
+      image: "https://via.placeholder.com/400x250?text=Healthcare",
+      description:
+        "Providing access to essential healthcare services through rural clinics and mobile health programs.",
+      impact: "15,000+ people received free checkups and vaccinations.",
+      link: "#"
+    },
+    {
+      title: "Sustainable Agriculture Program",
+      category: "Agriculture",
+      image: "https://via.placeholder.com/400x250?text=Agriculture",
+      description:
+        "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
+      impact: "4,500+ farmers trained in eco-friendly agriculture.",
+      link: "#"
+    },
+    {
+      title: "Women Empowerment Initiative",
+      category: "Women Empowerment",
+      image: "https://via.placeholder.com/400x250?text=Women+Empowerment",
+      description:
+        "Empowering women with skills training, microfinance programs, and leadership workshops.",
+      impact: "600+ women supported through business and literacy programs.",
+      link: "#"
+    }
+  ];
+
+  // Pass data to EJS
+  res.render('projects', { projects });
 });
 
-// Handle form submission (optional)
+// -------------------------------
+// Contact Form Submission
+// -------------------------------
 app.post('/contact', (req, res) => {
-  console.log(req.body); // just log the form data
+  console.log('Contact form submission:', req.body);
   res.send('Thank you for contacting us!');
 });
 
-// Start server
+// -------------------------------
+// Server Startup
+// -------------------------------
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
