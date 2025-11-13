@@ -1,71 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | NGO</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
 <%- include('partials/header') %>
-<body class="contact-page">
-  <header>
-    <div class="logo">
-      <h1>Our NGO</h1>
+<script src="/script.js" defer></script>
+<link rel="stylesheet" href="/style.css">
+
+<main class="main-content">
+  <section style="max-width: 1000px; margin: 60px auto; text-align: center;">
+    <h2 style="margin-bottom: 30px;">Contact Us</h2>
+    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
+      We’d love to hear from you! Fill out the form below and we’ll get back to you shortly.
+    </p>
+  </section>
+
+  <section style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; text-align: left;">
+    <!-- Contact Info -->
+    <div class="contact-info" style="flex: 1; min-width: 300px;">
+      <h3>Our Office</h3>
+      <p><strong>Email:</strong> info@ourngo.org</p>
+      <p><strong>Phone:</strong> +91 123 456 7890</p>
+      <p><strong>Address:</strong> Village Development Center, Rural District, India</p>
     </div>
-    <nav id="navbar">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/projects">Projects</a>
-      <a href="/contact" class="active">Contact</a>
-    </nav>
-    <button class="menu-toggle">☰</button>
-  </header>
 
-  <main>
-    <section class="contact-section">
-      <h2>Contact Us</h2>
-      <p>We’d love to hear from you! Fill out the form below and we’ll get back to you shortly.</p>
+    <!-- Contact Form -->
+    <div class="contact-form" style="flex: 1; min-width: 300px;">
+      <form action="/contact" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
 
-      <div class="contact-grid">
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h3>Our Office</h3>
-          <p><strong>Email:</strong> info@ourngo.org</p>
-          <p><strong>Phone:</strong> +91 123 456 7890</p>
-          <p><strong>Address:</strong> Village Development Center, Rural District, India</p>
-        </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email">
 
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <form action="/contact" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your Name">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Your Message"></textarea>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="Your Email">
+        <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required placeholder="Your Message"></textarea>
-
-            <button type="submit" class="btn">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <%= new Date().getFullYear() %> Our NGO. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navbar = document.getElementById('navbar');
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-    });
-  </script>
 <%- include('partials/footer') %>
-</body>
-</html>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbar = document.getElementById('navbar');
+  menuToggle.addEventListener('click', () => navbar.classList.toggle('active'));
+</script>
