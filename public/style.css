@@ -23,13 +23,12 @@ h1, h2, h3, h4 {
 -------------------------------- */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, navbar right */
   align-items: center;
   padding: 20px 50px;
   background-color: #2e8b57; /* Main Green */
   color: white;
 }
-
 header .logo h1 {
   margin: 0;
   font-size: 1.8em;
@@ -41,8 +40,9 @@ header .logo h1 {
 #navbar {
   display: flex;
   gap: 30px;
+  justify-content: flex-end; /* align navbar links to the right */
+  flex: 1; /* take remaining space after logo */
 }
-
 #navbar a {
   color: white;
   font-weight: bold;
