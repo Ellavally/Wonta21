@@ -9,17 +9,17 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">
-      <h1>Wonta2777 Foundation</h1>
-    </div>
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <nav id="navbar">
-      <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
-      <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
-      <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
-      <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
-    </nav>
-  </header>
+  <div class="logo">
+    <h1>Wonta2777 Foundation</h1>
+  </div>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  <nav id="navbar" class="nav-links">
+    <a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a>
+    <a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a>
+    <a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a>
+    <a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a>
+  </nav>
+</header>
 
   <!-- Main Content -->
   <main>

@@ -23,11 +23,12 @@ h1, h2, h3, h4 {
 -------------------------------- */
 header {
   display: flex;
-  justify-content: space-between; /* Logo left, navbar right */
+  justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #2e8b57; /* Main Green */
+  background-color: #2e8b57;
   color: white;
+  position: relative;
 }
 
 header .logo h1 {
@@ -41,7 +42,6 @@ header .logo h1 {
 #navbar {
   display: flex;
   gap: 30px;
-  margin-left: auto; /* Pushes navbar to the right */
 }
 
 #navbar a {
@@ -53,6 +53,18 @@ header .logo h1 {
 #navbar a:hover,
 #navbar a.active {
   color: #cce0cc; /* Light green accent */
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
 }
 
 /* -------------------------------
@@ -170,4 +182,202 @@ button:hover, .btn:hover {
 }
 
 .impact-grid div {
-  ba
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(46, 139, 87, 0.1);
+}
+
+.impact-grid h3 {
+  color: #2e8b57;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+/* -------------------------------
+   Call to Action
+-------------------------------- */
+.cta-section {
+  text-align: center;
+  background-color: #2e8b57;
+  color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.cta-section h2 {
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.cta-section .btn {
+  background-color: white;
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+.cta-section .btn:hover {
+  background-color: #cce0cc;
+}
+
+/* -------------------------------
+   Contact Page Green Theme
+-------------------------------- */
+body.contact-page main {
+  background-color: #2e8b57;
+  padding: 60px 20px;
+}
+
+.contact-section {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #2e8b57;
+  border-radius: 10px;
+  padding: 40px 30px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2,
+.contact-section p {
+  text-align: center;
+  color: white;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.contact-info {
+  background-color: #246b45;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info h3 {
+  color: #cce0cc;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  background-color: #1b3d1b;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #cce0cc;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cce0cc;
+  border-radius: 5px;
+  background-color: #e8f5e9;
+  color: #1b3d1b;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #cce0cc;
+  color: #2e8b57;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #ffffff;
+  color: #2e8b57;
+  transform: scale(1.02);
+}
+
+/* -------------------------------
+   Responsive (Mobile)
+-------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  #navbar {
+    flex-direction: column;
+    gap: 15px;
+    display: none; /* Hidden by default on mobile */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #navbar.active {
+    display: flex; /* Show menu when toggled */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  header .logo h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  #navbar {
+    gap: 10px;
+  }
+
+  .cta-section {
+    padding: 40px 15px;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
