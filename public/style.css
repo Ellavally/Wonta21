@@ -23,20 +23,7 @@ h1, h2, h3, h4 {
 }
 
 /* -------------------------------
-   Responsive Text Scaling
--------------------------------- */
-p {
-  font-size: clamp(16px, 4vw, 18px);
-  line-height: 1.6;
-}
-
-h1 { font-size: clamp(32px, 7vw, 40px); }
-h2 { font-size: clamp(28px, 6vw, 36px); }
-h3 { font-size: clamp(24px, 5vw, 30px); }
-h4 { font-size: clamp(20px, 4vw, 28px); }
-
-/* -------------------------------
-   Page‑Specific Backgrounds
+   Page-Specific Backgrounds
 -------------------------------- */
 body.home-page,
 body.about-page,
@@ -53,7 +40,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2e8b57; /* your green */
+  background-color: #2e8b57;
   padding: 10px 20px;
 }
 
@@ -78,18 +65,6 @@ header {
 #navbar a:hover,
 #navbar a.active {
   color: #cce0cc;
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  font-size: 1.5em;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
 }
 
 /* -------------------------------
@@ -117,7 +92,6 @@ footer {
 .footer-content h4 {
   color: #cce0cc;
   margin-bottom: 10px;
-  font-size: clamp(18px, 4vw, 22px);
 }
 
 .footer-content a {
@@ -129,11 +103,6 @@ footer {
 
 .footer-content a:hover {
   color: #cce0cc;
-  transform: scale(1.02);
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -162,18 +131,24 @@ section {
 }
 
 /* -------------------------------
-   Images
+   Images (Make them responsive and aligned horizontally)
 -------------------------------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 5px;
-  transition: transform 0.2s ease;
+.moving-gallery {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  gap: 20px; /* Space between images */
+  margin-bottom: 40px;
 }
 
-img:hover {
-  transform: scale(1.02);
+.moving-gallery img {
+  width: 30%; /* Make each image take 30% of the container width */
+  min-width: 200px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.moving-gallery img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 /* -------------------------------
@@ -196,101 +171,28 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
-   Grids: Projects & Impact
--------------------------------- */
-.projects-grid,
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.project-card,
-.impact-grid div {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46,139,87,0.2);
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  font-size: clamp(16px, 4vw, 18px);
-}
-
-.project-card:hover,
-.impact-grid div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(46,139,87,0.3);
-}
-
-/* -------------------------------
-   Call to Action
--------------------------------- */
-.cta-section {
-  text-align: center;
-  background-color: #2e8b57;
-  color: white;
-  padding: 60px 20px;
-  border-radius: 10px;
-  margin-bottom: 50px;
-}
-
-.cta-section h2 {
-  margin-bottom: 10px;
-  font-size: clamp(28px, 6vw, 36px);
-}
-
-.cta-section p {
-  font-size: clamp(18px, 5vw, 22px);
-  margin-bottom: 20px;
-}
-
-.cta-section .btn {
-  background-color: white;
-  color: #2e8b57;
-  font-weight: bold;
-}
-
-.cta-section .btn:hover {
-  background-color: #cce0cc;
-}
-
-/* -------------------------------
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
-  /* Mobile Menu */
   #navbar {
-    display: none;
     flex-direction: column;
     gap: 15px;
+    display: none;
     width: 100%;
     text-align: center;
     margin-top: 10px;
   }
+  #navbar.active { display: flex; }
+  main { padding: 30px 15px; }
+  .projects-grid, .impact-grid { grid-template-columns: 1fr; gap: 20px; }
 
-  #navbar.active {
-    display: flex;
+  .moving-gallery {
+    flex-direction: column; /* Stack images vertically on mobile */
+    gap: 15px;
   }
 
-  /* Mobile Menu Toggle */
-  .menu-toggle {
-    display: block;
-    font-size: 2em;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
-
-  main {
-    padding: 30px 15px;
-  }
-
-  .projects-grid, .impact-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .moving-gallery img {
+    width: 100%; /* Make images full-width on small screens */
   }
 }
 
@@ -300,14 +202,7 @@ button:hover, .btn:hover {
     align-items: center;
     padding: 15px 10px;
   }
-
   header .logo h1 { margin-bottom: 10px; }
-
-  main {
-    padding: 20px 10px;
-  }
-
-  .cta-section {
-    padding: 40px 15px;
-  }
+  main { padding: 20px 10px; }
+  .cta-section { padding: 40px 15px; }
 }
