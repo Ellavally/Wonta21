@@ -30,17 +30,14 @@ app.get('/contact', (req, res) => {
   res.render('contact', { page: 'contact' });
 });
 
-// -------------------------------
-// Projects (Dynamic Data)
-// -------------------------------
+// Projects
 app.get('/projects', (req, res) => {
   const projects = [
     {
       title: "Education for All",
       category: "Education",
       image: "https://via.placeholder.com/400x250?text=Education",
-      description:
-        "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
+      description: "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
       impact: "Over 2,000 students enrolled in new rural schools.",
       link: "#"
     },
@@ -48,8 +45,7 @@ app.get('/projects', (req, res) => {
       title: "Rural Health Outreach",
       category: "Healthcare",
       image: "https://via.placeholder.com/400x250?text=Healthcare",
-      description:
-        "Providing access to essential healthcare services through rural clinics and mobile health programs.",
+      description: "Providing access to essential healthcare services through rural clinics and mobile health programs.",
       impact: "15,000+ people received free checkups and vaccinations.",
       link: "#"
     },
@@ -57,8 +53,7 @@ app.get('/projects', (req, res) => {
       title: "Sustainable Agriculture Program",
       category: "Agriculture",
       image: "https://via.placeholder.com/400x250?text=Agriculture",
-      description:
-        "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
+      description: "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
       impact: "4,500+ farmers trained in eco-friendly agriculture.",
       link: "#"
     },
@@ -66,14 +61,13 @@ app.get('/projects', (req, res) => {
       title: "Women Empowerment Initiative",
       category: "Women Empowerment",
       image: "https://via.placeholder.com/400x250?text=Women+Empowerment",
-      description:
-        "Empowering women with skills training, microfinance programs, and leadership workshops.",
+      description: "Empowering women with skills training, microfinance programs, and leadership workshops.",
       impact: "600+ women supported through business and literacy programs.",
       link: "#"
     }
   ];
 
-  // Pass data and active page to EJS
+  // Pass data to EJS
   res.render('projects', { projects, page: 'projects' });
 });
 
