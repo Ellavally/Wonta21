@@ -1,5 +1,5 @@
 // ===============================
-// MOBILE MENU TOGGLE
+// MOBILE MENU TOGGLE (FINAL FIXED VERSION)
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
@@ -7,12 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && navbar) {
     menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("menu-open"); // matches your CSS
+      navbar.classList.toggle("menu-open");
+
+      // FIX: Remove desktop active nav highlight when menu opens
+      navbar.querySelectorAll("a").forEach(a => {
+        a.classList.remove("force-active");
+      });
     });
   }
 });
 
-// Auto-close menu on desktop size
+// Auto-close menu on desktop width
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
   if (window.innerWidth > 768 && navbar) {
@@ -62,7 +67,7 @@ window.addEventListener("load", () => {
     about: [{ id: "about-image2", distance: 60, speed: 0.25 }],
     projects: [],
     contact: [],
-    news: [] // no animation
+    news: []
   };
 
   if (animations[page]) {
