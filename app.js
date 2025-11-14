@@ -1,87 +1,10 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-
 // -------------------------------
-// Middleware
-// -------------------------------
-
-// Serve static files (CSS, JS, images) from "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Parse URL-encoded POST data (contact form)
-app.use(express.urlencoded({ extended: true }));
-
-// Set EJS as template engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-
-// -------------------------------
-// ROUTES
-// -------------------------------
-
-// Home Page
-app.get('/', (req, res) => {
-  res.render('index', { activePage: 'home' });
-});
-
-// About Page
-app.get('/about', (req, res) => {
-  res.render('about', { activePage: 'about' });
-});
-
-// Contact Page
-app.get('/contact', (req, res) => {
-  res.render('contact', { activePage: 'contact' });
-});
-
-// Projects Page
-app.get('/projects', (req, res) => {
-  const projects = [
-    {
-      title: "Education for All",
-      category: "Education",
-      image: "/images/education.jpg",
-      description: "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
-      impact: "Over 2,000 students enrolled in new rural schools.",
-      link: "#"
-    },
-    {
-      title: "Rural Health Outreach",
-      category: "Healthcare",
-      image: "/images/health.jpg",
-      description: "Providing access to essential healthcare services through rural clinics and mobile health programs.",
-      impact: "15,000+ people received free checkups and vaccinations.",
-      link: "#"
-    },
-    {
-      title: "Sustainable Agriculture Program",
-      category: "Agriculture",
-      image: "/images/agriculture.jpg",
-      description: "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
-      impact: "4,500+ farmers trained in eco-friendly agriculture.",
-      link: "#"
-    },
-    {
-      title: "Women Empowerment Initiative",
-      category: "Women Empowerment",
-      image: "/images/women.jpg",
-      description: "Empowering women with skills training, microfinance programs, and leadership workshops.",
-      impact: "600+ women supported through business and literacy programs.",
-      link: "#"
-    }
-  ];
-
-  res.render('projects', { projects, activePage: 'projects' });
-});
-
-
-// -------------------------------
-// NEWS PAGE
+// NEWS PAGE WITH PAGINATION
 // -------------------------------
 app.get('/news', (req, res) => {
-  const news = [
+
+  // Your existing news list
+  const newsData = [
     {
       title: "Wonta RDA Launches Women Empowerment Program",
       date: "2025-02-10",
@@ -105,23 +28,21 @@ app.get('/news', (req, res) => {
     }
   ];
 
-  res.render('news', { news, activePage: 'news' });
-});
+  // PAGINATION LOGIC
+  const page = parseInt(req.query.page) || 1;  // current page number
+  const itemsPerPage = 6;                      // how many items per page
 
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
 
-// -------------------------------
-// Contact Form Submission
-// -------------------------------
-app.post('/contact', (req, res) => {
-  console.log("📩 Contact form submitted:", req.body);
-  res.send("Thank you for contacting us!");
-});
+  const paginatedNews = newsData.slice(start, end);
+  const totalPages = Math.ceil(newsData.length / itemsPerPage);
 
-
-// -------------------------------
-// Server Start
-// -------------------------------
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`⚡ Server running on http://localhost:${PORT}`);
+  // Render page
+  res.render('news', {
+    activePage: 'news',
+    newsItems: paginatedNews,  // IMPORTANT → matches EJS
+    currentPage: page,
+    totalPages: totalPages
+  });
 });
