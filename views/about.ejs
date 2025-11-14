@@ -1,35 +1,49 @@
-<%- include('partials/header') %>
-<script src="/script.js"></script>
-<link rel="stylesheet" href="/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Wonta Rural Development Association</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="about-page"> <!-- Change class to 'about-page' for page-specific styles -->
 
-<main class="main-content">
-  <section style="max-width: 1200px; margin: auto; text-align: center;">
-    <h2 style="margin-bottom: 30px;">About Us</h2>
+  <!-- Header -->
+  <%- include('partials/header') %>
 
-    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-      <strong>Wonta Rural Development Association</strong> was founded to empower rural communities and improve the quality of life for underserved populations. We focus on creating sustainable programs that provide education, healthcare, women and youth empowerment, and opportunities for economic development.
-    </p>
+  <!-- Main Content -->
+  <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
-    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-      Since our inception, we have worked closely with communities to implement initiatives that create lasting impact. Our team is dedicated to understanding the unique challenges of rural areas and designing solutions that help communities grow independently.
-    </p>
+    <section>
+      <h2 style="margin-bottom: 30px;">About Wonta Rural Development Association</h2>
 
-    <!-- Moving images section -->
-    <div class="moving-gallery" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
-      <img id="about-image1" src="/images/tota.jpg" alt="Community Work" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
-      <img id="about-image2" src="/images/nebir.jpg" alt="Education Program" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
-      <img id="about-image3" src="/images/project1.jpg" alt="Health Initiative" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
-    </div>
+      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
+        We are dedicated to empowering rural communities with the resources and opportunities they need to thrive.
+      </p>
 
-    <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-      Our programs focus on building stronger, self-reliant communities through education, health awareness, sustainable agriculture, and empowerment of women and youth. Every project is designed with the community’s needs at the center, ensuring meaningful and lasting change.
-    </p>
+      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
+        Our team works closely with local leaders to implement sustainable programs that benefit communities in areas such as education, health, agriculture, and economic development.
+      </p>
 
-    <p style="line-height: 1.8; font-size: 1.1em;">
-      Join us in our mission to create opportunities, transform lives, and uplift rural communities.
-    </p>
-  </section>
+      <!-- Moving Images -->
+      <div class="moving-gallery" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
+        <img id="about-image1" src="/images/about1.jpg" alt="Community Health" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
+        <img id="about-image2" src="/images/about2.jpg" alt="Education Programs" style="width: 30%; min-width: 200px; border-radius: 10px; animation: float 6s ease-in-out infinite;">
+      </div>
 
-</main>
+      <p style="line-height: 1.8; font-size: 1.1em;">
+        We are committed to creating lasting, positive change by working together with rural communities to identify their needs and implement locally-driven solutions.
+      </p>
+    </section>
 
-<%- include('partials/footer') %>
+  </main>
+
+  <!-- Footer -->
+  <%- include('partials/footer') %>
+
+  <!-- JS -->
+  <script src="/script.js"></script>
+</body>
+</html>
