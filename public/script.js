@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Auto-close menu when screen becomes large
+// Auto-close mobile menu on larger screens
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
   if (window.innerWidth > 768 && navbar) {
@@ -25,7 +25,7 @@ window.addEventListener("resize", () => {
 // ===============================
 function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
-  if (!img) return; // IF image does not exist, skip
+  if (!img) return; // No image → skip quietly
 
   let pos = 0;
   let direction = 1;
@@ -34,7 +34,9 @@ function moveImageById(id, distance = 150, speed = 0.4) {
     pos += direction * speed;
     img.style.transform = `translateX(${pos}px)`;
 
-    if (pos >= distance || pos <= 0) direction *= -1;
+    if (pos >= distance || pos <= 0) {
+      direction *= -1;
+    }
 
     requestAnimationFrame(animate);
   }
@@ -43,39 +45,39 @@ function moveImageById(id, distance = 150, speed = 0.4) {
 }
 
 // ===============================
-// DETECT CURRENT PAGE & RUN ANIMATIONS
+// DETECT ACTIVE PAGE & START ANIMATIONS
 // ===============================
 window.addEventListener("load", () => {
-  // Check for dataset first
+  // Read page from <body data-page="...">
   let page = document.body.dataset.page;
 
-  // If not found, fallback to first class name
+  // Fallback: use first class name (just in case)
   if (!page && document.body.classList.length > 0) {
     page = document.body.classList[0].replace("-page", "");
   }
 
-  // Animation config for pages
+  // Animation setup per page
   const animations = {
     home: [
       { id: "home-image1", distance: 60, speed: 0.25 },
       { id: "home-image2", distance: 70, speed: 0.3 }
     ],
     about: [
-      { id: "about-image2", distance: 60, speed: 0.25 } // only remaining image
+      { id: "about-image2", distance: 60, speed: 0.25 }
     ],
     projects: [
-      // Only add if you have floating images on projects page
+      // Add floating images here if needed
     ],
     contact: [
-      // Add if contact page uses floating images
-    ]
+      // Add floating images here if needed
+    ],
+    news: [] // News page has no animations → prevents errors
   };
 
-  // Run animations only for the current page
+  // Run animations for detected page
   if (animations[page]) {
     animations[page].forEach(({ id, distance, speed }) => {
       moveImageById(id, distance, speed);
     });
   }
 });
-
