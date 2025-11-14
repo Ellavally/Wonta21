@@ -35,11 +35,12 @@ p {
    HEADER
 ================================= */
 header {
-  background-color: #2e8b57;   /* Strong green */
+  background-color: #2e8b57;
   padding: 12px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo h1 {
@@ -51,6 +52,7 @@ header {
 #navbar {
   display: flex;
   gap: 30px;
+  transition: max-height 0.4s ease-in-out;
 }
 
 #navbar a {
@@ -58,26 +60,48 @@ header {
   font-weight: bold;
 }
 
-#navbar a:hover {
+#navbar a:hover,
+#navbar a.active {
   color: #cce0cc;
 }
 
-/* Ensure navbar is ALWAYS visible on desktop */
+
+/* Desktop — Always show navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
+    max-height: none !important;
   }
 }
 
-/* Mobile Menu Hidden */
+
+/* ===============================
+   MOBILE MENU BUTTON
+================================= */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   #navbar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #2e8b57;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
-    display: none;   /* Hidden until activated */
+    padding: 15px 0;
+
+    display: none; /* default hidden */
   }
 
   #navbar.active {
@@ -126,7 +150,6 @@ section {
   transform: scale(1.05);
 }
 
-/* Floating animation */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
