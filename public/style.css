@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
-  font-size: clamp(18px, 4vw, 20px);  /* Global font-size scaling */
+  font-size: clamp(18px, 4vw, 20px);
 }
 
 a {
@@ -20,11 +20,11 @@ h1, h2, h3, h4 {
   color: #2e8b57;
   line-height: 1.2;
   margin: 0 0 10px 0;
-  font-size: clamp(24px, 5vw, 32px); /* Scalable heading size for better consistency */
+  font-size: clamp(24px, 5vw, 32px);
 }
 
 p {
-  font-size: clamp(16px, 3vw, 18px); /* Paragraph text scaling */
+  font-size: clamp(16px, 3vw, 18px);
 }
 
 /* -------------------------------
@@ -34,8 +34,8 @@ body.home-page,
 body.about-page,
 body.projects-page,
 body.contact-page {
-  background-color: #f1f8f3;  /* Background for all pages */
-  color: #1b3d1b;  /* Text color for all pages */
+  background-color: #f1f8f3;
+  color: #1b3d1b;
 }
 
 /* -------------------------------
@@ -45,22 +45,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
-  background-color: #2e8b57; /* Green */
-=======
-<<<<<<< HEAD
-  background-color: #2e8b57; /* Green */
-=======
-  background-color: #2e8b57;
->>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
+  background-color: #2e8b57; /* Clean green background */
   padding: 10px 20px;
 }
 
 .logo h1 {
   margin: 0;
   color: white;
-  font-size: clamp(28px, 6vw, 38px); /* Scalable logo font size */
+  font-size: clamp(28px, 6vw, 38px);
   padding-left: 20px;
 }
 
@@ -118,7 +110,7 @@ footer {
   color: #cce0cc;
 }
 
-.footer-bottom {
+footer-bottom {
   text-align: center;
   border-top: 1px solid #cce0cc;
   margin-top: 30px;
@@ -144,22 +136,7 @@ section {
 }
 
 /* -------------------------------
-   Images (Make them responsive and aligned horizontally)
--------------------------------- */
-.moving-gallery {
-  display: flex;
-  justify-content: center; /* Center the images horizontally */
-  gap: 20px; /* Space between images */
-  margin-bottom: 40px;
-}
-
-<<<<<<< HEAD
-img:hover {
-  transform: scale(1.02); /* Hover effect for images */
-}
-
-/* -------------------------------
-   Moving Gallery (for images)
+   Images / Gallery
 -------------------------------- */
 .moving-gallery {
   display: flex;
@@ -170,24 +147,15 @@ img:hover {
 }
 
 .moving-gallery img {
-  width: 30%; /* Adjust to make images responsive */
-  min-width: 200px;
-  border-radius: 10px;
-  animation: float 6s ease-in-out infinite;
-<<<<<<< HEAD
-=======
-=======
-.moving-gallery img {
-  width: 30%; /* Make each image take 30% of the container width */
+  width: 30%;
   min-width: 200px;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 }
 
 .moving-gallery img:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
->>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
+  transform: scale(1.05);
 }
 
 /* -------------------------------
@@ -199,7 +167,7 @@ button, .btn {
   background-color: #2e8b57;
   color: white;
   cursor: pointer;
-  font-size: clamp(16px, 4vw, 20px); /* Scalable button text size */
+  font-size: clamp(16px, 4vw, 20px);
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.1s;
 }
@@ -210,10 +178,6 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
    Call to Action
 -------------------------------- */
 .cta-section {
@@ -246,7 +210,7 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
-   Grids (Projects, Impact)
+   Grids
 -------------------------------- */
 .projects-grid,
 .impact-grid {
@@ -281,11 +245,6 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
@@ -299,10 +258,6 @@ button:hover, .btn:hover {
   }
 
   #navbar.active { display: flex; }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
 
   main {
     padding: 30px 15px;
@@ -312,21 +267,14 @@ button:hover, .btn:hover {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-<<<<<<< HEAD
-=======
-=======
-  main { padding: 30px 15px; }
-  .projects-grid, .impact-grid { grid-template-columns: 1fr; gap: 20px; }
->>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
->>>>>>> 76f5ae778dcf0e7a49ce46b17d6cd70e247783f3
 
   .moving-gallery {
-    flex-direction: column; /* Stack images vertically on mobile */
+    flex-direction: column;
     gap: 15px;
   }
 
   .moving-gallery img {
-    width: 100%; /* Make images full-width on small screens */
+    width: 100%;
   }
 }
 
@@ -337,11 +285,15 @@ button:hover, .btn:hover {
     padding: 15px 10px;
   }
 
-  header .logo h1 { margin-bottom: 10px; }
-  
+  header .logo h1 {
+    margin-bottom: 10px;
+  }
+
   main {
     padding: 20px 10px;
   }
 
-  .cta-section { padding: 40px 15px; }
+  .cta-section {
+    padding: 40px 15px;
+  }
 }
