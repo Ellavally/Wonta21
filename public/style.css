@@ -67,9 +67,20 @@ header {
   font-weight: bold;
 }
 
+/* Ensure navbar always shows on desktop */
+@media (min-width: 769px) {
+  #navbar {
+    display: flex !important;
+  }
+}
 #navbar a:hover,
 #navbar a.active {
   color: #cce0cc;
+}
+
+/* FORCE NAVBAR LINK COLOR SO THEY SHOW ON ALL SCREENS */
+header #navbar a {
+  color: #fff !important;
 }
 
 /* -------------------------------
