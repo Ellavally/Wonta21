@@ -22,17 +22,17 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Home Page
 app.get('/', (req, res) => {
-  res.render('index', { page: 'home' });
+  res.render('index', { activePage: 'home' });
 });
 
 // About Page
 app.get('/about', (req, res) => {
-  res.render('about', { page: 'about' });
+  res.render('about', { activePage: 'about' });
 });
 
 // Contact Page
 app.get('/contact', (req, res) => {
-  res.render('contact', { page: 'contact' });
+  res.render('contact', { activePage: 'contact' });
 });
 
 // Projects Page
@@ -72,7 +72,7 @@ app.get('/projects', (req, res) => {
     }
   ];
 
-  res.render('projects', { projects, page: 'projects' });
+  res.render('projects', { projects, activePage: 'projects' });
 });
 
 // -------------------------------
