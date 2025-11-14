@@ -15,13 +15,15 @@
   <!-- Main Content -->
   <main class="main-content">
 
-    <h2>News & Updates</h2>
-    <p style="margin-bottom: 40px;">
-      Stay updated on our latest community activities, project achievements, and development initiatives.
-    </p>
+    <section class="page-header">
+      <h2>News & Updates</h2>
+      <p>
+        Stay updated on our latest community activities, project achievements, and development initiatives.
+      </p>
+    </section>
 
     <div class="news-grid">
-      <% news.forEach(item => { %>
+      <% newsItems.forEach(item => { %>
         <div class="news-card">
           <img src="<%= item.image %>" alt="<%= item.title %>">
           <h3><%= item.title %></h3>
@@ -32,13 +34,41 @@
       <% }); %>
     </div>
 
+    <!-- Pagination -->
+    <div class="pagination">
+
+      <!-- Previous Button -->
+      <% if (currentPage > 1) { %>
+        <a href="/news?page=<%= currentPage - 1 %>" class="page-btn">« Previous</a>
+      <% } else { %>
+        <span class="page-btn disabled">« Previous</span>
+      <% } %>
+
+      <!-- Page Numbers -->
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <a href="/news?page=<%= i %>"
+           class="page-number <%= currentPage === i ? 'active' : '' %>">
+          <%= i %>
+        </a>
+      <% } %>
+
+      <!-- Next Button -->
+      <% if (currentPage < totalPages) { %>
+        <a href="/news?page=<%= currentPage + 1 %>" class="page-btn">Next »</a>
+      <% } else { %>
+        <span class="page-btn disabled">Next »</span>
+      <% } %>
+
+    </div>
+
   </main>
 
   <!-- Footer -->
   <%- include('partials/footer') %>
 
-  <!-- JS (Required for mobile menu toggle) -->
-  <script src="/script.js?v=3"></script>
+  <!-- JS -->
+  <script src="/script.js?v=4"></script>
 
 </body>
 </html>
+

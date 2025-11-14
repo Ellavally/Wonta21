@@ -14,7 +14,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 h1, h2, h3, h4 {
@@ -48,12 +48,10 @@ header {
   font-size: clamp(28px, 6vw, 36px);
 }
 
-/* NAVBAR */
 #navbar {
   display: flex;
   gap: 30px;
-  align-items: center;
-  transition: all 0.3s ease;
+  transition: max-height 0.4s ease-in-out;
 }
 
 #navbar a {
@@ -66,25 +64,27 @@ header {
   color: #cce0cc;
 }
 
-/* Desktop override */
+/* Desktop navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
+    max-height: none !important;
   }
 }
 
 /* ===============================
-   MOBILE MENU
+   MOBILE MENU (Final Fix)
 ================================= */
 .menu-toggle {
   display: none;
   font-size: 30px;
-  color: white;
+  color: #fff;
   cursor: pointer;
   user-select: none;
 }
 
 @media (max-width: 768px) {
+
   .menu-toggle {
     display: block;
   }
@@ -96,10 +96,9 @@ header {
     width: 100%;
     background-color: #2e8b57;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px 0;
-    border-radius: 0 0 12px 12px;
-    display: none !important; /* Always hidden by default */
+    gap: 15px;
+    padding: 15px 0;
+    display: none !important; /* Hidden by default */
   }
 
   #navbar.menu-open {
@@ -138,8 +137,8 @@ section {
   width: 30%;
   min-width: 200px;
   border-radius: 10px;
-  transition: 0.3s ease;
   animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s;
 }
 
 .moving-gallery img:hover {
@@ -167,7 +166,7 @@ section {
 ================================= */
 footer {
   background-color: #2e8b57;
-  color: white;
+  color: #fff;
   padding: 40px 20px;
   margin-top: 80px;
   border-top: 4px solid #246b45;
@@ -190,6 +189,7 @@ footer {
 
 .footer-content a {
   color: white;
+  display: block;
   margin-bottom: 10px;
 }
 
@@ -217,12 +217,12 @@ footer {
 }
 
 .leader-card {
-  background: #fff;
+  background: #ffffff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(46,139,87,0.2);
   text-align: center;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .leader-card:hover {
@@ -234,8 +234,8 @@ footer {
   height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #2e8b57;
   margin-bottom: 15px;
+  border: 3px solid #2e8b57;
 }
 
 .leader-position {
@@ -247,8 +247,12 @@ footer {
 /* ===============================
    NEWS PAGE
 ================================= */
-.page-intro {
+.page-header {
+  text-align: center;
   margin-bottom: 40px;
+}
+
+.page-header p {
   color: #444;
   font-size: 1.1rem;
 }
@@ -265,7 +269,7 @@ footer {
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .news-card:hover {
@@ -291,13 +295,50 @@ footer {
 
 .news-btn {
   display: inline-block;
+  margin-top: 12px;
   background: #2e8b57;
-  color: white;
+  color: #fff;
   padding: 8px 18px;
   border-radius: 6px;
-  margin-top: 12px;
 }
 
 .news-btn:hover {
   background: #246b45;
+}
+
+/* ===============================
+   PAGINATION
+================================= */
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-btn,
+.page-number {
+  padding: 8px 15px;
+  background: #2e8b57;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.page-number.active {
+  background: #246b45;
+  border: 2px solid #cce0cc;
+}
+
+.page-btn:hover,
+.page-number:hover {
+  background: #246b45;
+}
+
+.page-btn.disabled {
+  background: #a5cbb1;
+  cursor: not-allowed;
+  pointer-events: none;
 }
