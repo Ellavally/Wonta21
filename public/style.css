@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
-  font-size: clamp(18px, 4vw, 20px);
+  font-size: clamp(18px, 4vw, 20px);  /* Global font-size scaling */
 }
 
 a {
@@ -20,20 +20,12 @@ h1, h2, h3, h4 {
   color: #2e8b57;
   line-height: 1.2;
   margin: 0 0 10px 0;
+  font-size: clamp(24px, 5vw, 32px); /* Scalable heading size for better consistency */
 }
 
-/* -------------------------------
-   Responsive Text Scaling
--------------------------------- */
 p {
-  font-size: clamp(16px, 4vw, 18px);
-  line-height: 1.6;
+  font-size: clamp(16px, 3vw, 18px); /* Paragraph text scaling */
 }
-
-h1 { font-size: clamp(32px, 7vw, 40px); }
-h2 { font-size: clamp(28px, 6vw, 36px); }
-h3 { font-size: clamp(24px, 5vw, 30px); }
-h4 { font-size: clamp(20px, 4vw, 28px); }
 
 /* -------------------------------
    Page-Specific Backgrounds
@@ -53,14 +45,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   background-color: #2e8b57; /* Green */
+=======
+  background-color: #2e8b57;
+>>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
   padding: 10px 20px;
 }
 
 .logo h1 {
   margin: 0;
   color: white;
-  font-size: clamp(28px, 6vw, 38px);
+  font-size: clamp(28px, 6vw, 38px); /* Scalable logo font size */
   padding-left: 20px;
 }
 
@@ -78,18 +74,6 @@ header {
 #navbar a:hover,
 #navbar a.active {
   color: #cce0cc;
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  font-size: 1.5em;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
 }
 
 /* -------------------------------
@@ -117,7 +101,6 @@ footer {
 .footer-content h4 {
   color: #cce0cc;
   margin-bottom: 10px;
-  font-size: clamp(18px, 4vw, 22px);
 }
 
 .footer-content a {
@@ -129,11 +112,6 @@ footer {
 
 .footer-content a:hover {
   color: #cce0cc;
-  transform: scale(1.02);
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -162,16 +140,16 @@ section {
 }
 
 /* -------------------------------
-   Images
+   Images (Make them responsive and aligned horizontally)
 -------------------------------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 5px;
-  transition: transform 0.2s ease;
+.moving-gallery {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  gap: 20px; /* Space between images */
+  margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 img:hover {
   transform: scale(1.02); /* Hover effect for images */
 }
@@ -192,6 +170,17 @@ img:hover {
   min-width: 200px;
   border-radius: 10px;
   animation: float 6s ease-in-out infinite;
+=======
+.moving-gallery img {
+  width: 30%; /* Make each image take 30% of the container width */
+  min-width: 200px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.moving-gallery img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+>>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
 }
 
 /* -------------------------------
@@ -203,7 +192,7 @@ button, .btn {
   background-color: #2e8b57;
   color: white;
   cursor: pointer;
-  font-size: clamp(16px, 4vw, 20px);
+  font-size: clamp(16px, 4vw, 20px); /* Scalable button text size */
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.1s;
 }
@@ -214,6 +203,7 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
+<<<<<<< HEAD
    Call to Action
 -------------------------------- */
 .cta-section {
@@ -281,6 +271,8 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
+=======
+>>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
@@ -294,6 +286,7 @@ button:hover, .btn:hover {
   }
 
   #navbar.active { display: flex; }
+<<<<<<< HEAD
 
   main {
     padding: 30px 15px;
@@ -303,6 +296,10 @@ button:hover, .btn:hover {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+=======
+  main { padding: 30px 15px; }
+  .projects-grid, .impact-grid { grid-template-columns: 1fr; gap: 20px; }
+>>>>>>> f968b5d64b83615bfe1012cef2301d99d5b59b3d
 
   .moving-gallery {
     flex-direction: column; /* Stack images vertically on mobile */
