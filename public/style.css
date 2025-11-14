@@ -3,7 +3,7 @@
 -------------------------------- */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans‑serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
@@ -36,14 +36,14 @@ h3 { font-size: clamp(24px, 5vw, 30px); }
 h4 { font-size: clamp(20px, 4vw, 28px); }
 
 /* -------------------------------
-   Page‑Specific Backgrounds
+   Page-Specific Backgrounds
 -------------------------------- */
 body.home-page,
 body.about-page,
 body.projects-page,
 body.contact-page {
-  background-color: #f1f8f3;
-  color: #1b3d1b;
+  background-color: #f1f8f3;  /* Background for all pages */
+  color: #1b3d1b;  /* Text color for all pages */
 }
 
 /* -------------------------------
@@ -53,7 +53,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2e8b57; /* your green */
+  background-color: #2e8b57; /* Green */
   padding: 10px 20px;
 }
 
@@ -67,7 +67,6 @@ header {
 #navbar {
   display: flex;
   gap: 30px;
-  /* this will already be on the right due to justify-content above */
   padding-right: 20px;
 }
 
@@ -174,7 +173,25 @@ img {
 }
 
 img:hover {
-  transform: scale(1.02);
+  transform: scale(1.02); /* Hover effect for images */
+}
+
+/* -------------------------------
+   Moving Gallery (for images)
+-------------------------------- */
+.moving-gallery {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.moving-gallery img {
+  width: 30%; /* Adjust to make images responsive */
+  min-width: 200px;
+  border-radius: 10px;
+  animation: float 6s ease-in-out infinite;
 }
 
 /* -------------------------------
@@ -194,32 +211,6 @@ button, .btn {
 button:hover, .btn:hover {
   background-color: #246b45;
   transform: scale(1.02);
-}
-
-/* -------------------------------
-   Grids: Projects & Impact
--------------------------------- */
-.projects-grid,
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.project-card,
-.impact-grid div {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46,139,87,0.2);
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  font-size: clamp(16px, 4vw, 18px);
-}
-
-.project-card:hover,
-.impact-grid div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(46,139,87,0.3);
 }
 
 /* -------------------------------
@@ -255,6 +246,41 @@ button:hover, .btn:hover {
 }
 
 /* -------------------------------
+   Grids (Projects, Impact)
+-------------------------------- */
+.projects-grid,
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.project-card,
+.impact-grid div {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(46,139,87,0.2);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: clamp(16px, 4vw, 18px);
+}
+
+.project-card:hover,
+.impact-grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(46,139,87,0.3);
+}
+
+/* -------------------------------
+   Animation for Moving Images
+-------------------------------- */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* -------------------------------
    Responsive (Mobile)
 -------------------------------- */
 @media (max-width: 768px) {
@@ -266,9 +292,26 @@ button:hover, .btn:hover {
     text-align: center;
     margin-top: 10px;
   }
+
   #navbar.active { display: flex; }
-  main { padding: 30px 15px; }
-  .projects-grid, .impact-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .projects-grid, .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .moving-gallery {
+    flex-direction: column; /* Stack images vertically on mobile */
+    gap: 15px;
+  }
+
+  .moving-gallery img {
+    width: 100%; /* Make images full-width on small screens */
+  }
 }
 
 @media (max-width: 480px) {
@@ -277,7 +320,12 @@ button:hover, .btn:hover {
     align-items: center;
     padding: 15px 10px;
   }
+
   header .logo h1 { margin-bottom: 10px; }
-  main { padding: 20px 10px; }
+  
+  main {
+    padding: 20px 10px;
+  }
+
   .cta-section { padding: 40px 15px; }
 }

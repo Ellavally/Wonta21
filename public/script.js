@@ -26,16 +26,17 @@ function moveImageById(id, distance = 150, speed = 0.4) {
 
 // Animate images based on page
 window.addEventListener('load', () => {
-  const page = document.body.dataset.page;
+  const page = document.body.dataset.page || document.body.classList[0]; // Adjusting to work on all pages
 
   const animations = {
-    index: [
+    home: [
       { id: 'home-image1', distance: 50, speed: 0.2 },
       { id: 'home-image2', distance: 60, speed: 0.25 },
       { id: 'home-image3', distance: 40, speed: 0.15 }
     ],
     about: [
-      { id: 'about-image1', distance: 50, speed: 0.2 }
+      { id: 'about-image1', distance: 50, speed: 0.2 },
+      { id: 'about-image2', distance: 60, speed: 0.25 }
     ],
     projects: [
       { id: 'project-image1', distance: 50, speed: 0.2 }
