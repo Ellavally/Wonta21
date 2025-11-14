@@ -1,5 +1,5 @@
 // ===============================
-// MOBILE MENU TOGGLE (FIXED)
+// MOBILE MENU TOGGLE
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
@@ -7,16 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && navbar) {
     menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("menu-open"); // CHANGED from "active"
+      navbar.classList.toggle("menu-open"); // matches your CSS
     });
   }
 });
 
-// Auto-close mobile menu when switching to desktop view
+// Auto-close menu on desktop size
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
   if (window.innerWidth > 768 && navbar) {
-    navbar.classList.remove("menu-open"); // CHANGED from "active"
+    navbar.classList.remove("menu-open");
   }
 });
 
@@ -35,10 +35,7 @@ function moveImageById(id, distance = 150, speed = 0.4) {
     pos += direction * speed;
     img.style.transform = `translateX(${pos}px)`;
 
-    if (pos >= distance || pos <= 0) {
-      direction *= -1;
-    }
-
+    if (pos >= distance || pos <= 0) direction *= -1;
     requestAnimationFrame(animate);
   }
 
@@ -47,14 +44,12 @@ function moveImageById(id, distance = 150, speed = 0.4) {
 
 
 // ===============================
-// DETECT ACTIVE PAGE & START ANIMATIONS
+// PAGE ANIMATION HANDLER
 // ===============================
 window.addEventListener("load", () => {
-
-  // Read page name from <body data-page="...">
   let page = document.body.dataset.page;
 
-  // Fallback: read from class if dataset missing
+  // Fallback if dataset missing
   if (!page && document.body.classList.length > 0) {
     page = document.body.classList[0].replace("-page", "");
   }
@@ -64,15 +59,12 @@ window.addEventListener("load", () => {
       { id: "home-image1", distance: 60, speed: 0.25 },
       { id: "home-image2", distance: 70, speed: 0.3 }
     ],
-    about: [
-      { id: "about-image2", distance: 60, speed: 0.25 }
-    ],
+    about: [{ id: "about-image2", distance: 60, speed: 0.25 }],
     projects: [],
     contact: [],
-    news: [] // no animation → prevents JS errors
+    news: [] // no animation
   };
 
-  // Run animations if defined
   if (animations[page]) {
     animations[page].forEach(({ id, distance, speed }) => {
       moveImageById(id, distance, speed);
