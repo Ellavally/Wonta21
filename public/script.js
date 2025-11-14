@@ -1,5 +1,5 @@
 // ===============================
-// MOBILE MENU TOGGLE
+// MOBILE MENU TOGGLE (FIXED)
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
@@ -7,25 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && navbar) {
     menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("active");
+      navbar.classList.toggle("menu-open"); // CHANGED from "active"
     });
   }
 });
 
-// Auto-close mobile menu on larger screens
+// Auto-close mobile menu when switching to desktop view
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
   if (window.innerWidth > 768 && navbar) {
-    navbar.classList.remove("active");
+    navbar.classList.remove("menu-open"); // CHANGED from "active"
   }
 });
+
 
 // ===============================
 // FLOATING IMAGE ANIMATION
 // ===============================
 function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
-  if (!img) return; // No image → skip quietly
+  if (!img) return;
 
   let pos = 0;
   let direction = 1;
@@ -44,19 +45,20 @@ function moveImageById(id, distance = 150, speed = 0.4) {
   requestAnimationFrame(animate);
 }
 
+
 // ===============================
 // DETECT ACTIVE PAGE & START ANIMATIONS
 // ===============================
 window.addEventListener("load", () => {
-  // Read page from <body data-page="...">
+
+  // Read page name from <body data-page="...">
   let page = document.body.dataset.page;
 
-  // Fallback: use first class name (just in case)
+  // Fallback: read from class if dataset missing
   if (!page && document.body.classList.length > 0) {
     page = document.body.classList[0].replace("-page", "");
   }
 
-  // Animation setup per page
   const animations = {
     home: [
       { id: "home-image1", distance: 60, speed: 0.25 },
@@ -65,16 +67,12 @@ window.addEventListener("load", () => {
     about: [
       { id: "about-image2", distance: 60, speed: 0.25 }
     ],
-    projects: [
-      // Add floating images here if needed
-    ],
-    contact: [
-      // Add floating images here if needed
-    ],
-    news: [] // News page has no animations → prevents errors
+    projects: [],
+    contact: [],
+    news: [] // no animation → prevents JS errors
   };
 
-  // Run animations for detected page
+  // Run animations if defined
   if (animations[page]) {
     animations[page].forEach(({ id, distance, speed }) => {
       moveImageById(id, distance, speed);
