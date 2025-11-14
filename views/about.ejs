@@ -1,127 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Wonta Rural Development Association</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<!-- Leadership Section -->
+<section class="about-section">
+  <h3>Our Leadership Team</h3>
 
-<body data-page="about">
-
-  <!-- Header -->
-  <%- include('partials/header') %>
-
-  <!-- Main Content -->
-  <main class="main-content">
-
-    <section class="about-section">
-      <h2>About Wonta Rural Development Association</h2>
-
+  <div class="leadership-grid">
+    
+    <!-- Managing Director -->
+    <div class="leader-card">
+      <img src="/images/kebede-nana.jpg" alt="Kebede Nana" class="leader-photo">
+      <h4>Kebede Nana</h4>
+      <p class="leader-position">Managing Director</p>
       <p>
-        Wonta Rural Development Association is committed to empowering rural communities by creating sustainable 
-        development programs that improve education, healthcare, agriculture, and economic opportunities.
+        Provides strategic leadership and oversees all programs focused on rural development,
+        community empowerment, and sustainable growth.
       </p>
+    </div>
 
+    <!-- Deputy Manager -->
+    <div class="leader-card">
+      <img src="/images/zenebe-lema.jpg" alt="Zenebe Lema" class="leader-photo">
+      <h4>Zenebe Lema</h4>
+      <p class="leader-position">Deputy Manager</p>
       <p>
-        We work hand-in-hand with local leaders and families to understand their needs and build solutions that bring 
-        long-term, meaningful change to underserved communities.
+        Supports organizational operations and ensures effective implementation of all development
+        projects across communities.
       </p>
+    </div>
 
-      <!-- Only One Image -->
-      <div class="moving-gallery">
-        <img id="about-image2" src="/images/about2.jpg" alt="Education Development Program">
-      </div>
-
+    <!-- Finance Head -->
+    <div class="leader-card">
+      <img src="/images/ermias-nega.jpg" alt="Ermias Nega" class="leader-photo">
+      <h4>Ermias Nega</h4>
+      <p class="leader-position">Finance Head</p>
       <p>
-        Through collaboration, innovation, and community-driven planning, we are dedicated to making rural communities 
-        stronger, healthier, and more resilient.
+        Oversees financial management, reporting accuracy, and ensures transparent resource allocation
+        for all programs.
       </p>
-    </section>
+    </div>
 
-    <section class="about-section">
-      <h3>Our Mission</h3>
+    <!-- Secretary -->
+    <div class="leader-card">
+      <img src="/images/bethelihem-kebede.jpg" alt="Bethelihem Kebede" class="leader-photo">
+      <h4>Bethelihem Kebede</h4>
+      <p class="leader-position">Secretary</p>
       <p>
-        To support and uplift rural communities through sustainable development initiatives that improve education, 
-        health, agriculture, and income generation.
+        Manages organizational communication, documentation, and administrative support for the
+        leadership team.
       </p>
-    </section>
+    </div>
 
-    <section class="about-section">
-      <h3>Our Vision</h3>
+    <!-- Procurement Officer -->
+    <div class="leader-card">
+      <img src="/images/eyob-mamo.jpg" alt="Eyob Mamo" class="leader-photo">
+      <h4>Eyob Mamo</h4>
+      <p class="leader-position">Procurement Officer</p>
       <p>
-        A future where every rural community has access to equal opportunities, essential services, and the resources 
-        required for long-term well-being.
+        Ensures efficient procurement processes, vendor coordination, and supply-chain support for
+        all project activities.
       </p>
-    </section>
+    </div>
 
-    <section class="about-section">
-      <h3>What We Do</h3>
-
-      <ul class="about-list">
-        <li><strong>Education:</strong> School support, teacher training, and youth development programs.</li>
-        <li><strong>Healthcare:</strong> Medical outreach, health education, and community clinics.</li>
-        <li><strong>Agriculture:</strong> Farmer training, irrigation systems, and sustainable farming support.</li>
-        <li><strong>Women Empowerment:</strong> Skills training, financial inclusion, and leadership initiatives.</li>
-        <li><strong>Community Development:</strong> Clean water access, environmental protection, and local capacity building.</li>
-      </ul>
-    </section>
-
-    <!-- NEW: Managing Director Section -->
-    <section class="about-section leadership-section">
-
-      <h2 style="text-align:center; margin-bottom: 40px;">Message from the Managing Director</h2>
-
-      <div class="leader-wrapper" style="
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 30px; 
-        align-items: center; 
-        justify-content: center;
-      ">
-
-        <!-- Director Image -->
-        <div style="flex:1; min-width:260px; max-width:300px;">
-          <img src="/images/kebede.jpg" 
-               alt="Mr. Kebede Nana"
-               style="width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-        </div>
-
-        <!-- Director Message -->
-        <div style="flex:2; min-width:280px;">
-          <h3 style="color:#2e8b57; margin-bottom:5px;">Mr. Kebede Nana</h3>
-          <h4 style="margin-top:0; color:#1a3b1a;">Managing Director</h4>
-
-          <p style="line-height:1.8; margin-top:20px;">
-            At Wonta Rural Development Association, our mission is deeply rooted in the belief that every rural 
-            community deserves the opportunity to thrive. Our work focuses on empowering communities by enhancing 
-            education, healthcare, agriculture, and women’s economic participation.
-          </p>
-
-          <p style="line-height:1.8;">
-            As Managing Director, I am committed to ensuring that our programs create sustainable growth and measurable 
-            long-term impact. We collaborate with communities, partners, and stakeholders to develop solutions that 
-            address real needs and unlock local potential.
-          </p>
-
-          <p style="line-height:1.8;">
-            Together, we are building a future where rural communities are stronger, healthier, and more resilient. 
-            I thank our dedicated team and partners for making this work possible.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <%- include('partials/footer') %>
-
-  <!-- JS -->
-  <script src="/script.js"></script>
-
-</body>
-</html>
+  </div>
+</section>
