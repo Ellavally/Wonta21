@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   color: #1b3d1b;
   background-color: #e8f5e9;
-  font-size: clamp(18px, 4vw, 20px);
+  font-size: clamp(18px, 4vw, 20px); /* Scalable font size across all pages */
 }
 
 a {
@@ -20,6 +20,7 @@ h1, h2, h3, h4 {
   color: #2e8b57;
   line-height: 1.2;
   margin: 0 0 10px 0;
+  font-size: clamp(24px, 5vw, 32px); /* Scalable heading size for better consistency */
 }
 
 /* -------------------------------
@@ -47,7 +48,7 @@ header {
 .logo h1 {
   margin: 0;
   color: white;
-  font-size: clamp(28px, 6vw, 38px);
+  font-size: clamp(28px, 6vw, 38px);  /* Scalable logo font size */
   padding-left: 20px;
 }
 
@@ -160,7 +161,7 @@ button, .btn {
   background-color: #2e8b57;
   color: white;
   cursor: pointer;
-  font-size: clamp(16px, 4vw, 20px);
+  font-size: clamp(16px, 4vw, 20px); /* Scalable button text size */
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.1s;
 }
