@@ -3,7 +3,7 @@
 // -------------------------------
 app.get('/news', (req, res) => {
 
-  // Your existing news list
+  // All news items
   const newsData = [
     {
       title: "Wonta RDA Launches Women Empowerment Program",
@@ -28,20 +28,19 @@ app.get('/news', (req, res) => {
     }
   ];
 
-  // PAGINATION LOGIC
-  const page = parseInt(req.query.page) || 1;  // current page number
-  const itemsPerPage = 6;                      // how many items per page
+  // PAGINATION
+  const page = parseInt(req.query.page) || 1;  // current page
+  const itemsPerPage = 6;                      // items per page
 
-  const start = (page - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
-  const paginatedNews = newsData.slice(start, end);
+  const paginatedNews = newsData.slice(startIndex, endIndex);
   const totalPages = Math.ceil(newsData.length / itemsPerPage);
 
-  // Render page
   res.render('news', {
     activePage: 'news',
-    newsItems: paginatedNews,  // IMPORTANT → matches EJS
+    newsItems: paginatedNews,  // matches your EJS
     currentPage: page,
     totalPages: totalPages
   });
