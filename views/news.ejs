@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Updates | Wonta Rural Development Association</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body data-page="news">
+
+  <!-- Header -->
+  <%- include('partials/header') %>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <h2>News & Updates</h2>
+    <p style="margin-bottom: 40px;">
+      Stay updated on our latest community activities, project achievements, and development initiatives.
+    </p>
+
+    <div class="news-grid">
+      <% news.forEach(item => { %>
+        <div class="news-card">
+          <img src="<%= item.image %>" alt="<%= item.title %>">
+          <h3><%= item.title %></h3>
+          <p class="news-date"><%= item.date %></p>
+          <p><%= item.summary %></p>
+          <a href="<%= item.link %>" class="news-btn">Read More</a>
+        </div>
+      <% }); %>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>
