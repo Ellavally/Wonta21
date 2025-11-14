@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Hide the mobile menu automatically when screen becomes large
+// Auto-close menu when screen becomes large
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
   if (window.innerWidth > 768 && navbar) {
@@ -21,11 +21,11 @@ window.addEventListener("resize", () => {
 });
 
 // ===============================
-// IMAGE FLOATING ANIMATION
+// FLOATING IMAGE ANIMATION
 // ===============================
 function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
-  if (!img) return;
+  if (!img) return; // IF image does not exist, skip
 
   let pos = 0;
   let direction = 1;
@@ -42,38 +42,40 @@ function moveImageById(id, distance = 150, speed = 0.4) {
   requestAnimationFrame(animate);
 }
 
+// ===============================
+// DETECT CURRENT PAGE & RUN ANIMATIONS
+// ===============================
 window.addEventListener("load", () => {
-  // Read which page we are on
+  // Check for dataset first
   let page = document.body.dataset.page;
 
-  // If dataset not set, fallback to body class
+  // If not found, fallback to first class name
   if (!page && document.body.classList.length > 0) {
-    page = document.body.classList[0];
+    page = document.body.classList[0].replace("-page", "");
   }
 
-  // Animation config per page
+  // Animation config for pages
   const animations = {
     home: [
-      { id: "home-image1", distance: 50, speed: 0.2 },
-      { id: "home-image2", distance: 60, speed: 0.25 },
-      { id: "home-image3", distance: 40, speed: 0.15 }
+      { id: "home-image1", distance: 60, speed: 0.25 },
+      { id: "home-image2", distance: 70, speed: 0.3 }
     ],
     about: [
-      { id: "about-image1", distance: 50, speed: 0.2 },
-      { id: "about-image2", distance: 60, speed: 0.25 }
+      { id: "about-image2", distance: 60, speed: 0.25 } // only remaining image
     ],
     projects: [
-      { id: "project-image1", distance: 50, speed: 0.2 }
+      // Only add if you have floating images on projects page
     ],
     contact: [
-      { id: "contact-image1", distance: 50, speed: 0.2 }
+      // Add if contact page uses floating images
     ]
   };
 
-  // Run animations for current page
+  // Run animations only for the current page
   if (animations[page]) {
     animations[page].forEach(({ id, distance, speed }) => {
       moveImageById(id, distance, speed);
     });
   }
 });
+

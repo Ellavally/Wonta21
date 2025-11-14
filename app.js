@@ -9,10 +9,10 @@ const app = express();
 // Serve static files (CSS, JS, images) from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Parse URL-encoded POST request data (for forms)
+// Parse URL-encoded POST data (contact form)
 app.use(express.urlencoded({ extended: true }));
 
-// Set EJS as the template engine
+// Set EJS as template engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -41,7 +41,7 @@ app.get('/projects', (req, res) => {
     {
       title: "Education for All",
       category: "Education",
-      image: "https://via.placeholder.com/400x250?text=Education",
+      image: "/images/education.jpg",
       description: "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
       impact: "Over 2,000 students enrolled in new rural schools.",
       link: "#"
@@ -49,7 +49,7 @@ app.get('/projects', (req, res) => {
     {
       title: "Rural Health Outreach",
       category: "Healthcare",
-      image: "https://via.placeholder.com/400x250?text=Healthcare",
+      image: "/images/health.jpg",
       description: "Providing access to essential healthcare services through rural clinics and mobile health programs.",
       impact: "15,000+ people received free checkups and vaccinations.",
       link: "#"
@@ -57,7 +57,7 @@ app.get('/projects', (req, res) => {
     {
       title: "Sustainable Agriculture Program",
       category: "Agriculture",
-      image: "https://via.placeholder.com/400x250?text=Agriculture",
+      image: "/images/agriculture.jpg",
       description: "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
       impact: "4,500+ farmers trained in eco-friendly agriculture.",
       link: "#"
@@ -65,7 +65,7 @@ app.get('/projects', (req, res) => {
     {
       title: "Women Empowerment Initiative",
       category: "Women Empowerment",
-      image: "https://via.placeholder.com/400x250?text=Women+Empowerment",
+      image: "/images/women.jpg",
       description: "Empowering women with skills training, microfinance programs, and leadership workshops.",
       impact: "600+ women supported through business and literacy programs.",
       link: "#"
@@ -79,14 +79,14 @@ app.get('/projects', (req, res) => {
 // Contact Form Submission
 // -------------------------------
 app.post('/contact', (req, res) => {
-  console.log('Contact form submission:', req.body);
-  res.send('Thank you for contacting us!');
+  console.log("📩 Contact form submitted:", req.body);
+  res.send("Thank you for contacting us!");
 });
 
 // -------------------------------
-// Server Startup
+// Server Start
 // -------------------------------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`⚡ Server running on http://localhost:${PORT}`);
 });
