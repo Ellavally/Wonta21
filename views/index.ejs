@@ -7,6 +7,38 @@
   <title>Wonta Rural Development Association</title>
 
   <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* ===== Moving Animation ===== */
+    @keyframes float {
+      0%   { transform: translateY(0px) rotate(0deg); }
+      50%  { transform: translateY(-20px) rotate(3deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes float2 {
+      0%   { transform: translateY(0px) rotate(-2deg); }
+      50%  { transform: translateY(20px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(-2deg); }
+    }
+
+    @keyframes float3 {
+      0%   { transform: translateY(0px) rotate(1deg); }
+      50%  { transform: translateY(-20px) rotate(-3deg); }
+      100% { transform: translateY(0px) rotate(1deg); }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    .floating2 {
+      animation: float2 7s ease-in-out infinite;
+    }
+    .floating3 {
+      animation: float3 5.5s ease-in-out infinite;
+    }
+  </style>
+
 </head>
 
 <body class="home-page">
@@ -15,38 +47,41 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- TOP ARC IMAGES ONLY (NO TEXT)                              -->
+  <!-- TOP ARC IMAGES ONLY WITH MOVEMENT                          -->
   <!-- ========================================================== -->
   <section class="hero-section"
     style="display: flex; align-items: center; justify-content: center;
            max-width: 1200px; margin: 40px auto; padding: 20px;">
 
-    <div class="arc-images" style="position: relative; height: 350px; min-width: 350px;">
+    <div class="arc-images" style="position: relative; height: 450px; min-width: 450px;">
 
-      <!-- Top Circle -->
+      <!-- Top Circle (bigger + moving) -->
       <img src="/images/nebir.jpg"
-        style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 0px; left: 120px; transform: rotate(-12deg);
-               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
+        class="floating"
+        style="width: 240px; height: 240px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 0px; left: 160px;
+               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
 
-      <!-- Left Circle -->
+      <!-- Left Circle (larger + moving) -->
       <img src="/images/tota.jpg"
-        style="width: 190px; height: 190px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 120px; left: 10px; transform: rotate(8deg);
-               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
+        class="floating2"
+        style="width: 260px; height: 260px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 150px; left: 20px;
+               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
 
-      <!-- Right Circle -->
+      <!-- Right Circle (larger + moving) -->
       <img src="/images/project1.jpg"
-        style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 150px; left: 260px; transform: rotate(5deg);
-               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
+        class="floating3"
+        style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 180px; left: 340px;
+               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
 
     </div>
 
   </section>
 
   <!-- ========================================================== -->
-  <!-- MAIN CONTENT (YOUR ORIGINAL SECTION)                       -->
+  <!-- MAIN CONTENT                                               -->
   <!-- ========================================================== -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
@@ -63,13 +98,14 @@
     </section>
 
     <!-- ========================================================== -->
-    <!-- LATEST NEWS SECTION (unchanged)                           -->
+    <!-- LATEST NEWS                                                -->
     <!-- ========================================================== -->
     <section style="margin-top: 60px;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 20px; margin-top: 30px;">
 
         <% recentNews.forEach(news => { %>
           <div class="news-card" style="
