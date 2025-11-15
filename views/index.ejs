@@ -9,33 +9,59 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* ===== Moving Animation ===== */
-    @keyframes float {
-      0%   { transform: translateY(0px) rotate(0deg); }
-      50%  { transform: translateY(-20px) rotate(3deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+    /* Slider Container */
+    .single-slider {
+      max-width: 1200px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    @keyframes float2 {
-      0%   { transform: translateY(0px) rotate(-2deg); }
-      50%  { transform: translateY(20px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(-2deg); }
+    .slide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 420px;
+      padding: 30px;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      transition: all 1s ease;
+      background: white;
     }
 
-    @keyframes float3 {
-      0%   { transform: translateY(0px) rotate(1deg); }
-      50%  { transform: translateY(-20px) rotate(-3deg); }
-      100% { transform: translateY(0px) rotate(1deg); }
+    .slide.active {
+      left: 0;
+      opacity: 1;
     }
 
-    .floating {
-      animation: float 6s ease-in-out infinite;
+    .slide img {
+      width: 45%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    .floating2 {
-      animation: float2 7s ease-in-out infinite;
+
+    .slide-text {
+      width: 50%;
+      padding: 20px;
     }
-    .floating3 {
-      animation: float3 5.5s ease-in-out infinite;
+
+    .slide-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #004400;
+    }
+
+    .slide-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
     }
   </style>
 
@@ -47,42 +73,56 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- TOP ARC IMAGES ONLY WITH MOVEMENT                          -->
+  <!-- SINGLE IMAGE + EXPLANATION SLIDER                          -->
   <!-- ========================================================== -->
-  <section class="hero-section"
-    style="display: flex; align-items: center; justify-content: center;
-           max-width: 1200px; margin: 40px auto; padding: 20px;">
+  <div class="single-slider">
 
-    <div class="arc-images" style="position: relative; height: 450px; min-width: 450px;">
-
-      <!-- Top Circle (bigger + moving) -->
-      <img src="/images/nebir.jpg"
-        class="floating"
-        style="width: 240px; height: 240px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 0px; left: 160px;
-               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-
-      <!-- Left Circle (larger + moving) -->
-      <img src="/images/tota.jpg"
-        class="floating2"
-        style="width: 260px; height: 260px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 150px; left: 20px;
-               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-
-      <!-- Right Circle (larger + moving) -->
-      <img src="/images/project1.jpg"
-        class="floating3"
-        style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
-               position: absolute; top: 180px; left: 340px;
-               box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <img src="/images/nebir.jpg">
+      <div class="slide-text">
+        <h2>Empowering Rural Communities</h2>
+        <p>We provide essential development programs that uplift rural families and build long-term resilience.</p>
+      </div>
     </div>
 
-  </section>
+    <!-- Slide 2 -->
+    <div class="slide">
+      <img src="/images/tota.jpg">
+      <div class="slide-text">
+        <h2>Improving Rural Healthcare Access</h2>
+        <p>Through mobile clinics and awareness campaigns, we ensure every community receives proper medical support.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <img src="/images/project1.jpg">
+      <div class="slide-text">
+        <h2>Supporting Women & Youth</h2>
+        <p>We train women and youth in leadership, entrepreneurship, and financial literacy so they can thrive.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* Auto Slider Logic */
+    let slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 5000); // change every 5 seconds
+  </script>
+
 
   <!-- ========================================================== -->
-  <!-- MAIN CONTENT                                               -->
+  <!-- MAIN CONTENT (unchanged)                                   -->
   <!-- ========================================================== -->
+
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
@@ -97,16 +137,14 @@
       </p>
     </section>
 
-    <!-- ========================================================== -->
-    <!-- LATEST NEWS                                                -->
-    <!-- ========================================================== -->
+    <!-- Latest News section stays unchanged -->
+
     <section style="margin-top: 60px;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-               gap: 20px; margin-top: 30px;">
-
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
         <% recentNews.forEach(news => { %>
           <div class="news-card" style="
             background: #fff;
@@ -117,7 +155,7 @@
           ">
             <img src="<%= news.image %>" alt="<%= news.title %>"
               style="width: 100%; height: 180px; object-fit: cover;">
-
+            
             <div style="padding: 15px;">
               <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
               <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>
@@ -145,8 +183,6 @@
 
   <!-- Footer -->
   <%- include('partials/footer') %>
-
-  <script src="/script.js"></script>
 
 </body>
 </html>
