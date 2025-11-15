@@ -51,12 +51,9 @@
     <section style="margin-top: 60px;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
-      <div class="news-grid" style="
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-      ">
+      <div class="news-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
         <% recentNews.forEach(news => { %>
           <div class="news-card" style="
             background: #fff;
@@ -65,8 +62,9 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             text-align: left;
           ">
-            <img src="<%= news.image %>" alt="<%= news.title %>" style="width: 100%; height: 180px; object-fit: cover;">
-
+            <img src="<%= news.image %>" alt="<%= news.title %>"
+              style="width: 100%; height: 180px; object-fit: cover;">
+            
             <div style="padding: 15px;">
               <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
               <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>

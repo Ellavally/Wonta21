@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Education for All",
+    "category": "Education",
+    "image": "/images/education.jpg",
+    "description": "Building schools, training teachers, and providing educational materials for children in underserved rural areas.",
+    "impact": "Over 2,000 students enrolled in new rural schools.",
+    "link": "#"
+  },
+  {
+    "title": "Food Security Program",
+    "category": "Food Security",
+    "image": "/images/food-security.jpg",
+    "description": "Supporting vulnerable households through food distribution, nutrition education, and sustainable food system development.",
+    "impact": "12,000+ households supported with essential food supplies.",
+    "link": "#"
+  },
+  {
+    "title": "Sustainable Agriculture Program",
+    "category": "Agriculture",
+    "image": "/images/agriculture.jpg",
+    "description": "Training local farmers in sustainable practices, irrigation systems, and modern farming techniques.",
+    "impact": "4,500+ farmers trained in eco-friendly agriculture.",
+    "link": "#"
+  },
+  {
+    "title": "Women Empowerment Initiative",
+    "category": "Women Empowerment",
+    "image": "/images/women.jpg",
+    "description": "Empowering women with skills training, microfinance programs, and leadership workshops.",
+    "impact": "600+ women supported through business and literacy programs.",
+    "link": "#"
+  }
+]
