@@ -31,13 +31,19 @@
       padding: 20px;
     }
 
-    /* ===== LARGE HALF-CIRCLE IMAGE ===== */
+    /* ===== BIG BRACKET-SHAPED IMAGE ===== */
     #slider-image {
       width: 600px;
       height: 600px;
       object-fit: cover;
-      border-radius: 600px 600px 0 0;
-      clip-path: ellipse(100% 50% at 50% 100%);
+
+      /* RIGHT SIDE CURVED LIKE ")" */
+      clip-path: path("M0,0 
+                       L450,0 
+                       C600,150 600,450 450,600 
+                       L0,600 Z");
+
+      border-radius: 0 300px 300px 0;
       box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     }
 
@@ -82,11 +88,11 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- HALF-CIRCLE FLOATING IMAGE + RIGHT SIDE TEXT SLIDER       -->
+  <!-- BRACKET-SHAPED FLOATING IMAGE + RIGHT SIDE TEXT SLIDER    -->
   <!-- ========================================================== -->
   <section id="slider-section">
 
-    <!-- Half circle floating image -->
+    <!-- Special-shaped floating image -->
     <img id="slider-image" class="floating" src="/images/nebir.jpg">
 
     <!-- Title + Text -->
