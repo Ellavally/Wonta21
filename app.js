@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const { loadJson, saveJson } = require('./helpers/dataStore');
+const crypto = require('crypto');
 
 const app = express();
 
@@ -9,29 +10,24 @@ const app = express();
 // Middleware
 // -------------------------------
 
-// static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// form parser
 app.use(express.urlencoded({ extended: true }));
 
-// session for admin panel
 app.use(session({
   secret: process.env.SESSION_SECRET || 'super-secret-key',
   resave: false,
   saveUninitialized: false,
 }));
 
-// EJS engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
 // -------------------------------
-// GLOBAL NEWS DATA (from JSON instead of hardcoded)
+// GLOBAL NEWS DATA
 // -------------------------------
 
-// load instead of hardcoding
 let newsData = loadJson('news', [
   {
     title: "Wonta RDA Launches Women Empowerment Program",
@@ -61,10 +57,10 @@ let newsData = loadJson('news', [
 // ROUTES
 // -------------------------------
 
-// Home Page — show 3 most recent news
+// Home Page
 app.get('/', (req, res) => {
 
-  newsData = loadJson('news'); // auto-refresh when admin updates news
+  newsData = loadJson('news');
 
   const recentNews = [...newsData]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -76,17 +72,17 @@ app.get('/', (req, res) => {
   });
 });
 
-// About Page
+// About
 app.get('/about', (req, res) => {
   res.render('about', { activePage: 'about' });
 });
 
-// Contact Page
+// Contact
 app.get('/contact', (req, res) => {
   res.render('contact', { activePage: 'contact' });
 });
 
-// Projects Page
+// Projects
 app.get('/projects', (req, res) => {
 
   const projects = loadJson('projects', [
@@ -129,7 +125,7 @@ app.get('/projects', (req, res) => {
 
 
 // -------------------------------
-// NEWS PAGE WITH PAGINATION
+// NEWS PAGE (Paginated)
 // -------------------------------
 
 app.get('/news', (req, res) => {
@@ -153,7 +149,30 @@ app.get('/news', (req, res) => {
 
 
 // -------------------------------
-// Contact Form Submission (save to admin messages)
+// NEW: GALLERY PAGE
+// -------------------------------
+
+app.get('/gallery', (req, res) => {
+  
+  // Load images from JSON OR fallback sample images
+  const galleryImages = loadJson('gallery', [
+    { src: "/images/nebir.jpg" },
+    { src: "/images/tota.jpg" },
+    { src: "/images/education.jpg" },
+    { src: "/images/agriculture.jpg" },
+    { src: "/images/food-security.jpg" },
+    { src: "/images/women.jpg" }
+  ]);
+
+  res.render('gallery', { 
+    activePage: 'gallery',
+    galleryImages 
+  });
+});
+
+
+// -------------------------------
+// Contact Form Submission
 // -------------------------------
 
 app.post('/contact', (req, res) => {
@@ -173,7 +192,7 @@ app.post('/contact', (req, res) => {
 
 
 // -------------------------------
-// ADMIN PANEL ROUTES
+// ADMIN PANEL
 // -------------------------------
 
 const adminRoutes = require('./routes/admin');
@@ -181,7 +200,7 @@ app.use('/admin', adminRoutes);
 
 
 // -------------------------------
-// Server Start
+// Start Server
 // -------------------------------
 
 const PORT = process.env.PORT || 3000;

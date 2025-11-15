@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Wonta Rural Development Association</title>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Lightbox CSS -->
+  <style>
+    /* GALLERY GRID */
+    .gallery-container {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .gallery-header {
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+      padding: 0 10px 40px 10px;
+      width: 100%;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    #lightbox:active {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <%- include('partials/header') %>
+
+  <div class="gallery-container">
+    <div class="gallery-header">
+      <h2>Project Gallery</h2>
+      <p>Real moments from our field work, community programs, and rural empowerment activities.</p>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <div class="gallery-grid">
+
+      <% galleryImages.forEach(img => { %>
+        <div class="gallery-item">
+          <img src="<%= img.src %>" alt="Gallery Image"
+          onclick="openLightbox('<%= img.src %>')">
+        </div>
+      <% }) %>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX VIEW -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
+  <%- include('partials/footer') %>
+
+</body>
+</html>
