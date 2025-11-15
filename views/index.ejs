@@ -9,29 +9,36 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* FLOATING ANIMATION */
+    /* ===== Floating Animation ===== */
     @keyframes float {
       0%   { transform: translateY(0px); }
       50%  { transform: translateY(-35px); }
       100% { transform: translateY(0px); }
     }
-    .floating { animation: float 6s ease-in-out infinite; }
 
-    /* MAIN SLIDER LAYOUT */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* =============================== */
+    /*   LAYOUT WITH FULL-LEFT IMAGE  */
+    /* =============================== */
     #slider-section {
       display: flex;
       align-items: center;
       height: 95vh;
       width: 100%;
-      padding: 0;
+      padding: 0 20px;
       gap: 0;
-      overflow: hidden;
     }
 
-    /* LEFT IMAGE FULL HEIGHT */
+    /* IMAGE FILLS ENTIRE LEFT SIDE */
     #image-container {
       flex: 65%;
       height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
 
@@ -39,22 +46,23 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0 20px 20px 0;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.30);
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT OPEN CIRCLE (NO TRANSPARENT FADE) */
+    /* =============================== */
+    /*   OVAL TEXT BOX (OPEN LEFT)    */
+    /* =============================== */
     #slider-text-box {
       flex: 35%;
-      width: 480px;
-      height: 480px;
+      width: 520px;
+      height: 380px;
 
-      border-radius: 50%;
+      border-radius: 50% / 40%;   /* Creates oval */
       border: 6px solid #007b00;
-      border-left: none; /* keeps circle open on the left */
+      border-left: none;          /* Open on image side */
 
-      background: #ffffff; /* CLEAN, NO FADE */
-
+      background: #ffffff;
       padding: 60px;
       margin-left: -70px;
       z-index: 10;
@@ -65,14 +73,14 @@
       align-items: center;
       text-align: center;
 
-      box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
     }
 
     #slider-title {
       font-size: 2em;
       font-weight: bold;
-      color: #004d00;
       margin-bottom: 15px;
+      color: #004d00;
     }
 
     #slider-desc {
@@ -100,10 +108,12 @@
 
 <body class="home-page">
 
-  <!-- HEADER -->
+  <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- SLIDER SECTION -->
+  <!-- ============================================= -->
+  <!--   FULL-SIDE IMAGE + OVAL TEXT BOX             -->
+  <!-- ============================================= -->
   <section id="slider-section">
 
     <div id="image-container">
@@ -112,7 +122,10 @@
 
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
-      <p id="slider-desc">Supporting rural development through sustainable programs.</p>
+      <p id="slider-desc">
+        Supporting rural development through sustainable programs.
+      </p>
+
       <button id="next-btn">Next →</button>
     </div>
 
@@ -159,7 +172,7 @@
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. We believe every rural community deserves
+        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
         access to education, healthcare, and sustainable livelihoods.
       </p>
 
@@ -173,13 +186,13 @@
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 20px; margin-top: 30px;">
 
         <% recentNews.forEach(news => { %>
           <div class="news-card"
             style="background: #fff; border-radius: 8px; overflow: hidden;
                    box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left;">
-
             <img src="<%= news.image %>" alt="<%= news.title %>"
               style="width: 100%; height: 180px; object-fit: cover;">
 
@@ -199,8 +212,7 @@
 
       <div style="margin-top: 20px;">
         <a href="/news" style="font-size: 1.1em; font-weight: bold; color: #008000;">
-          View All News →
-        </a>
+          View All News →</a>
       </div>
     </section>
 
