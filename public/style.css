@@ -64,7 +64,7 @@ header {
   color: #cce0cc;
 }
 
-/* Desktop navbar always visible */
+/* Desktop navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
@@ -102,56 +102,6 @@ header {
 
   #navbar.menu-open {
     display: flex !important;
-  }
-}
-
-/* ===============================
-   ABOUT DROPDOWN MENU
-================================= */
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background: #ffffff;      /* WHITE BACKGROUND */
-  min-width: 220px;
-  padding: 10px 0;
-  top: 100%;
-  left: 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 15px;
-  color: #000;              /* BLACK TEXT */
-  font-weight: 500;
-}
-
-.dropdown-menu a:hover {
-  background: #f0f0f0;      /* Light hover */
-  color: #000;
-}
-
-/* Desktop hover */
-@media (min-width: 769px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
-
-/* Mobile dropdown */
-@media (max-width: 768px) {
-  .dropdown-menu {
-    position: relative;
-    background: #fff;
-    box-shadow: none;
-    padding-left: 15px;
   }
 }
 
@@ -256,8 +206,56 @@ footer {
 }
 
 /* ===============================
+   LEADERSHIP TEAM
+================================= */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.leader-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(46,139,87,0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-5px);
+}
+
+.leader-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #2e8b57;
+}
+
+.leader-position {
+  font-weight: bold;
+  color: #2e8b57;
+  margin-bottom: 10px;
+}
+
+/* ===============================
    NEWS PAGE
 ================================= */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header p {
+  color: #444;
+  font-size: 1.1rem;
+}
+
 .news-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -283,6 +281,11 @@ footer {
   margin-bottom: 12px;
 }
 
+.news-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
 .news-date {
   color: #2e8b57;
   font-weight: bold;
@@ -298,47 +301,147 @@ footer {
   border-radius: 6px;
 }
 
+.news-btn:hover {
+  background: #246b45;
+}
+
 /* ===============================
-   ABOUT PAGE CARDS
+   PAGINATION
+================================= */
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-btn,
+.page-number {
+  padding: 8px 15px;
+  background: #2e8b57;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.page-number.active {
+  background: #246b45;
+  border: 2px solid #cce0cc;
+}
+
+.page-btn:hover,
+.page-number:hover {
+  background: #246b45;
+}
+
+.page-btn.disabled {
+  background: #a5cbb1;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===============================
+   HOME SLIDER
+================================= */
+#slider-section {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+#image-container {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===============================
+   ABOUT PAGE CARD SEPARATION
 ================================= */
 .about-section {
-  background: #ffffff !important;
-  padding: 50px 30px !important;
-  margin: 48px auto !important;
-  border-radius: 12px !important;
-  max-width: 1100px !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-  border: 1px solid rgba(0,0,0,0.04) !important;
+  background: #ffffff;
+  padding: 50px 30px;
+  margin: 48px auto;
+  border-radius: 12px;
+  max-width: 1100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .about-section h2 {
-  text-align: center;
   font-size: clamp(28px, 5vw, 36px);
+  text-align: center;
   margin-bottom: 25px;
-  font-weight: 700;
 }
 
 .about-section h3 {
   font-size: clamp(22px, 4vw, 28px);
-  color: #246b45;
   margin-top: 25px;
   margin-bottom: 10px;
-  font-weight: 600;
+  color: #246b45;
 }
 
-/* Leadership cards */
-.leadership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+/* Director Message */
+.director-message {
+  background: #f3faf5;
+  border-left: 6px solid #2e8b57;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
 }
 
-/* ===============================
-   FINAL MOBILE FIX
-================================= */
+.director-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.director-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.director-text {
+  flex: 1;
+}
+
+.director-text p {
+  margin-bottom: 15px;
+}
+
+.director-name {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: bold;
+  color: #2e8b57;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .about-section {
     padding: 30px 20px;
     margin: 40px 10px;
+  }
+
+  .director-photo {
+    width: 100%;
+    height: auto;
   }
 }
