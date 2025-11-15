@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Security Projects - Wonta Rural Development Association</title>
+  <title>Our Projects - Wonta Rural Development Association</title>
 
   <!-- Load CSS BEFORE the header -->
   <link rel="stylesheet" href="/style.css">
@@ -21,16 +21,17 @@
 
     <!-- Section 1: Introduction -->
     <section style="text-align: center; margin-bottom: 50px;">
-      <h2 style="margin-bottom: 30px;">Food Security & Sustainable Agriculture</h2>
+      <h2 style="margin-bottom: 30px;">Our Projects</h2>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        At <strong>Wonta Rural Development Association</strong>, we work to improve rural livelihoods by strengthening 
-        <strong>food security, agricultural productivity, climate-resilient farming, and community nutrition</strong>.
+        At <strong>Wonta Rural Development Association</strong>, we are committed to sustainable rural development
+        through impactful programs in <strong>education, healthcare, agriculture, and women’s empowerment</strong>.
       </p>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Our food-security initiatives empower smallholder farmers, promote improved seed varieties, support natural 
-        resource management, and ensure families have sustainable access to healthy and sufficient food.
+        Each project is a step toward building self-reliant, thriving communities.
+        Our initiatives are designed hand in hand with local residents to ensure
+        that solutions are meaningful, long-lasting, and community-led.
       </p>
     </section>
 
@@ -39,56 +40,58 @@
       <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 0 20px;">
         <% projects.forEach(project => { %>
           <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            <img src="<%= project.image %>" 
-                 alt="<%= project.title %>" 
-                 style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
-            
+           <img src="<%= project.image %>" 
+     alt="<%= project.title %>" 
+     style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
             <h3 style="font-size: 1.5em; margin-top: 15px;"><%= project.title %></h3>
             <h4 style="font-size: 1.2em; color: #2e8b57;"><%= project.category %></h4>
             <p style="line-height: 1.8; margin: 10px 0;"><%= project.description %></p>
             <p><strong>Impact:</strong> <%= project.impact %></p>
-
             <% if (project.link) { %>
-              <a href="<%= project.link %>" class="btn" 
-                 style="background-color: #2e8b57; color: white; padding: 10px 20px; 
-                 border-radius: 5px; text-decoration: none; font-weight: bold;">
-                 Learn More
-              </a>
+              <a href="<%= project.link %>" class="btn" style="background-color: #2e8b57; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Learn More</a>
             <% } %>
           </div>
         <% }) %>
       </div>
     </section>
 
-    <!-- Section 3: Impact Summary (Updated for Food Security) -->
+    <!-- Section 3: Impact Summary -->
     <section style="text-align: center; margin-bottom: 50px;">
-      <h2 style="margin-bottom: 30px;">Our Food Security Impact</h2>
+      <h2 style="margin-bottom: 30px;">Our Impact</h2>
       <div class="impact-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-
+        <div>
+          <h3 style="font-size: 2em;">🏫 20+</h3>
+          <p>Schools supported</p>
+        </div>
+        <div>
+          <h3 style="font-size: 2em;">💉 15,000+</h3>
+          <p>People reached with healthcare</p>
+        </div>
         <div>
           <h3 style="font-size: 2em;">🌾 4,500+</h3>
-          <p>Farmers trained in improved agriculture</p>
+          <p>Farmers trained</p>
         </div>
-
         <div>
-          <h3 style="font-size: 2em;">🍅 30+</h3>
-          <p>Community nutrition programs launched</p>
+          <h3 style="font-size: 2em;">👩‍🌾 600+</h3>
+          <p>Women empowered</p>
         </div>
-
-        <div>
-          <h3 style="font-size: 2em;">🌱 12,000+</h3>
-          <p>Households accessing climate-resilient food systems</p>
-        </div>
-
-        <div>
-          <h3 style="font-size: 2em;">🚰 80+</h3>
-          <p>Irrigation & soil-water projects supported</p>
-        </div>
-
       </div>
     </section>
 
     <!-- Section 4: Call to Action -->
-    <section class="cta-section" 
-             style="text-align: center; background-color: #2e8b57; color: white; padding: 60px 20px; border-radius: 10px; margin-bottom: 50px;">
-      <h2>Support Food Security in Rural Communities</h2>
+    <section class="cta-section" style="text-align: center; background-color: #2e8b57; color: white; padding: 60px 20px; border-radius: 10px; margin-bottom: 50px;">
+      <h2>Join Our Mission</h2>
+      <p style="font-size: 1.1em; margin-bottom: 30px;">
+        Together, we can continue to bring education, health, and sustainable livelihoods
+        to rural communities. Your support makes lasting change possible.
+      </p>
+      <a href="/contact" class="btn" style="background-color: white; color: #2e8b57; font-weight: bold; padding: 12px 30px; text-decoration: none; border-radius: 5px;">Get Involved</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>
