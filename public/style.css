@@ -1,304 +1,136 @@
 /* ===============================
-   GLOBAL FIXES (NO SCROLL, NO MARGIN)
+   ABOUT PAGE SECTION
 ================================= */
-* {
-  box-sizing: border-box;
+.about-section {
+  background: #ffffff;
+  padding: 50px 30px;
+  margin: 60px auto;
+  border-radius: 12px;
+  max-width: 1100px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f1f8f3;
-  color: #1b3d1b;
-  line-height: 1.6;
-  font-size: clamp(17px, 3vw, 19px);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: 0.3s ease;
-}
-
-/* ===============================
-   HEADERS
-================================= */
-h1, h2, h3, h4 {
+/* Main About Titles (H2) */
+.about-section h2 {
+  font-size: clamp(28px, 5vw, 36px);
+  margin-bottom: 25px;
   color: #2e8b57;
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: clamp(26px, 5vw, 34px);
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Subtitles (H3) */
+.about-section h3 {
+  font-size: clamp(22px, 4vw, 28px);
+  color: #246b45;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Leadership grid spacing */
+.leadership-grid {
+  margin-top: 40px;
+}
+
+/* Director Message Box */
+.director-message {
+  background: #f3faf5;
+  border-left: 6px solid #2e8b57;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.director-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.director-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.director-text {
+  flex: 1;
+}
+
+.director-text p {
   margin-bottom: 15px;
 }
 
-p {
-  font-size: clamp(16px, 3vw, 18px);
-  line-height: 1.8;
-}
-
-/* ===============================
-   HEADER
-================================= */
-header {
-  background-color: #2e8b57;
-  padding: 12px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo h1 {
-  color: #fff;
-  margin: 0;
-  font-size: clamp(28px, 6vw, 36px);
-}
-
-#navbar {
-  display: flex;
-  gap: 30px;
-}
-
-#navbar a {
-  color: #ffffff;
+.director-name {
+  margin-top: 10px;
+  font-style: italic;
   font-weight: bold;
-}
-
-#navbar a:hover,
-#navbar a.active {
-  color: #cce0cc;
-}
-
-@media (min-width: 769px) {
-  #navbar {
-    display: flex !important;
-  }
+  color: #2e8b57;
 }
 
 /* ===============================
-   MOBILE MENU
-================================= */
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  #navbar {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: #2e8b57;
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px 0;
-    display: none !important;
-  }
-
-  #navbar.menu-open {
-    display: flex !important;
-  }
-}
-
-/* ===============================
-   MAIN CONTENT
-================================= */
-main {
-  width: 100%;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46,139,87,0.2);
-}
-
-section {
-  margin-bottom: 50px;
-}
-
-/* ===============================
-   FLOATING ANIMATION
-================================= */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-/* ===============================
-   MOVING GALLERY
-================================= */
-.moving-gallery {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 30px 0;
-}
-
-.moving-gallery img {
-  width: 30%;
-  min-width: 200px;
-  border-radius: 10px;
-  animation: float 6s ease-in-out infinite;
-  transition: transform 0.3s;
-}
-
-.moving-gallery img:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .moving-gallery {
-    flex-direction: column;
-  }
-
-  .moving-gallery img {
-    width: 100%;
-  }
-}
-
-/* ===============================
-   SLIDER SECTION (FULL WIDTH)
-================================= */
-#slider-section {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 95vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-#image-container {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-#slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#slider-text-box {
-  width: 380px;
-  height: 280px;
-  background: #f2fff2;
-  border-radius: 50% / 40%;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.22);
-}
-
-@media (max-width: 1000px) {
-  #slider-section {
-    flex-direction: column;
-    height: auto;
-  }
-  #slider-text-box {
-    margin-top: 20px;
-    width: 90%;
-    max-width: 400px;
-  }
-  #image-container {
-    height: 60vh;
-    width: 100%;
-  }
-}
-
-/* ===============================
-   FOOTER
+   FOOTER FIX (Ensures visibility)
 ================================= */
 footer {
-  background-color: #2e8b57;
-  color: #fff;
-  padding: 50px 20px;
-  margin-top: 80px;
-  border-top: 4px solid #246b45;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 0 15px rgba(46,139,87,0.25);
+  background: #2e8b57;
+  color: white;
+  padding: 40px 0;
+  margin-top: 60px;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
 }
 
-footer h3, footer h4 {
-  color: #ffffff;
-  font-size: 22px;
+footer h3,
+footer h4 {
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
-.footer-about p,
-.footer-contact p {
-  color: #e9ffe9;
-  margin: 8px 0;
-  font-size: 17px;
-}
-
-.footer-links a {
+footer a {
+  color: white;
   display: block;
-  color: #e4f7e4;
   margin-bottom: 8px;
-  font-size: 17px;
-  transition: 0.3s ease;
+  text-decoration: none;
 }
 
-.footer-links a:hover {
-  color: #cce0cc;
+footer a:hover {
   text-decoration: underline;
-}
-
-/* ===============================
-   SOCIAL MEDIA (4 circles)
-================================= */
-.footer-social {
-  margin-top: 15px;
-  display: flex;
-  gap: 14px;
-}
-
-.social-circle {
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  opacity: 0.9;
-  border-radius: 50%;
-  display: inline-block;
-  transition: 0.3s ease;
-}
-
-.social-circle:hover {
-  opacity: 1;
-  transform: scale(1.12);
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 1px solid #cce0cc;
-  font-size: clamp(14px, 3vw, 16px);
+  padding-top: 25px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  font-size: 14px;
+}
+
+/* ===============================
+   MOBILE FIXES
+================================= */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px 20px;
+    margin: 40px 10px;
+  }
+
+  .director-photo {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    text-align: center;
+  }
 }
