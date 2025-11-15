@@ -7,9 +7,6 @@
   <title>Wonta Rural Development Association</title>
 
   <link rel="stylesheet" href="/style.css">
-
-  <!-- Bootstrap for Carousel -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="home-page">
@@ -17,89 +14,56 @@
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- ===== CAROUSEL (MOVING IMAGES) ===== -->
-  <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" style="max-height: 500px; overflow:hidden;">
-
-    <div class="carousel-inner">
-
-      <div class="carousel-item active">
-        <img src="/images/nebir.jpg" class="d-block w-100" style="height:500px; object-fit:cover;">
-        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-          <h3>Empowering Rural Communities</h3>
-          <p>Working together to build a stronger and sustainable future.</p>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <img src="/images/tota.jpg" class="d-block w-100" style="height:500px; object-fit:cover;">
-        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-          <h3>Health & Wellness Programs</h3>
-          <p>Promoting accessible healthcare in rural communities.</p>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <img src="/images/project1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;">
-        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-          <h3>Women & Youth Empowerment</h3>
-          <p>Creating equal opportunities for growth and leadership.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-
-  <!-- ===== ARC IMAGES + LEFT TEXT SECTION (NEW) ===== -->
-  <section class="hero-section" 
+  <!-- ========================================================== -->
+  <!-- HERO SECTION — TEXT LEFT + ARC IMAGES RIGHT (TOP OF PAGE)  -->
+  <!-- ========================================================== -->
+  <section class="hero-section"
     style="display: flex; align-items: center; justify-content: space-between;
-           max-width: 1200px; margin: 50px auto; padding: 20px; gap:30px;">
+           max-width: 1200px; margin: 40px auto; padding: 20px; gap: 30px;">
 
     <!-- LEFT TEXT -->
     <div style="flex: 1; padding-right: 20px;">
-      <h2 style="font-size: 2.2rem; margin-bottom: 20px;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: bold;">
         Empowering Rural Communities, Transforming Lives
       </h2>
 
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-        At <strong>Wonta Rural Development Association</strong>, we uplift rural communities through education, healthcare, 
-        empowerment, and sustainable development.
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves access to education, healthcare, empowerment, and sustainable development.
       </p>
 
-      <p style="font-size: 1.1rem; line-height: 1.8;">
-        Together, we build hope, opportunity, and a brighter future.
+      <p style="font-size: 1.1rem; line-height: 1.7;">
+        Together, we build opportunity, hope, and a brighter future for underserved communities.
       </p>
     </div>
 
     <!-- RIGHT ARC IMAGES -->
-    <div class="arc-images" style="flex: 1; position: relative; height: 350px; min-width: 320px;">
+    <div class="arc-images" style="flex: 1; position: relative; height: 350px; min-width: 350px;">
 
+      <!-- Top Circle -->
       <img src="/images/nebir.jpg"
-        style="width: 180px; height: 180px; object-fit: cover;
-               border-radius: 100%; position: absolute; top: 20px; left: 140px;
-               transform: rotate(-10deg); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+        style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 0px; left: 120px; transform: rotate(-12deg);
+               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
 
+      <!-- Left Circle -->
       <img src="/images/tota.jpg"
-        style="width: 190px; height: 190px; object-fit: cover;
-               border-radius: 100%; position: absolute; top: 100px; left: 20px;
-               transform: rotate(10deg); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+        style="width: 190px; height: 190px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 120px; left: 10px; transform: rotate(8deg);
+               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
 
+      <!-- Right Circle -->
       <img src="/images/project1.jpg"
-        style="width: 160px; height: 160px; object-fit: cover;
-               border-radius: 100%; position: absolute; top: 170px; left: 250px;
-               transform: rotate(5deg); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+        style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
+               position: absolute; top: 150px; left: 260px; transform: rotate(5deg);
+               box-shadow: 0 5px 15px rgba(0,0,0,0.25);">
+
     </div>
+
   </section>
 
-  <!-- MAIN CONTENT -->
+  <!-- ========================================================== -->
+  <!-- MAIN CONTENT (YOUR ORIGINAL CONTENT)                       -->
+  <!-- ========================================================== -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
@@ -114,13 +78,15 @@
       </p>
     </section>
 
-    <!-- LATEST NEWS -->
+    <!-- ========================================================== -->
+    <!-- LATEST NEWS SECTION (UNCHANGED)                           -->
+    <!-- ========================================================== -->
     <section style="margin-top: 60px;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-        
+
         <% recentNews.forEach(news => { %>
           <div class="news-card" style="
             background: #fff;
@@ -131,7 +97,7 @@
           ">
             <img src="<%= news.image %>" alt="<%= news.title %>"
               style="width: 100%; height: 180px; object-fit: cover;">
-            
+
             <div style="padding: 15px;">
               <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
               <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>
@@ -160,7 +126,6 @@
   <!-- Footer -->
   <%- include('partials/footer') %>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/script.js"></script>
 
 </body>
