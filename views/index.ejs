@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* FLOAT ANIMATION */
+    /* ===== Floating Animation ===== */
     @keyframes float {
       0%   { transform: translateY(0px); }
       50%  { transform: translateY(-35px); }
@@ -20,7 +20,9 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* LEFT IMAGE + OVAL TEXT LAYOUT */
+    /* =============================== */
+    /*   LAYOUT WITH FULL-LEFT IMAGE  */
+    /* =============================== */
     #slider-section {
       display: flex;
       align-items: center;
@@ -30,7 +32,7 @@
       gap: 0;
     }
 
-    /* LEFT SIDE IMAGE — FULL HEIGHT */
+    /* IMAGE FILLS LEFT SIDE */
     #image-container {
       flex: 65%;
       height: 100%;
@@ -48,17 +50,19 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT OVAL TOUCHING IMAGE WITH TRANSPARENT OVERLAP */
+    /* =============================== */
+    /*           OVAL TEXT BOX         */
+    /* =============================== */
     #slider-text-box {
       flex: 35%;
       position: relative;
-      left: -120px; /* Overlaps image */
+      left: -120px; /* overlaps image */
 
       width: 520px;
       height: 380px;
 
       background: white;
-      border-radius: 50% / 40%; /* Oval shape */
+      border-radius: 50% / 40%; /* oval */
       padding: 60px;
 
       display: flex;
@@ -67,11 +71,11 @@
       align-items: center;
       text-align: center;
 
+      /* BORDER REMOVED ON IMAGE SIDE */
       border: 6px solid #007b00;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+      border-left: none;
 
-      /* MAGIC LINE — Makes overlap transparent */
-      mix-blend-mode: multiply;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
     }
 
     #slider-title {
@@ -109,7 +113,9 @@
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- MAIN HERO SECTION -->
+  <!-- ============================================= -->
+  <!--   FULL-SIDE IMAGE + OVAL TEXT BOX SLIDER      -->
+  <!-- ============================================= -->
   <section id="slider-section">
 
     <div id="image-container">
@@ -118,7 +124,10 @@
 
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
-      <p id="slider-desc">Supporting rural development through sustainable programs.</p>
+      <p id="slider-desc">
+        Supporting rural development through sustainable programs.
+      </p>
+
       <button id="next-btn">Next →</button>
     </div>
 
@@ -127,9 +136,21 @@
   <!-- SLIDER SCRIPT -->
   <script>
     const slides = [
-      { img: "/images/nebir.jpg", title: "Nebir Project", text: "Supporting rural development through sustainable programs." },
-      { img: "/images/tota.jpg", title: "Tota Community Work", text: "Empowering local families with tools, knowledge, and training." },
-      { img: "/images/project1.jpg", title: "Agricultural Support Initiative", text: "Helping farmers increase food production and income through modern techniques." }
+      {
+        img: "/images/nebir.jpg",
+        title: "Nebir Project",
+        text: "Supporting rural development through sustainable programs."
+      },
+      {
+        img: "/images/tota.jpg",
+        title: "Tota Community Work",
+        text: "Empowering local families with tools, knowledge, and training."
+      },
+      {
+        img: "/images/project1.jpg",
+        title: "Agricultural Support Initiative",
+        text: "Helping farmers increase food production and income through modern techniques."
+      }
     ];
 
     let index = 0;
@@ -146,7 +167,7 @@
     }
   </script>
 
-  <!-- MAIN CONTENT BELOW -->
+  <!-- MAIN CONTENT -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
@@ -189,7 +210,6 @@
             </div>
           </div>
         <% }) %>
-
       </div>
 
       <div style="margin-top: 20px;">
