@@ -21,23 +21,23 @@
     }
 
     /* ===================================================== */
-    /* FULL LEFT-SIDE IMAGE + RIGHT SIDE TEXT                */
+    /* FULL LEFT-SIDE IMAGE + RIGHT TEXT                    */
     /* ===================================================== */
     #slider-section {
       display: flex;
-      height: 80vh;               /* Fills most of window height */
-      min-height: 550px;
+      height: 85vh;               /* Fills the window */
       width: 100%;
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
 
-    /* LEFT SIDE IMAGE FULL HEIGHT */
+    /* LEFT SIDE IMAGE */
     #image-container {
       flex: 1;
       height: 100%;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
     #slider-image {
@@ -45,19 +45,19 @@
       height: 100%;
       object-fit: cover;
 
-      /* Bracket shape curved on the right side */
+      /* Smooth bracket shape on the right side */
       clip-path: path("M0,0 
-                       L70%,0 
-                       C100%,25% 100%,75% 70%,100% 
+                       L85%,0 
+                       C100%,25% 100%,75% 85%,100% 
                        L0,100% Z");
 
-      box-shadow: 5px 0 25px rgba(0,0,0,0.35);
+      box-shadow: 5px 0 20px rgba(0,0,0,0.25);
     }
 
     /* RIGHT SIDE TEXT */
     #slider-text-box {
       flex: 1;
-      padding: 60px;
+      padding: 70px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -65,15 +65,17 @@
     }
 
     #slider-title {
-      font-size: 2.3em;
+      font-size: 2.4em;
       font-weight: bold;
       margin-bottom: 15px;
+      color: #222;
     }
 
     #slider-desc {
       font-size: 1.2em;
       line-height: 1.7;
       margin-bottom: 25px;
+      color: #444;
     }
 
     #next-btn {
@@ -96,7 +98,7 @@
 
 <body class="home-page">
 
-  <!-- Header -->
+  <!-- HEADER -->
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
@@ -156,7 +158,7 @@
   </script>
 
   <!-- ========================================================== -->
-  <!-- MAIN CONTENT (UNCHANGED)                                  -->
+  <!-- MAIN CONTENT                                               -->
   <!-- ========================================================== -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
