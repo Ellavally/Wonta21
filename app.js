@@ -18,12 +18,49 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // -------------------------------
+// GLOBAL NEWS DATA
+// -------------------------------
+
+const newsData = [
+  {
+    title: "Wonta RDA Launches Women Empowerment Program",
+    date: "2025-02-10",
+    image: "/images/news1.jpg",
+    summary: "A major initiative supporting rural women with skills training and microfinance opportunities.",
+    link: "#"
+  },
+  {
+    title: "Rural Schools Receive New Learning Materials",
+    date: "2025-01-22",
+    image: "/images/news2.jpg",
+    summary: "Over 1,500 students benefited from new books, uniforms, and classroom supplies.",
+    link: "#"
+  },
+  {
+    title: "Food Security Support Reaches 12,000+ Households",
+    date: "2025-01-05",
+    image: "/images/food-security-news.jpg",
+    summary: "Essential food supplies and nutrition training delivered to vulnerable rural families.",
+    link: "#"
+  }
+];
+
+
+// -------------------------------
 // ROUTES
 // -------------------------------
 
-// Home Page
+// Home Page (show 3 latest news)
 app.get('/', (req, res) => {
-  res.render('index', { activePage: 'home' });
+
+  const recentNews = newsData
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3);
+
+  res.render('index', { 
+    activePage: 'home',
+    recentNews
+  });
 });
 
 // About Page
@@ -82,30 +119,6 @@ app.get('/projects', (req, res) => {
 // -------------------------------
 
 app.get('/news', (req, res) => {
-
-  const newsData = [
-    {
-      title: "Wonta RDA Launches Women Empowerment Program",
-      date: "2025-02-10",
-      image: "/images/news1.jpg",
-      summary: "A major initiative supporting rural women with skills training and microfinance opportunities.",
-      link: "#"
-    },
-    {
-      title: "Rural Schools Receive New Learning Materials",
-      date: "2025-01-22",
-      image: "/images/news2.jpg",
-      summary: "Over 1,500 students benefited from new books, uniforms, and classroom supplies.",
-      link: "#"
-    },
-    {
-      title: "Food Security Support Reaches 12,000+ Households",
-      date: "2025-01-05",
-      image: "/images/food-security-news.jpg",
-      summary: "Essential food supplies and nutrition training delivered to vulnerable rural families.",
-      link: "#"
-    }
-  ];
 
   const currentPage = parseInt(req.query.page) || 1;
   const itemsPerPage = 6;
