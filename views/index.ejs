@@ -6,85 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wonta Rural Development Association</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* ===== Floating Animation ===== */
-    @keyframes float {
-      0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-25px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* ===================================================== */
-    /* LEFT CIRCLE IMAGE + RIGHT TEXT                       */
-    /* ===================================================== */
-    #slider-section {
+    /* Main container for hero section */
+    .hero-container {
       display: flex;
-      align-items: center;
-      height: 85vh;
       width: 100%;
-      padding: 0 40px;
-      gap: 60px;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px;
+      gap: 40px;
     }
 
-    /* LEFT CIRCLE */
-    #image-container {
-      flex: 1;
+    /* Circle image container */
+    .hero-image-circle {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #ddd;
     }
 
-    #slider-image {
-      width: 80%;
-      height: 80%;
-      max-width: 550px;
-      max-height: 550px;
-      aspect-ratio: 1/1;               /* Perfect circle */
-      border-radius: 50%;              /* Circle */
+    .hero-image-circle img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fade 6s infinite;
     }
 
-    /* RIGHT TEXT */
-    #slider-text-box {
-      flex: 1;
-      padding: 20px;
+    /* Image fade animation */
+    @keyframes fade {
+      0%   { opacity: 1; }
+      33%  { opacity: 0; }
+      66%  { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    /* Explanation text */
+    .hero-text {
+      max-width: 500px;
       text-align: left;
     }
 
-    #slider-title {
-      font-size: 2.4em;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    #slider-desc {
-      font-size: 1.2em;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-
-    #next-btn {
-      padding: 14px 28px;
-      background: #007b00;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.2em;
-      font-weight: bold;
-      width: fit-content;
-    }
-
-    #next-btn:hover {
-      background: #009900;
-    }
+    /* News grid styling stays same */
   </style>
 </head>
 
@@ -93,125 +63,20 @@
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- ========================================================== -->
-  <!-- CIRCLE IMAGE + RIGHT TEXT SLIDER                          -->
-  <!-- ========================================================== -->
-  <section id="slider-section">
+  <!-- Hero Section -->
+  <section class="hero-container">
 
-    <!-- Circle image -->
-    <div id="image-container">
-      <img id="slider-image" class="floating" src="/images/nebir.jpg">
+    <!-- Circle Image -->
+    <div class="hero-image-circle">
+      <img id="hero-image" src="/images/nebir.jpg" alt="Community Work">
     </div>
 
-    <!-- Right text -->
-    <div id="slider-text-box">
-      <h2 id="slider-title">Nebir Project</h2>
-      <p id="slider-desc">
-        Supporting rural development through sustainable programs.
+    <!-- Explanation -->
+    <div class="hero-text">
+      <h2>Empowering Rural Communities</h2>
+      <p style="line-height: 1.7; font-size: 1.1em; margin-top: 15px;">
+        At Wonta Rural Development Association, we work to improve the lives of rural communities through education, healthcare, agriculture, and community empowerment.
       </p>
-
-      <button id="next-btn">Next →</button>
     </div>
 
-  </section>
-
-  <!-- SLIDER SCRIPT -->
-  <script>
-    const slides = [
-      {
-        img: "/images/nebir.jpg",
-        title: "Nebir Project",
-        text: "Supporting rural development through sustainable programs."
-      },
-      {
-        img: "/images/tota.jpg",
-        title: "Tota Community Work",
-        text: "Empowering local families with tools, knowledge, and training."
-      },
-      {
-        img: "/images/project1.jpg",
-        title: "Agricultural Support Initiative",
-        text: "Helping farmers increase food production and income through modern techniques."
-      }
-    ];
-
-    let index = 0;
-
-    document.getElementById("next-btn").addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      updateSlider();
-    });
-
-    function updateSlider() {
-      document.getElementById("slider-image").src = slides[index].img;
-      document.getElementById("slider-title").innerText = slides[index].title;
-      document.getElementById("slider-desc").innerText = slides[index].text;
-    }
-  </script>
-
-  <!-- ========================================================== -->
-  <!-- MAIN CONTENT                                               -->
-  <!-- ========================================================== -->
-  <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
-
-    <section>
-      <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
-
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
-        access to education, healthcare, and sustainable livelihoods.
-      </p>
-
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Since our founding, we have been dedicated to creating impactful programs that make a tangible
-        difference — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
-      </p>
-    </section>
-
-    <section style="margin-top: 60px;">
-      <h2 style="margin-bottom: 20px;">Latest News</h2>
-
-      <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-               gap: 20px; margin-top: 30px;">
-
-        <% recentNews.forEach(news => { %>
-          <div class="news-card" style="
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: left;
-          ">
-            <img src="<%= news.image %>" alt="<%= news.title %>"
-              style="width: 100%; height: 180px; object-fit: cover;">
-
-            <div style="padding: 15px;">
-              <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
-              <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>
-
-              <p style="font-size: 0.85em; color: #777; margin: 10px 0;">
-                <strong>Date:</strong> <%= news.date %>
-              </p>
-
-              <a href="/news" style="display: inline-block; margin-top: 10px; font-weight: bold; color: #0066cc;">
-                Read More →
-              </a>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-
-      <div style="margin-top: 20px;">
-        <a href="/news" style="font-size: 1.1em; font-weight: bold; color: #008000;">
-          View All News →
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <%- include('partials/footer') %>
-
-</body>
-</html>
+  </
