@@ -1,0 +1,14 @@
+const bcrypt = require('bcrypt');
+const fs = require('fs');
+const path = './data/users.json';
+
+bcrypt.hash('admin123', 10).then(hash => {
+  const user = [{
+    id: require('crypto').randomUUID(),
+    username: 'admin',
+    passwordHash: hash,
+    role: 'admin'
+  }];
+  fs.writeFileSync(path, JSON.stringify(user, null, 2));
+  console.log('Admin user created: admin / admin123');
+});
