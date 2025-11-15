@@ -21,7 +21,7 @@
     }
 
     /* ===================================================== */
-    /*   LARGER IMAGE — SMALLER RIGHT EXPLANATION            */
+    /* LARGE IMAGE + CIRCULAR TEXT BOX                       */
     /* ===================================================== */
     #slider-section {
       display: flex;
@@ -29,10 +29,10 @@
       height: 90vh;
       width: 100%;
       padding: 0 40px;
-      gap: 40px;
+      gap: 60px;
     }
 
-    /* LEFT IMAGE SECTION — EXPANDED TO 70% */
+    /* LEFT IMAGE — 70% */
     #image-container {
       flex: 70%;
       display: flex;
@@ -42,41 +42,55 @@
 
     #slider-image {
       width: 100%;
-      height: 90%;
-      max-width: 900px;   /* increased */
-      max-height: 900px;  /* increased */
+      height: 95%;
+      max-width: 950px;
+      max-height: 950px;
       object-fit: cover;
       border-radius: 20px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT TEXT — REDUCED TO 30% */
+    /* RIGHT CIRCLE TEXT BOX — BEAUTIFIED */
     #slider-text-box {
       flex: 30%;
-      padding: 10px;
-      text-align: left;
+      background: white;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      /* Beauty styling */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 5px solid #007b00;
     }
 
     #slider-title {
-      font-size: 2.3em;
+      font-size: 1.8em;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      color: #005500;
     }
 
     #slider-desc {
-      font-size: 1.15em;
-      line-height: 1.6;
-      margin-bottom: 25px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 20px;
     }
 
     #next-btn {
-      padding: 14px 28px;
+      padding: 12px 26px;
       background: #007b00;
       color: #fff;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 1.1em;
+      font-size: 1em;
       font-weight: bold;
     }
 
@@ -92,22 +106,19 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- ENLARGED IMAGE + REDUCED RIGHT TEXT                        -->
+  <!--    LARGE IMAGE LEFT + CIRCULAR EXPLANATION RIGHT           -->
   <!-- ========================================================== -->
   <section id="slider-section">
 
-    <!-- Big Image (Left) -->
     <div id="image-container">
       <img id="slider-image" class="floating" src="/images/nebir.jpg">
     </div>
 
-    <!-- Smaller Explanation (Right) -->
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
       <p id="slider-desc">
         Supporting rural development through sustainable programs.
       </p>
-
       <button id="next-btn">Next →</button>
     </div>
 
@@ -146,76 +157,3 @@
       document.getElementById("slider-desc").innerText = slides[index].text;
     }
   </script>
-
-  <!-- ========================================================== -->
-  <!-- MAIN CONTENT                                               -->
-  <!-- ========================================================== -->
-  <main class="main-content" style="
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-      padding: 50px 20px;
-    ">
-
-    <section>
-      <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
-
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
-        access to education, healthcare, and sustainable livelihoods.
-      </p>
-
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Since our founding, we have been dedicated to creating impactful programs that make a tangible
-        difference — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
-      </p>
-    </section>
-
-    <section style="margin-top: 60px;">
-      <h2 style="margin-bottom: 20px;">Latest News</h2>
-
-      <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-               gap: 20px; margin-top: 30px;">
-
-        <% recentNews.forEach(news => { %>
-          <div class="news-card" style="
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: left;
-          ">
-            <img src="<%= news.image %>" alt="<%= news.title %>"
-              style="width: 100%; height: 180px; object-fit: cover;">
-
-            <div style="padding: 15px;">
-              <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
-              <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>
-
-              <p style="font-size: 0.85em; color: #777; margin: 10px 0;">
-                <strong>Date:</strong> <%= news.date %>
-              </p>
-
-              <a href="/news" style="display: inline-block; margin-top: 10px; font-weight: bold; color: #0066cc;">
-                Read More →
-              </a>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-
-      <div style="margin-top: 20px;">
-        <a href="/news" style="font-size: 1.1em; font-weight: bold; color: #008000;">
-          View All News →
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <%- include('partials/footer') %>
-
-</body>
-</html>
-
