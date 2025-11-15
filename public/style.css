@@ -72,7 +72,6 @@ header {
   color: #cce0cc;
 }
 
-/* Desktop navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
@@ -90,7 +89,6 @@ header {
 }
 
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -183,7 +181,7 @@ section {
   overflow: hidden;
 }
 
-/* left image fills all available space */
+/* left image fills entire left side */
 #image-container {
   flex: 1;
   width: 100%;
@@ -197,7 +195,7 @@ section {
   object-fit: cover;
 }
 
-/* right oval */
+/* right oval text box */
 #slider-text-box {
   width: 380px;
   height: 280px;
@@ -212,7 +210,6 @@ section {
   box-shadow: 0 18px 45px rgba(0,0,0,0.22);
 }
 
-/* responsive fix — prevent overflow */
 @media (max-width: 1000px) {
   #slider-section {
     flex-direction: column;
@@ -235,7 +232,7 @@ section {
 footer {
   background-color: #2e8b57;
   color: #fff;
-  padding: 40px 20px;
+  padding: 50px 20px;
   margin-top: 80px;
   border-top: 4px solid #246b45;
   border-radius: 10px 10px 0 0;
@@ -248,6 +245,58 @@ footer {
   gap: 40px;
   max-width: 1200px;
   margin: auto;
+}
+
+footer h3, footer h4 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer-about p,
+.footer-contact p {
+  color: #e9ffe9;
+  margin: 8px 0;
+  font-size: 17px;
+}
+
+.footer-links a {
+  display: block;
+  color: #e4f7e4;
+  margin-bottom: 8px;
+  font-size: 17px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #cce0cc;
+  text-decoration: underline;
+}
+
+/* SOCIAL MEDIA */
+.footer-social {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  display: inline-block;
+  background: #cce0cc;
+  color: #2e8b57;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.footer-social a:hover {
+  background: #ffffff;
+  transform: scale(1.1);
 }
 
 .footer-bottom {
