@@ -10,9 +10,7 @@
 
   <style>
 
-    /* ========================================= */
     /* FLOATING ANIMATION */
-    /* ========================================= */
     @keyframes float {
       0%   { transform: translateY(0px); }
       50%  { transform: translateY(-35px); }
@@ -20,25 +18,23 @@
     }
     .floating { animation: float 6s ease-in-out infinite; }
 
-    /* ========================================= */
-    /* MAIN LAYOUT - IMAGE LEFT / OVAL RIGHT     */
-    /* ========================================= */
+    /* MAIN LAYOUT */
     #slider-section {
       display: flex;
       align-items: center;
+      justify-content: space-between;   /* ← NO OVERLAP */
       height: 95vh;
       width: 100%;
-      padding: 0 20px;
+      padding: 0 40px;                  /* more spacing */
+      gap: 40px;                        /* space between image + oval */
     }
 
-    /* ========================================= */
-    /* LEFT IMAGE – NOW LARGER (70% width)       */
-    /* ========================================= */
+    /* LEFT IMAGE – LARGE */
     #image-container {
       flex: 70%;
       height: 100%;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       overflow: hidden;
     }
@@ -51,25 +47,15 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* ========================================= */
-    /* RIGHT OVAL – NOW SMALLER                  */
-    /* ========================================= */
+    /* RIGHT OVAL – NOW NEXT TO IMAGE (NO OVERLAP) */
     #slider-text-box {
       flex: 30%;
-      position: relative;
-      left: -60px;
-      z-index: 10;
-
-      width: 380px;   /* reduced from 460 */
-      height: 280px;  /* reduced from 340 */
+      width: 380px;
+      height: 280px;
 
       background: #f2fff2;
       border-radius: 50% / 40%;
       padding: 35px;
-
-      /* CLEAN OVAL OVERLAP - NO OUTER EDGE */
-      clip-path: ellipse(50% 40% at 60% 50%);
-      overflow: hidden;
 
       display: flex;
       flex-direction: column;
@@ -78,6 +64,8 @@
       text-align: center;
 
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+      position: relative;
+      left: 0;          /* ← removed overlap shift */
     }
 
     #slider-title {
@@ -112,12 +100,9 @@
 
 <body class="home-page">
 
-  <!-- HEADER -->
   <%- include('partials/header') %>
 
-  <!-- ========================================= -->
-  <!-- FULL LEFT IMAGE + SMALL RIGHT OVAL        -->
-  <!-- ========================================= -->
+  <!-- IMAGE LEFT + OVAL RIGHT (NO OVERLAP) -->
   <section id="slider-section">
 
     <div id="image-container">
@@ -126,34 +111,17 @@
 
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
-      <p id="slider-desc">
-        Supporting rural development through sustainable programs.
-      </p>
+      <p id="slider-desc">Supporting rural development through sustainable programs.</p>
       <button id="next-btn">Next →</button>
     </div>
 
   </section>
 
-  <!-- ========================================= -->
-  <!-- SLIDER SCRIPT -->
-  <!-- ========================================= -->
   <script>
     const slides = [
-      {
-        img: "/images/nebir.jpg",
-        title: "Nebir Project",
-        text: "Supporting rural development through sustainable programs."
-      },
-      {
-        img: "/images/tota.jpg",
-        title: "Tota Community Work",
-        text: "Empowering local families with tools, knowledge, and training."
-      },
-      {
-        img: "/images/project1.jpg",
-        title: "Agricultural Support Initiative",
-        text: "Helping farmers increase food production and income with modern techniques."
-      }
+      { img: "/images/nebir.jpg", title: "Nebir Project", text: "Supporting rural development through sustainable programs." },
+      { img: "/images/tota.jpg", title: "Tota Community Work", text: "Empowering local families with tools, knowledge, and training." },
+      { img: "/images/project1.jpg", title: "Agricultural Support Initiative", text: "Helping farmers increase food production and income with modern techniques." }
     ];
 
     let index = 0;
@@ -170,22 +138,17 @@
     }
   </script>
 
-  <!-- ========================================= -->
-  <!-- MAIN CONTENT -->
-  <!-- ========================================= -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
-        access to education, healthcare, and sustainable livelihoods.
+        Welcome to <strong>Wonta Rural Development Association</strong>.
       </p>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Since our founding, we have been dedicated to impactful programs in education,
-        healthcare, women & youth empowerment, and sustainable agriculture.
+        Dedicated to education, healthcare, empowerment, and sustainable agriculture.
       </p>
     </section>
 
@@ -193,38 +156,28 @@
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-               gap: 20px; margin-top: 30px;">
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
 
         <% recentNews.forEach(news => { %>
-          <div class="news-card"
-            style="background: #fff; border-radius: 8px; overflow: hidden;
-                   box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left;">
-
-            <img src="<%= news.image %>" alt="<%= news.title %>"
-              style="width: 100%; height: 180px; object-fit: cover;">
-
-            <div style="padding: 15px;">
-              <h3 style="font-size: 1.1em; margin-bottom: 10px;"><%= news.title %></h3>
-              <p style="font-size: 0.9em; color: #555;"><%= news.summary %></p>
-              <p style="font-size: 0.85em; color: #777; margin: 10px 0;">
+          <div class="news-card" style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:left;">
+            <img src="<%= news.image %>" style="width:100%; height:180px; object-fit:cover;">
+            <div style="padding:15px;">
+              <h3 style="font-size:1.1em; margin-bottom:10px;"><%= news.title %></h3>
+              <p style="font-size:0.9em; color:#555;"><%= news.summary %></p>
+              <p style="font-size:0.85em; color:#777; margin:10px 0;">
                 <strong>Date:</strong> <%= news.date %>
               </p>
-              <a href="/news" style="font-weight: bold; color: #0066cc;">
-                Read More →
-              </a>
+              <a href="/news" style="font-weight:bold; color:#0066cc;">Read More →</a>
             </div>
-
           </div>
         <% }) %>
 
       </div>
 
-      <div style="margin-top: 20px;">
-        <a href="/news" style="font-size: 1.1em; font-weight: bold; color: #008000;">
-          View All News →
-        </a>
+      <div style="margin-top:20px;">
+        <a href="/news" style="font-size:1.1em; font-weight:bold; color:#008000;">View All News →</a>
       </div>
+
     </section>
 
   </main>
