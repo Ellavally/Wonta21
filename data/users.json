@@ -1,0 +1,1 @@
+node -e "const bcrypt=require('bcrypt'); const f=require('fs'); bcrypt.hash('yourAdminPassword',10).then(h=> { const u=[{ id: require('crypto').randomUUID(), username:'admin', passwordHash:h, role:'admin' }]; f.writeFileSync('./data/users.json', JSON.stringify(u,null,2)); console.log('Admin created'); })"

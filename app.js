@@ -1,27 +1,38 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
+const { loadJson, saveJson } = require('./helpers/dataStore');
+
 const app = express();
 
 // -------------------------------
 // Middleware
 // -------------------------------
 
-// Serve static files (CSS, JS, images)
+// static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Parse POST form data
+// form parser
 app.use(express.urlencoded({ extended: true }));
 
-// Set EJS as the template engine
+// session for admin panel
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'super-secret-key',
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// EJS engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
 // -------------------------------
-// GLOBAL NEWS DATA
+// GLOBAL NEWS DATA (from JSON instead of hardcoded)
 // -------------------------------
 
-const newsData = [
+// load instead of hardcoding
+let newsData = loadJson('news', [
   {
     title: "Wonta RDA Launches Women Empowerment Program",
     date: "2025-02-10",
@@ -43,17 +54,19 @@ const newsData = [
     summary: "Essential food supplies and nutrition training delivered to vulnerable rural families.",
     link: "#"
   }
-];
+]);
 
 
 // -------------------------------
 // ROUTES
 // -------------------------------
 
-// Home Page (show 3 latest news)
+// Home Page — show 3 most recent news
 app.get('/', (req, res) => {
 
-  const recentNews = newsData
+  newsData = loadJson('news'); // auto-refresh when admin updates news
+
+  const recentNews = [...newsData]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 3);
 
@@ -75,7 +88,8 @@ app.get('/contact', (req, res) => {
 
 // Projects Page
 app.get('/projects', (req, res) => {
-  const projects = [
+
+  const projects = loadJson('projects', [
     {
       title: "Education for All",
       category: "Education",
@@ -108,7 +122,7 @@ app.get('/projects', (req, res) => {
       impact: "600+ women supported through business and literacy programs.",
       link: "#"
     }
-  ];
+  ]);
 
   res.render('projects', { projects, activePage: 'projects' });
 });
@@ -120,13 +134,13 @@ app.get('/projects', (req, res) => {
 
 app.get('/news', (req, res) => {
 
+  newsData = loadJson('news');
+
   const currentPage = parseInt(req.query.page) || 1;
   const itemsPerPage = 6;
 
   const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-
-  const paginatedNews = newsData.slice(start, end);
+  const paginatedNews = newsData.slice(start, start + itemsPerPage);
   const totalPages = Math.ceil(newsData.length / itemsPerPage);
 
   res.render('news', {
@@ -139,13 +153,31 @@ app.get('/news', (req, res) => {
 
 
 // -------------------------------
-// Contact Form Submission
+// Contact Form Submission (save to admin messages)
 // -------------------------------
 
 app.post('/contact', (req, res) => {
-  console.log("📩 Contact form submitted:", req.body);
+  const messages = loadJson('messages', []);
+  const id = crypto.randomUUID();
+
+  messages.unshift({
+    id,
+    ...req.body,
+    date: new Date().toISOString()
+  });
+
+  saveJson('messages', messages);
+
   res.send("Thank you for contacting us!");
 });
+
+
+// -------------------------------
+// ADMIN PANEL ROUTES
+// -------------------------------
+
+const adminRoutes = require('./routes/admin');
+app.use('/admin', adminRoutes);
 
 
 // -------------------------------
@@ -153,6 +185,7 @@ app.post('/contact', (req, res) => {
 // -------------------------------
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`⚡ Server running on http://localhost:${PORT}`);
 });
