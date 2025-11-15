@@ -1,13 +1,388 @@
 /* ===============================
-   ABOUT PAGE SECTION
+   GLOBAL STYLES
+================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f8f3;
+  color: #1b3d1b;
+  line-height: 1.6;
+  font-size: clamp(17px, 3vw, 19px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  color: #2e8b57;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: clamp(26px, 5vw, 34px);
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: clamp(16px, 3vw, 18px);
+  line-height: 1.8;
+}
+
+/* ===============================
+   HEADER
+================================= */
+header {
+  background-color: #2e8b57;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo h1 {
+  color: #fff;
+  margin: 0;
+  font-size: clamp(28px, 6vw, 36px);
+}
+
+#navbar {
+  display: flex;
+  gap: 30px;
+  transition: max-height 0.4s ease-in-out;
+}
+
+#navbar a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#navbar a:hover,
+#navbar a.active {
+  color: #cce0cc;
+}
+
+/* Desktop navbar */
+@media (min-width: 769px) {
+  #navbar {
+    display: flex !important;
+    max-height: none !important;
+  }
+}
+
+/* ===============================
+   MOBILE MENU (Final Fix)
+================================= */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #2e8b57;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+    display: none !important; /* Hidden by default */
+  }
+
+  #navbar.menu-open {
+    display: flex !important;
+  }
+}
+
+/* ===============================
+   MAIN CONTENT
+================================= */
+/* NOTE: make main transparent so .about-section cards are standalone */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px; /* keep some horizontal padding */
+  background: transparent; /* changed from white */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+/* ===============================
+   MOVING GALLERY
+================================= */
+.moving-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.moving-gallery img {
+  width: 30%;
+  min-width: 200px;
+  border-radius: 10px;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+.moving-gallery img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .moving-gallery {
+    flex-direction: column;
+  }
+
+  .moving-gallery img {
+    width: 100%;
+  }
+}
+
+/* ===============================
+   FOOTER
+================================= */
+footer {
+  background-color: #2e8b57;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 80px;
+  border-top: 4px solid #246b45;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 15px rgba(46,139,87,0.25);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-content h3,
+.footer-content h4 {
+  color: #cce0cc;
+}
+
+.footer-content a {
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-content a:hover {
+  color: #cce0cc;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #cce0cc;
+  font-size: clamp(14px, 3vw, 16px);
+  color: #e8f5e9;
+}
+
+/* ===============================
+   LEADERSHIP TEAM
+================================= */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.leader-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(46,139,87,0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-5px);
+}
+
+.leader-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #2e8b57;
+}
+
+.leader-position {
+  font-weight: bold;
+  color: #2e8b57;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   NEWS PAGE
+================================= */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header p {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.news-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.news-date {
+  color: #2e8b57;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #2e8b57;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+}
+
+.news-btn:hover {
+  background: #246b45;
+}
+
+/* ===============================
+   PAGINATION
+================================= */
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-btn,
+.page-number {
+  padding: 8px 15px;
+  background: #2e8b57;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.page-number.active {
+  background: #246b45;
+  border: 2px solid #cce0cc;
+}
+
+.page-btn:hover,
+.page-number:hover {
+  background: #246b45;
+}
+
+.page-btn.disabled {
+  background: #a5cbb1;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===============================
+   HOME PAGE SLIDER FIX
+================================= */
+#slider-section {
+  width: 100%;
+  height: auto;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+#image-container {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===============================
+   ABOUT PAGE SEPARATION
 ================================= */
 .about-section {
-  background: #ffffff;
-  padding: 50px 30px;
-  margin: 60px auto;
-  border-radius: 12px;
-  max-width: 1100px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  background: #ffffff !important;
+  padding: 50px 30px !important;
+  margin: 48px auto !important;
+  border-radius: 12px !important;
+  max-width: 1100px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
 }
 
 /* Main About Titles (H2) */
@@ -73,52 +448,15 @@
 }
 
 /* ===============================
-   FOOTER FIX (Ensures visibility)
+   FINAL FORCE (safety overrides)
 ================================= */
-footer {
-  background: #2e8b57;
-  color: white;
-  padding: 40px 0;
-  margin-top: 60px;
+main.main-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 20px !important;
 }
 
-.footer-content {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  padding: 0 20px;
-}
-
-footer h3,
-footer h4 {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-footer a {
-  color: white;
-  display: block;
-  margin-bottom: 8px;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 25px;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.25);
-  font-size: 14px;
-}
-
-/* ===============================
-   MOBILE FIXES
-================================= */
+/* small-screen tweaks */
 @media (max-width: 768px) {
   .about-section {
     padding: 30px 20px;
@@ -128,9 +466,5 @@ footer a:hover {
   .director-photo {
     width: 100%;
     height: auto;
-  }
-
-  footer {
-    text-align: center;
   }
 }
