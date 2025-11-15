@@ -99,10 +99,10 @@ app.get('/news', (req, res) => {
       link: "#"
     },
     {
-      title: "Mobile Health Outreach Reaches 3,000+ Residents",
+      title: "Food Security Support Reaches 12,000+ Households",
       date: "2025-01-05",
-      image: "/images/news3.jpg",
-      summary: "Free checkups, vaccinations, and health education were provided in remote communities.",
+      image: "/images/food-security-news.jpg",
+      summary: "Essential food supplies and nutrition training delivered to vulnerable rural families.",
       link: "#"
     }
   ];
