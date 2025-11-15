@@ -181,7 +181,6 @@ section {
   overflow: hidden;
 }
 
-/* left image fills entire left side */
 #image-container {
   flex: 1;
   width: 100%;
@@ -195,7 +194,6 @@ section {
   object-fit: cover;
 }
 
-/* right oval text box */
 #slider-text-box {
   width: 380px;
   height: 280px;
@@ -273,30 +271,28 @@ footer h3, footer h4 {
   text-decoration: underline;
 }
 
-/* SOCIAL MEDIA */
+/* ===============================
+   SOCIAL MEDIA (4 circles)
+================================= */
 .footer-social {
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
-  gap: 15px;
+  gap: 14px;
 }
 
-.footer-social a {
-  display: inline-block;
-  background: #cce0cc;
-  color: #2e8b57;
+.social-circle {
   width: 40px;
   height: 40px;
+  background: #ffffff;
+  opacity: 0.9;
   border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
+  display: inline-block;
   transition: 0.3s ease;
-  font-weight: bold;
 }
 
-.footer-social a:hover {
-  background: #ffffff;
-  transform: scale(1.1);
+.social-circle:hover {
+  opacity: 1;
+  transform: scale(1.12);
 }
 
 .footer-bottom {
