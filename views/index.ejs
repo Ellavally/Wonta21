@@ -21,41 +21,60 @@
     }
 
     /* ===================================================== */
-    /* BIG LEFT CIRCLE IMAGE + RIGHT TEXT                    */
+    /* LEFT IMAGE + ARC DIVIDER + RIGHT TEXT                 */
     /* ===================================================== */
     #slider-section {
       display: flex;
       align-items: center;
       height: 90vh;
       width: 100%;
-      padding: 0 50px;
-      gap: 80px;
+      padding: 0 40px;
+      gap: 0;
     }
 
-    /* LEFT CIRCLE (ENLARGED) */
+    /* LEFT IMAGE FULL SIZED */
     #image-container {
-      flex: 1;
+      flex: 1.2;
+      height: 100%;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
 
     #slider-image {
-      width: 95%;
-      height: 95%;
-      max-width: 650px;
-      max-height: 650px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
     }
 
-    /* RIGHT TEXT */
+    /* ARC SEPARATOR */
+    #arc-divider {
+      width: 80px;
+      height: 100%;
+      background: #fff;
+      position: relative;
+    }
+
+    /* Stylish curved vertical arc */
+    #arc-divider::before {
+      content: "";
+      position: absolute;
+      left: -60px;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      background: #fff;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      box-shadow: -8px 0 20px rgba(0,0,0,0.15);
+    }
+
+    /* RIGHT TEXT AREA */
     #slider-text-box {
       flex: 1;
-      padding: 20px;
-      text-align: left;
+      padding-left: 40px;
     }
 
     #slider-title {
@@ -93,14 +112,17 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- BIG CIRCLE IMAGE + RIGHT TEXT SLIDER                       -->
+  <!-- IMAGE + ARC DIVIDER + RIGHT TEXT                          -->
   <!-- ========================================================== -->
   <section id="slider-section">
 
-    <!-- Circle image -->
+    <!-- Left Image -->
     <div id="image-container">
       <img id="slider-image" class="floating" src="/images/nebir.jpg">
     </div>
+
+    <!-- Arc / Curved Divider -->
+    <div id="arc-divider"></div>
 
     <!-- Right text -->
     <div id="slider-text-box">
