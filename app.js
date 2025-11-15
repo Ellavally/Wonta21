@@ -1,3 +1,40 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// -------------------------------
+// Middleware
+// -------------------------------
+
+// Serve static files (CSS, JS, images) from "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Parse URL-encoded POST data (contact form)
+app.use(express.urlencoded({ extended: true }));
+
+// Set EJS as template engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// -------------------------------
+// ROUTES
+// -------------------------------
+
+// Home Page
+app.get('/', (req, res) => {
+  res.render('index', { activePage: 'home' });
+});
+
+// About Page
+app.get('/about', (req, res) => {
+  res.render('about', { activePage: 'about' });
+});
+
+// Contact Page
+app.get('/contact', (req, res) => {
+  res.render('contact', { activePage: 'contact' });
+});
+
 // Projects Page
 app.get('/projects', (req, res) => {
   const projects = [
@@ -36,4 +73,20 @@ app.get('/projects', (req, res) => {
   ];
 
   res.render('projects', { projects, activePage: 'projects' });
+});
+
+// -------------------------------
+// Contact Form Submission
+// -------------------------------
+app.post('/contact', (req, res) => {
+  console.log("📩 Contact form submitted:", req.body);
+  res.send("Thank you for contacting us!");
+});
+
+// -------------------------------
+// Server Start
+// -------------------------------
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`⚡ Server running on http://localhost:${PORT}`);
 });
