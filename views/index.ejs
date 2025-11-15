@@ -10,6 +10,15 @@
 
   <style>
 
+    /* Remove all default margin + prevent horizontal scroll */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
     /* Floating animation */
     @keyframes float {
       0%   { transform: translateY(0px); }
@@ -24,12 +33,14 @@
       align-items: center;
       height: 95vh;
       width: 100%;
-      gap: 0;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
     }
 
     /* LEFT IMAGE */
     #image-container {
-      flex: 1;
+      flex: 1;                     /* FULL width left side */
       height: 100%;
       display: flex;
       justify-content: center;
@@ -69,7 +80,6 @@
       flex: 0 0 350px;
       width: 350px;
       height: 280px;
-
       background: #e3ffe3;
       border-radius: 50% / 40%;
       padding: 35px;
@@ -81,6 +91,8 @@
       text-align: center;
 
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+
+      margin-left: 0px; /* No gap between image and oval */
     }
 
     #slider-title {
@@ -139,7 +151,6 @@
       document.getElementById("slider-desc").innerText = slides[index].text;
     }
 
-    // Manual buttons
     document.getElementById("next-btn").addEventListener("click", () => {
       index = (index + 1) % slides.length;
       updateSlider();
@@ -150,16 +161,14 @@
       updateSlider();
     });
 
-    // Auto slide every 4 seconds
     setInterval(() => {
       index = (index + 1) % slides.length;
       updateSlider();
     }, 4000);
-
   </script>
 
   <!-- ================= CONTENT ================= -->
-  <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
+  <main class="main-content" style="width:100%; max-width:none; margin:0; padding:50px 20px; text-align:center;">
 
     <section>
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
@@ -178,7 +187,7 @@
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
       <div class="news-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; width:100%">
 
         <% recentNews.forEach(news => { %>
           <div class="news-card" style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:left;">
