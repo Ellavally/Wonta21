@@ -29,15 +29,16 @@
       height: 90vh;
       width: 100%;
       padding: 0 40px;
-      gap: 40px;
+      gap: 0; /* Allow circle to touch the image */
     }
 
-    /* LEFT IMAGE SECTION — BIG */
+    /* LEFT IMAGE SECTION */
     #image-container {
       flex: 70%;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     #slider-image {
@@ -50,27 +51,30 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT ROUND EXPLANATION CARD */
+    /* RIGHT ROUND EXPLANATION CARD — TOUCHING IMAGE */
     #slider-text-box {
-      flex: 30%;
-      width: 350px;
-      height: 350px;
+      position: relative;
+      left: -50px; /* Makes circle touch image */
+      z-index: 10;
+
+      width: 380px;
+      height: 380px;
       background: white;
       border-radius: 50%;
-      padding: 40px;
+      padding: 45px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
 
-      /* Stylish effects */
-      border: 5px solid #007b00;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+      border: 6px solid #007b00;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.28);
     }
 
     #slider-title {
-      font-size: 1.8em;
+      font-size: 1.85em;
       font-weight: bold;
       margin-bottom: 15px;
       color: #004d00;
@@ -80,7 +84,7 @@
       font-size: 1.1em;
       line-height: 1.5;
       margin-bottom: 25px;
-      padding: 0 10px;
+      padding: 0 12px;
     }
 
     #next-btn {
