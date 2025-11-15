@@ -10,7 +10,7 @@
 
   <style>
 
-    /* Remove default margin + prevent horizontal scroll */
+    /* Remove margins & prevent horizontal scroll */
     html, body {
       margin: 0;
       padding: 0;
@@ -27,7 +27,7 @@
     }
     .floating { animation: float 6s ease-in-out infinite; }
 
-    /* === LAYOUT === */
+    /* SLIDER LAYOUT */
     #slider-section {
       display: flex;
       align-items: center;
@@ -55,7 +55,7 @@
       object-fit: cover;
     }
 
-    /* ARROW BUTTONS */
+    /* ARROWS */
     .arrow {
       position: absolute;
       top: 50%;
@@ -75,7 +75,7 @@
     #prev-btn { left: 18px; }
     #next-btn { right: 18px; }
 
-    /* RIGHT OVAL */
+    /* RIGHT OVAL BOX */
     #slider-text-box {
       flex: 0 0 350px;
       width: 350px;
@@ -104,28 +104,6 @@
       font-size: 1em;
       line-height: 1.4;
       margin-bottom: 20px;
-    }
-
-    /* PARTNERS BOX */
-    .partners-box {
-      background: #f5fff5;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .partners-box img {
-      width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    /* Responsive: stack news + partners on small screens */
-    @media (max-width: 900px) {
-      .news-partners-wrapper {
-        grid-template-columns: 1fr !important;
-      }
     }
 
   </style>
@@ -190,6 +168,7 @@
   <!-- ================= CONTENT ================= -->
   <main class="main-content" style="width:100%; max-width:none; margin:0; padding:50px 20px; text-align:center;">
 
+    <!-- INTRO SECTION -->
     <section>
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
@@ -202,61 +181,60 @@
       </p>
     </section>
 
-    <!-- NEWS + PARTNERS -->
-    <section style="margin-top: 60px;">
+    <!-- ================= LATEST NEWS SECTION ================= -->
+    <section id="latest-news" style="margin-top: 80px; width: 100%;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
-      <div class="news-partners-wrapper"
-        style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start; margin-top: 30px;">
+      <div class="news-grid"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+          margin-top: 30px;
+          width:100%;
+        ">
 
-        <!-- ==================== NEWS (LEFT SIDE) ==================== -->
-        <div>
-          <div class="news-grid"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width:100%">
+        <% recentNews.forEach(news => { %>
+          <div class="news-card"
+            style="
+              background:#fff;
+              border-radius:12px;
+              overflow:hidden;
+              box-shadow:0 4px 12px rgba(0,0,0,0.12);
+              text-align:left;
+            ">
+            <img src="<%= news.image %>" 
+                 style="width:100%; height:180px; object-fit:cover;">
 
-            <% recentNews.forEach(news => { %>
-              <div class="news-card" style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:left;">
-                <img src="<%= news.image %>" style="width:100%; height:180px; object-fit:cover;">
-                <div style="padding:15px;">
-                  <h3 style="font-size:1.1em; margin-bottom:10px;"><%= news.title %></h3>
-                  <p style="font-size:0.9em; color:#555;"><%= news.summary %></p>
-                  <p style="font-size:0.85em; color:#777; margin:10px 0;">
-                    <strong>Date:</strong> <%= news.date %>
-                  </p>
-                  <a href="/news" style="font-weight:bold; color:#0066cc;">Read More →</a>
-                </div>
-              </div>
-            <% }) %>
+            <div style="padding:18px;">
+              <h3 style="font-size:1.15em; margin-bottom:12px;">
+                <%= news.title %>
+              </h3>
+
+              <p style="font-size:0.95em; color:#555; line-height:1.5;">
+                <%= news.summary %>
+              </p>
+
+              <p style="font-size:0.85em; color:#777; margin:12px 0;">
+                <strong>Date:</strong> <%= news.date %>
+              </p>
+
+              <a href="/news"
+                 style="font-weight:bold; color:#0066cc; text-decoration:none;">
+                 Read More →
+              </a>
+            </div>
 
           </div>
+        <% }) %>
 
-          <div style="margin-top:20px;">
-            <a href="/news" style="font-size:1.1em; font-weight:bold; color:#008000;">View All News →</a>
-          </div>
-        </div>
+      </div>
 
-        <!-- ==================== PARTNERS (RIGHT SIDE) ==================== -->
-        <div class="partners-box">
-
-          <h3 style="margin-bottom: 15px; color:#006600;">Our Partners</h3>
-
-          <div style="margin-bottom: 20px;">
-            <img src="/images/partner1.png">
-            <p style="font-size:0.9em; color:#444;">Supporting education and rural innovation.</p>
-          </div>
-
-          <div style="margin-bottom: 20px;">
-            <img src="/images/partner2.png">
-            <p style="font-size:0.9em; color:#444;">Providing agricultural technology and funding.</p>
-          </div>
-
-          <div style="margin-bottom: 10px;">
-            <img src="/images/partner3.png">
-            <p style="font-size:0.9em; color:#444;">Committed to women empowerment initiatives.</p>
-          </div>
-
-        </div>
-
+      <div style="margin-top:25px;">
+        <a href="/news" 
+          style="font-size:1.1em; font-weight:bold; color:#008000; text-decoration:none;">
+          View All News →
+        </a>
       </div>
 
     </section>
