@@ -20,51 +20,52 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* ===== SLIDER LAYOUT ===== */
+    /* ===== SLIDER SECTION ===== */
     #slider-section {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1200px;
+      justify-content: space-between;
+      max-width: 1400px;
       margin: 40px auto;
       padding: 20px;
+      gap: 40px;
+      flex-wrap: wrap;
     }
 
-    /* ===== Half Circle Image ===== */
+    /* ===== BIG HALF-CIRCLE IMAGE ===== */
     #slider-image {
-      width: 420px;
-      height: 420px;
+      width: 600px;
+      height: 600px;
       object-fit: cover;
-      border-radius: 420px 420px 0 0;    /* Makes half-circle */
-      clip-path: ellipse(100% 50% at 50% 100%); /* Perfect half-circle */
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      border-radius: 600px 600px 0 0;
+      clip-path: ellipse(100% 50% at 50% 100%);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
 
-    /* ===== Text Section ===== */
+    /* ===== TEXT BOX ===== */
     #slider-text-box {
-      max-width: 450px;
+      max-width: 480px;
       text-align: left;
     }
 
     #slider-title {
-      font-size: 1.8em;
+      font-size: 2em;
       font-weight: bold;
       margin-bottom: 12px;
     }
 
     #slider-desc {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      font-size: 1.2em;
+      line-height: 1.7;
+      margin-bottom: 25px;
     }
 
     #next-btn {
-      padding: 12px 24px;
+      padding: 14px 30px;
       background: #007b00;
       color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 1.1em;
       font-weight: bold;
@@ -74,6 +75,7 @@
       background: #009900;
     }
   </style>
+
 </head>
 
 <body class="home-page">
@@ -82,58 +84,25 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- HALF-CIRCLE FLOATING IMAGE + RIGHT SIDE TEXT SLIDER       -->
+  <!-- HERO IMAGE SLIDER (HALF CIRCLE IMAGE + TEXT)               -->
   <!-- ========================================================== -->
   <section id="slider-section">
 
     <!-- Half circle floating image -->
     <img id="slider-image" class="floating" src="/images/nebir.jpg">
 
-    <!-- Title + Text -->
+    <!-- Title + Explanation -->
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
+
       <p id="slider-desc">
-        Supporting rural development through sustainable programs.
+        Supporting rural development through sustainable programs that strengthen community livelihoods.
       </p>
 
       <button id="next-btn">Next →</button>
     </div>
 
   </section>
-
-  <!-- SLIDER SCRIPT -->
-  <script>
-    const slides = [
-      {
-        img: "/images/nebir.jpg",
-        title: "Nebir Project",
-        text: "Supporting rural development through sustainable programs."
-      },
-      {
-        img: "/images/tota.jpg",
-        title: "Tota Community Work",
-        text: "Empowering local families with tools, knowledge, and training."
-      },
-      {
-        img: "/images/project1.jpg",
-        title: "Agricultural Support Initiative",
-        text: "Helping farmers increase food production and income through modern techniques."
-      }
-    ];
-
-    let index = 0;
-
-    document.getElementById("next-btn").addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      updateSlider();
-    });
-
-    function updateSlider() {
-      document.getElementById("slider-image").src = slides[index].img;
-      document.getElementById("slider-title").innerText = slides[index].title;
-      document.getElementById("slider-desc").innerText = slides[index].text;
-    }
-  </script>
 
   <!-- ========================================================== -->
   <!-- MAIN CONTENT                                               -->
@@ -144,13 +113,11 @@
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
-        access to education, healthcare, and sustainable livelihoods.
+        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves access to education, healthcare, and sustainable livelihoods.
       </p>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Since our founding, we have been dedicated to creating impactful programs that make a tangible
-        difference — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
+        Since our founding, we have been dedicated to creating impactful programs that make a tangible difference in underserved areas — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
       </p>
     </section>
 
@@ -202,6 +169,42 @@
 
   <!-- Footer -->
   <%- include('partials/footer') %>
+
+  <!-- ========================================================== -->
+  <!-- SLIDER SCRIPT                                              -->
+  <!-- ========================================================== -->
+  <script>
+    const slides = [
+      {
+        img: "/images/nebir.jpg",
+        title: "Nebir Project",
+        text: "Supporting rural development through sustainable programs that strengthen community livelihoods."
+      },
+      {
+        img: "/images/tota.jpg",
+        title: "Tota Community Work",
+        text: "Empowering local families with tools, knowledge, and training."
+      },
+      {
+        img: "/images/project1.jpg",
+        title: "Agricultural Support Initiative",
+        text: "Helping farmers increase food production and income through modern techniques."
+      }
+    ];
+
+    let index = 0;
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    });
+
+    function updateSlider() {
+      document.getElementById("slider-image").src = slides[index].img;
+      document.getElementById("slider-title").innerText = slides[index].title;
+      document.getElementById("slider-desc").innerText = slides[index].text;
+    }
+  </script>
 
 </body>
 </html>
