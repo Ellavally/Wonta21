@@ -9,6 +9,9 @@ body {
   color: #1b3d1b;
   line-height: 1.6;
   font-size: clamp(17px, 3vw, 19px);
+
+  /* OPTIONAL — enable if you want 1-screen snap scrolling */
+  /* scroll-snap-type: y mandatory; */
 }
 
 a {
@@ -28,6 +31,20 @@ h1, h2, h3, h4 {
 p {
   font-size: clamp(16px, 3vw, 18px);
   line-height: 1.8;
+}
+
+/* ===============================
+   FULLSCREEN SECTIONS
+================================= */
+.fullscreen-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* OPTIONAL — enable if you want each section to snap */
+  /* scroll-snap-align: start; */
 }
 
 /* ===============================
@@ -64,7 +81,6 @@ header {
   color: #cce0cc;
 }
 
-/* Desktop navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
@@ -73,7 +89,7 @@ header {
 }
 
 /* ===============================
-   MOBILE MENU (Final Fix)
+   MOBILE MENU
 ================================= */
 .menu-toggle {
   display: none;
@@ -84,7 +100,6 @@ header {
 }
 
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -98,7 +113,7 @@ header {
     flex-direction: column;
     gap: 15px;
     padding: 15px 0;
-    display: none !important; /* Hidden by default */
+    display: none !important;
   }
 
   #navbar.menu-open {
