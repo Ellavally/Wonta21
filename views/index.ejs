@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* ===== Floating Animation ===== */
+    /* FLOAT ANIMATION */
     @keyframes float {
       0%   { transform: translateY(0px); }
       50%  { transform: translateY(-35px); }
@@ -20,9 +20,7 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* =============================== */
-    /*   LAYOUT WITH FULL-LEFT IMAGE  */
-    /* =============================== */
+    /* LEFT IMAGE + OVAL TEXT LAYOUT */
     #slider-section {
       display: flex;
       align-items: center;
@@ -32,7 +30,7 @@
       gap: 0;
     }
 
-    /* IMAGE FILLS ENTIRE LEFT SIDE */
+    /* LEFT SIDE IMAGE — FULL HEIGHT */
     #image-container {
       flex: 65%;
       height: 100%;
@@ -50,22 +48,18 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* =============================== */
-    /*   OVAL TEXT BOX (OPEN LEFT)    */
-    /* =============================== */
+    /* RIGHT OVAL TOUCHING IMAGE WITH TRANSPARENT OVERLAP */
     #slider-text-box {
       flex: 35%;
+      position: relative;
+      left: -120px; /* Overlaps image */
+
       width: 520px;
       height: 380px;
 
-      border-radius: 50% / 40%;   /* Creates oval */
-      border: 6px solid #007b00;
-      border-left: none;          /* Open on image side */
-
-      background: #ffffff;
+      background: white;
+      border-radius: 50% / 40%; /* Oval shape */
       padding: 60px;
-      margin-left: -70px;
-      z-index: 10;
 
       display: flex;
       flex-direction: column;
@@ -73,7 +67,11 @@
       align-items: center;
       text-align: center;
 
+      border: 6px solid #007b00;
       box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+
+      /* MAGIC LINE — Makes overlap transparent */
+      mix-blend-mode: multiply;
     }
 
     #slider-title {
@@ -111,9 +109,7 @@
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- ============================================= -->
-  <!--   FULL-SIDE IMAGE + OVAL TEXT BOX             -->
-  <!-- ============================================= -->
+  <!-- MAIN HERO SECTION -->
   <section id="slider-section">
 
     <div id="image-container">
@@ -122,10 +118,7 @@
 
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
-      <p id="slider-desc">
-        Supporting rural development through sustainable programs.
-      </p>
-
+      <p id="slider-desc">Supporting rural development through sustainable programs.</p>
       <button id="next-btn">Next →</button>
     </div>
 
@@ -134,21 +127,9 @@
   <!-- SLIDER SCRIPT -->
   <script>
     const slides = [
-      {
-        img: "/images/nebir.jpg",
-        title: "Nebir Project",
-        text: "Supporting rural development through sustainable programs."
-      },
-      {
-        img: "/images/tota.jpg",
-        title: "Tota Community Work",
-        text: "Empowering local families with tools, knowledge, and training."
-      },
-      {
-        img: "/images/project1.jpg",
-        title: "Agricultural Support Initiative",
-        text: "Helping farmers increase food production and income through modern techniques."
-      }
+      { img: "/images/nebir.jpg", title: "Nebir Project", text: "Supporting rural development through sustainable programs." },
+      { img: "/images/tota.jpg", title: "Tota Community Work", text: "Empowering local families with tools, knowledge, and training." },
+      { img: "/images/project1.jpg", title: "Agricultural Support Initiative", text: "Helping farmers increase food production and income through modern techniques." }
     ];
 
     let index = 0;
@@ -165,7 +146,7 @@
     }
   </script>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT BELOW -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
@@ -208,11 +189,13 @@
             </div>
           </div>
         <% }) %>
+
       </div>
 
       <div style="margin-top: 20px;">
         <a href="/news" style="font-size: 1.1em; font-weight: bold; color: #008000;">
-          View All News →</a>
+          View All News →
+        </a>
       </div>
     </section>
 
