@@ -98,7 +98,7 @@ header {
     flex-direction: column;
     gap: 15px;
     padding: 15px 0;
-    display: none !important; /* Hidden by default */
+    display: none !important;
   }
 
   #navbar.menu-open {
@@ -107,14 +107,80 @@ header {
 }
 
 /* ===============================
+   ABOUT DROPDOWN MENU
+================================= */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a {
+  cursor: pointer;
+}
+
+/* Dropdown box */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  min-width: 220px;
+  padding: 10px 0;
+  top: 100%;
+  left: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #2e8b57;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: #2e8b57;
+  color: #ffffff;
+}
+
+/* Show on hover (desktop only) */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile dropdown behavior */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: relative;
+    background: none;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-top: 0;
+  }
+
+  .dropdown-menu a {
+    padding: 8px 5px;
+    color: #ffffff;
+  }
+
+  .dropdown-menu a:hover {
+    background: none;
+    color: #cce0cc;
+  }
+}
+
+/* ===============================
    MAIN CONTENT
 ================================= */
-/* NOTE: make main transparent so .about-section cards are standalone */
 main {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 0 20px; /* keep some horizontal padding */
-  background: transparent; /* changed from white */
+  padding: 0 20px;
+  background: transparent;
   border-radius: 0;
   box-shadow: none;
 }
@@ -385,7 +451,6 @@ footer {
   border: 1px solid rgba(0,0,0,0.04) !important;
 }
 
-/* Main About Titles (H2) */
 .about-section h2 {
   font-size: clamp(28px, 5vw, 36px);
   margin-bottom: 25px;
@@ -394,7 +459,6 @@ footer {
   font-weight: 700;
 }
 
-/* Subtitles (H3) */
 .about-section h3 {
   font-size: clamp(22px, 4vw, 28px);
   color: #246b45;
@@ -403,12 +467,10 @@ footer {
   font-weight: 600;
 }
 
-/* Leadership grid spacing */
 .leadership-grid {
   margin-top: 40px;
 }
 
-/* Director Message Box */
 .director-message {
   background: #f3faf5;
   border-left: 6px solid #2e8b57;
@@ -456,7 +518,6 @@ main.main-content {
   padding: 0 20px !important;
 }
 
-/* small-screen tweaks */
 @media (max-width: 768px) {
   .about-section {
     padding: 30px 20px;
