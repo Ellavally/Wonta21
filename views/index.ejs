@@ -10,47 +10,67 @@
 
   <style>
 
+    /* Floating animation */
     @keyframes float {
       0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-35px); }
+      50%  { transform: translateY(-28px); }
       100% { transform: translateY(0px); }
     }
     .floating { animation: float 6s ease-in-out infinite; }
 
-    /* MAIN LAYOUT */
+    /* === LAYOUT === */
     #slider-section {
       display: flex;
       align-items: center;
       height: 95vh;
       width: 100%;
-      padding: 0 0;          /* no padding so the left image touches edges */
-      gap: 0;                /* image + oval touch */
+      gap: 0;
     }
 
-    /* LEFT IMAGE – FULL WINDOW LEFT SIDE */
+    /* LEFT IMAGE */
     #image-container {
-      flex: 1;                /* FULL left side */
+      flex: 1;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
     }
 
     #slider-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0;       /* remove curve – full window look */
-      box-shadow: none;       /* clean full-window appearance */
     }
+
+    /* ARROW BUTTONS */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.35);
+      color: white;
+      border: none;
+      padding: 16px;
+      font-size: 26px;
+      cursor: pointer;
+      border-radius: 50%;
+      backdrop-filter: blur(2px);
+      transition: 0.3s;
+    }
+    .arrow:hover { background: rgba(0,0,0,0.6); }
+
+    #prev-btn { left: 18px; }
+    #next-btn { right: 18px; }
 
     /* RIGHT OVAL */
     #slider-text-box {
-      flex: 0 0 380px;
-      width: 380px;
+      flex: 0 0 350px;
+      width: 350px;
       height: 280px;
-      background: #f2fff2;
+
+      background: #e3ffe3;
       border-radius: 50% / 40%;
       padding: 35px;
 
@@ -76,20 +96,6 @@
       margin-bottom: 20px;
     }
 
-    #next-btn {
-      padding: 12px 24px;
-      background: #007b00;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
-      font-weight: bold;
-    }
-    #next-btn:hover {
-      background: #009900;
-    }
-
   </style>
 </head>
 
@@ -97,20 +103,27 @@
 
   <%- include('partials/header') %>
 
+  <!-- ================= SLIDER ================= -->
   <section id="slider-section">
 
+    <!-- IMAGE -->
     <div id="image-container">
+      <button id="prev-btn" class="arrow">←</button>
+
       <img id="slider-image" class="floating" src="/images/nebir.jpg">
+
+      <button id="next-btn" class="arrow">→</button>
     </div>
 
+    <!-- DESCRIPTION OVAL -->
     <div id="slider-text-box">
       <h2 id="slider-title">Nebir Project</h2>
       <p id="slider-desc">Supporting rural development through sustainable programs.</p>
-      <button id="next-btn">Next →</button>
     </div>
 
   </section>
 
+  <!-- JS AUTOMATIC SLIDER -->
   <script>
     const slides = [
       { img: "/images/nebir.jpg", title: "Nebir Project", text: "Supporting rural development through sustainable programs." },
@@ -120,18 +133,32 @@
 
     let index = 0;
 
-    document.getElementById("next-btn").addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      updateSlider();
-    });
-
     function updateSlider() {
       document.getElementById("slider-image").src = slides[index].img;
       document.getElementById("slider-title").innerText = slides[index].title;
       document.getElementById("slider-desc").innerText = slides[index].text;
     }
+
+    // Manual buttons
+    document.getElementById("next-btn").addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+
+    // Auto slide every 4 seconds
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    }, 4000);
+
   </script>
 
+  <!-- ================= CONTENT ================= -->
   <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
 
     <section>
@@ -146,6 +173,7 @@
       </p>
     </section>
 
+    <!-- NEWS SECTION -->
     <section style="margin-top: 60px;">
       <h2 style="margin-bottom: 20px;">Latest News</h2>
 
