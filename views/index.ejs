@@ -11,51 +11,63 @@
   <style>
     /* ===== Floating Animation ===== */
     @keyframes float {
-      0%   { transform: translateY(0px) rotate(0deg); }
-      50%  { transform: translateY(-25px) rotate(3deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-25px); }
+      100% { transform: translateY(0px); }
     }
 
     .floating {
       animation: float 6s ease-in-out infinite;
     }
 
-    /* ===== Slider Styling ===== */
-    #slider-container {
-      text-align: center;
-      margin-top: 40px;
+    /* ===== SLIDER LAYOUT ===== */
+    #slider-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
     }
 
+    /* ===== Half Circle Image ===== */
     #slider-image {
-      width: 380px;
-      height: 380px;
+      width: 420px;
+      height: 420px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      border-radius: 420px 420px 0 0;    /* Makes half-circle */
+      clip-path: ellipse(100% 50% at 50% 100%); /* Perfect half-circle */
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* ===== Text Section ===== */
+    #slider-text-box {
+      max-width: 450px;
+      text-align: left;
     }
 
     #slider-title {
-      margin-top: 20px;
-      font-size: 1.6em;
+      font-size: 1.8em;
       font-weight: bold;
+      margin-bottom: 12px;
     }
 
-    #slider-text {
+    #slider-desc {
       font-size: 1.1em;
-      margin: 10px auto;
-      max-width: 600px;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     #next-btn {
-      margin-top: 20px;
-      padding: 12px 22px;
+      padding: 12px 24px;
       background: #007b00;
       color: #fff;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       font-size: 1.1em;
+      font-weight: bold;
     }
 
     #next-btn:hover {
@@ -70,22 +82,27 @@
   <%- include('partials/header') %>
 
   <!-- ========================================================== -->
-  <!-- SINGLE IMAGE SLIDER WITH TITLE + TEXT                      -->
+  <!-- HALF-CIRCLE FLOATING IMAGE + RIGHT SIDE TEXT SLIDER       -->
   <!-- ========================================================== -->
-  <section id="slider-container">
+  <section id="slider-section">
+
+    <!-- Half circle floating image -->
     <img id="slider-image" class="floating" src="/images/nebir.jpg">
 
-    <h2 id="slider-title">Nebir Project</h2>
+    <!-- Title + Text -->
+    <div id="slider-text-box">
+      <h2 id="slider-title">Nebir Project</h2>
+      <p id="slider-desc">
+        Supporting rural development through sustainable programs.
+      </p>
 
-    <p id="slider-text">
-      Supporting rural development through sustainable programs.
-    </p>
+      <button id="next-btn">Next →</button>
+    </div>
 
-    <button id="next-btn">Next →</button>
   </section>
 
+  <!-- SLIDER SCRIPT -->
   <script>
-    // IMAGES + TITLE + DESCRIPTION (EDIT HERE)
     const slides = [
       {
         img: "/images/nebir.jpg",
@@ -95,12 +112,12 @@
       {
         img: "/images/tota.jpg",
         title: "Tota Community Work",
-        text: "Empowering local families with tools and training."
+        text: "Empowering local families with tools, knowledge, and training."
       },
       {
         img: "/images/project1.jpg",
-        title: "Agricultural Support",
-        text: "Helping farmers increase production and income."
+        title: "Agricultural Support Initiative",
+        text: "Helping farmers increase food production and income through modern techniques."
       }
     ];
 
@@ -114,7 +131,7 @@
     function updateSlider() {
       document.getElementById("slider-image").src = slides[index].img;
       document.getElementById("slider-title").innerText = slides[index].title;
-      document.getElementById("slider-text").innerText = slides[index].text;
+      document.getElementById("slider-desc").innerText = slides[index].text;
     }
   </script>
 
@@ -127,11 +144,13 @@
       <h2 style="margin-bottom: 30px;">Empowering Rural Communities, Transforming Lives</h2>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves access to education, healthcare, and sustainable livelihoods.
+        Welcome to <strong>Wonta Rural Development Association</strong>. Every rural community deserves
+        access to education, healthcare, and sustainable livelihoods.
       </p>
 
       <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Since our founding, we have been dedicated to creating impactful programs that make a tangible difference in underserved areas — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
+        Since our founding, we have been dedicated to creating impactful programs that make a tangible
+        difference — focusing on education, healthcare, women & youth empowerment, and sustainable agriculture.
       </p>
     </section>
 
@@ -183,8 +202,6 @@
 
   <!-- Footer -->
   <%- include('partials/footer') %>
-
-  <script src="/script.js"></script>
 
 </body>
 </html>
