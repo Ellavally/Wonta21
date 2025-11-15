@@ -9,7 +9,9 @@ const { loadJson, saveJson } = require('../helpers/dataStore');
 const { ensureAdmin, ensureEditorOrAdmin } = require('../middleware/auth');
 const ejs = require('ejs');
 
-// Multer upload config
+/* -----------------------------------------------------------
+   FILE UPLOAD (Multer)
+----------------------------------------------------------- */
 const uploadDir = path.join(__dirname, '..', 'public', 'uploads');
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadDir),
@@ -18,96 +20,107 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Load users
 function loadUsers() {
   return loadJson('users', []);
 }
 
 /* -----------------------------------------------------------
-   LOGIN (WRAPS login.ejs INTO layout.ejs)
+   LOGIN PAGE
 ----------------------------------------------------------- */
-
 router.get('/login', (req, res) => {
-  const loginHtml = ejs.render(
+  const html = ejs.render(
     fs.readFileSync('./views/admin/login.ejs', 'utf8'),
     { message: null }
   );
+
   res.render('admin/layout', {
     title: 'Login',
     user: null,
-    body: loginHtml
+    body: html
   });
 });
 
-router.post('/login', (req, res) => {
+/* -----------------------------------------------------------
+   LOGIN SUBMIT
+----------------------------------------------------------- */
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const users = loadUsers();
+
   const user = users.find(u => u.username === username);
 
   if (!user) {
-    const loginHtml = ejs.render(
+    const html = ejs.render(
       fs.readFileSync('./views/admin/login.ejs', 'utf8'),
-      { message: 'Invalid credentials' }
+      { message: "Invalid credentials" }
     );
     return res.render('admin/layout', {
-      title: 'Login',
+      title: "Login",
       user: null,
-      body: loginHtml
+      body: html
     });
   }
 
-  bcrypt.compare(password, user.passwordHash).then(match => {
-    if (!match) {
-      const loginHtml = ejs.render(
-        fs.readFileSync('./views/admin/login.ejs', 'utf8'),
-        { message: 'Invalid credentials' }
-      );
-      return res.render('admin/layout', {
-        title: 'Login',
-        user: null,
-        body: loginHtml
-      });
-    }
+  const match = await bcrypt.compare(password, user.passwordHash);
+  if (!match) {
+    const html = ejs.render(
+      fs.readFileSync('./views/admin/login.ejs', 'utf8'),
+      { message: "Invalid credentials" }
+    );
+    return res.render('admin/layout', {
+      title: "Login",
+      user: null,
+      body: html
+    });
+  }
 
-    req.session.user = { username: user.username, role: user.role };
-    res.redirect('/admin');
-  });
+  // STORE session
+  req.session.user = {
+    id: user.id,
+    username: user.username,
+    role: user.role
+  };
+
+  res.redirect('/admin');
 });
 
+/* -----------------------------------------------------------
+   LOGOUT
+----------------------------------------------------------- */
 router.get('/logout', (req, res) => {
-  req.session.destroy(() => res.redirect('/admin/login'));
+  req.session.destroy(() => {
+    res.redirect('/admin/login');
+  });
 });
 
 /* -----------------------------------------------------------
    DASHBOARD
 ----------------------------------------------------------- */
-
 router.get('/', ensureEditorOrAdmin, (req, res) => {
-  const dashboardHtml = ejs.render(
+  const html = ejs.render(
     fs.readFileSync('./views/admin/dashboard.ejs', 'utf8'),
     {
-      user: req.session.user,
-      newsCount: loadJson('news').length,
-      projectsCount: loadJson('projects').length,
-      messagesCount: loadJson('messages').length
+      newsCount: loadJson('news', []).length,
+      projectsCount: loadJson('projects', []).length,
+      messagesCount: loadJson('messages', []).length,
+      user: req.session.user
     }
   );
 
   res.render('admin/layout', {
     title: 'Dashboard',
     user: req.session.user,
-    body: dashboardHtml
+    body: html
   });
 });
 
 /* -----------------------------------------------------------
-   NEWS CRUD
+   NEWS LIST
 ----------------------------------------------------------- */
-
 router.get('/news', ensureEditorOrAdmin, (req, res) => {
   const html = ejs.render(
     fs.readFileSync('./views/admin/news/list.ejs', 'utf8'),
-    { news: loadJson('news') }
+    { news: loadJson('news', []), user: req.session.user }
   );
 
   res.render('admin/layout', {
@@ -117,21 +130,27 @@ router.get('/news', ensureEditorOrAdmin, (req, res) => {
   });
 });
 
+/* -----------------------------------------------------------
+   NEWS CREATE FORM
+----------------------------------------------------------- */
 router.get('/news/new', ensureEditorOrAdmin, (req, res) => {
   const html = ejs.render(
     fs.readFileSync('./views/admin/news/form.ejs', 'utf8'),
-    { newsItem: null }
+    { newsItem: null, user: req.session.user }
   );
 
   res.render('admin/layout', {
-    title: 'New News',
+    title: 'Create News',
     user: req.session.user,
     body: html
   });
 });
 
+/* -----------------------------------------------------------
+   NEWS CREATE SUBMIT
+----------------------------------------------------------- */
 router.post('/news/new', ensureEditorOrAdmin, upload.single('image'), (req, res) => {
-  const news = loadJson('news');
+  const news = loadJson('news', []);
   const { title, date, summary, link } = req.body;
 
   news.unshift({
@@ -147,13 +166,16 @@ router.post('/news/new', ensureEditorOrAdmin, upload.single('image'), (req, res)
   res.redirect('/admin/news');
 });
 
+/* -----------------------------------------------------------
+   NEWS EDIT FORM
+----------------------------------------------------------- */
 router.get('/news/edit/:id', ensureEditorOrAdmin, (req, res) => {
-  const news = loadJson('news');
+  const news = loadJson('news', []);
   const item = news.find(n => n.id === req.params.id);
 
   const html = ejs.render(
     fs.readFileSync('./views/admin/news/form.ejs', 'utf8'),
-    { newsItem: item }
+    { newsItem: item, user: req.session.user }
   );
 
   res.render('admin/layout', {
@@ -163,30 +185,35 @@ router.get('/news/edit/:id', ensureEditorOrAdmin, (req, res) => {
   });
 });
 
+/* -----------------------------------------------------------
+   NEWS EDIT SUBMIT
+----------------------------------------------------------- */
 router.post('/news/edit/:id', ensureEditorOrAdmin, upload.single('image'), (req, res) => {
-  const news = loadJson('news');
-  const i = news.findIndex(n => n.id === req.params.id);
-  if (i === -1) return res.redirect('/admin/news');
+  const news = loadJson('news', []);
+  const index = news.findIndex(n => n.id === req.params.id);
+  if (index === -1) return res.redirect('/admin/news');
 
   const { title, date, summary, link } = req.body;
-  if (req.file) news[i].image = '/uploads/' + req.file.filename;
 
-  news[i] = { ...news[i], title, date, summary, link };
+  if (req.file) {
+    news[index].image = '/uploads/' + req.file.filename;
+  }
+
+  news[index] = { ...news[index], title, date, summary, link };
   saveJson('news', news);
-  res.redirect('/admin/news');
-});
 
-router.post('/news/delete/:id', ensureAdmin, (req, res) => {
-  let news = loadJson('news');
-  saveJson('news', news.filter(n => n.id !== req.params.id));
   res.redirect('/admin/news');
 });
 
 /* -----------------------------------------------------------
-   PROJECTS CRUD
+   NEWS DELETE
 ----------------------------------------------------------- */
+router.post('/news/delete/:id', ensureAdmin, (req, res) => {
+  let news = loadJson('news', []);
+  news = news.filter(n => n.id !== req.params.id);
+  saveJson('news', news);
 
-// (same wrapper layout logic applied — omitted for brevity)
-// If you want, I can paste the full rewritten Projects CRUD too.
+  res.redirect('/admin/news');
+});
 
 module.exports = router;
