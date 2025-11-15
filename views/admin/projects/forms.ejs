@@ -1,0 +1,43 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4" style="max-width:650px;">
+  <h3><%= project ? "Edit Project" : "Add Project" %></h3>
+
+  <form method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label>Title</label>
+      <input name="title" class="form-control" value="<%= project?.title %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Category</label>
+      <input name="category" class="form-control" value="<%= project?.category %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Description</label>
+      <textarea name="description" class="form-control" required><%= project?.description %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Impact</label>
+      <textarea name="impact" class="form-control"><%= project?.impact %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Link</label>
+      <input name="link" class="form-control" value="<%= project?.link %>">
+    </div>
+
+    <div class="mb-3">
+      <label>Image</label>
+      <input type="file" name="image" class="form-control">
+      <% if (project?.image) { %>
+        <img src="<%= project.image %>" width="120" class="mt-2">
+      <% } %>
+    </div>
+
+    <button class="btn btn-success w-100">Save</button>
+  </form>
+</div>

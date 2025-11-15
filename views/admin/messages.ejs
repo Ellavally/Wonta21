@@ -1,0 +1,30 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4">
+  <h3>Contact Messages</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th width="120px">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% messages.forEach(m => { %>
+        <tr>
+          <td><%= m.name %></td>
+          <td><%= m.email %></td>
+          <td><%= m.message %></td>
+          <td>
+            <form method="POST" action="/admin/messages/delete/<%= m.id %>">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

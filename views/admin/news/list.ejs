@@ -1,0 +1,34 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4">
+  <h3>News</h3>
+  <a href="/admin/news/new" class="btn btn-success mb-3">+ Add News</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Summary</th>
+        <th width="160px">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% news.forEach(n => { %>
+        <tr>
+          <td><img src="<%= n.image %>" width="80"></td>
+          <td><%= n.title %></td>
+          <td><%= n.date %></td>
+          <td><%= n.summary %></td>
+          <td>
+            <a href="/admin/news/edit/<%= n.id %>" class="btn btn-warning btn-sm">Edit</a>
+            <form method="POST" action="/admin/news/delete/<%= n.id %>" style="display:inline">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

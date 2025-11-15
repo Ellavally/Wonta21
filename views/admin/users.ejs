@@ -1,0 +1,36 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4">
+  <h3>Admin Users</h3>
+
+  <form method="POST" action="/admin/users/new" class="card p-3 mb-4">
+    <h5>Add New User</h5>
+
+    <input name="username" class="form-control mb-2" placeholder="Username" required>
+    <input name="password" type="password" class="form-control mb-2" placeholder="Password" required>
+
+    <select name="role" class="form-control mb-2">
+      <option value="editor">Editor</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button class="btn btn-success">Add User</button>
+  </form>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(u => { %>
+        <tr>
+          <td><%= u.username %></td>
+          <td><%= u.role %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

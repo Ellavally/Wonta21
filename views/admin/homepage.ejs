@@ -1,0 +1,23 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4" style="max-width:600px;">
+  <h3>Homepage Manager</h3>
+
+  <form method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label>Hero Text</label>
+      <textarea name="heroText" class="form-control" rows="3"><%= homepage.heroText %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Hero Image</label>
+      <input type="file" name="heroImage" class="form-control">
+      <% if (homepage.heroImage) { %>
+        <img src="<%= homepage.heroImage %>" width="120" class="mt-2">
+      <% } %>
+    </div>
+
+    <button class="btn btn-success w-100">Save Changes</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<%- include('admin/layout') %>
+
+<div class="container mt-4">
+  <h2 class="mb-4">Admin Dashboard</h2>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card text-center p-3">
+        <h4>News</h4>
+        <p class="fs-3"><%= newsCount %></p>
+        <a href="/admin/news" class="btn btn-primary">Manage News</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center p-3">
+        <h4>Projects</h4>
+        <p class="fs-3"><%= projectsCount %></p>
+        <a href="/admin/projects" class="btn btn-primary">Manage Projects</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center p-3">
+        <h4>Messages</h4>
+        <p class="fs-3"><%= messagesCount %></p>
+        <a href="/admin/messages" class="btn btn-primary">View Messages</a>
+      </div>
+    </div>
+
+  </div>
+</div>
