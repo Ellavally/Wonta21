@@ -9,9 +9,6 @@ body {
   color: #1b3d1b;
   line-height: 1.6;
   font-size: clamp(17px, 3vw, 19px);
-
-  /* OPTIONAL — enable if you want 1-screen snap scrolling */
-  /* scroll-snap-type: y mandatory; */
 }
 
 a {
@@ -34,20 +31,6 @@ p {
 }
 
 /* ===============================
-   FULLSCREEN SECTIONS
-================================= */
-.fullscreen-section {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  /* OPTIONAL — enable if you want each section to snap */
-  /* scroll-snap-align: start; */
-}
-
-/* ===============================
    HEADER
 ================================= */
 header {
@@ -57,6 +40,7 @@ header {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  width: 100%;
 }
 
 .logo h1 {
@@ -81,6 +65,7 @@ header {
   color: #cce0cc;
 }
 
+/* Desktop navbar */
 @media (min-width: 769px) {
   #navbar {
     display: flex !important;
@@ -122,19 +107,21 @@ header {
 }
 
 /* ===============================
-   MAIN CONTENT
+   MAIN CONTENT - FULL WIDTH
 ================================= */
 main {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(46,139,87,0.2);
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Remove margins on sections */
 section {
-  margin-bottom: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===============================
@@ -183,17 +170,18 @@ footer {
   background-color: #2e8b57;
   color: #fff;
   padding: 40px 20px;
-  margin-top: 80px;
+  width: 100%;
   border-top: 4px solid #246b45;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0;
   box-shadow: 0 0 15px rgba(46,139,87,0.25);
+  margin: 0;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 40px;
-  max-width: 1200px;
+  width: 100%;
   margin: auto;
 }
 
@@ -222,7 +210,7 @@ footer {
 }
 
 /* ===============================
-   LEADERSHIP TEAM
+   OTHER COMPONENTS (unchanged)
 ================================= */
 .leadership-grid {
   display: grid;
@@ -259,17 +247,10 @@ footer {
   margin-bottom: 10px;
 }
 
-/* ===============================
-   NEWS PAGE
-================================= */
+/* NEWS PAGE */
 .page-header {
   text-align: center;
-  margin-bottom: 40px;
-}
-
-.page-header p {
-  color: #444;
-  font-size: 1.1rem;
+  margin: 20px 0;
 }
 
 .news-grid {
@@ -279,6 +260,7 @@ footer {
   margin-top: 30px;
 }
 
+/* CARD STYLES */
 .news-card {
   background: #fff;
   border-radius: 12px;
@@ -297,33 +279,7 @@ footer {
   margin-bottom: 12px;
 }
 
-.news-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
-.news-date {
-  color: #2e8b57;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.news-btn {
-  display: inline-block;
-  margin-top: 12px;
-  background: #2e8b57;
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 6px;
-}
-
-.news-btn:hover {
-  background: #246b45;
-}
-
-/* ===============================
-   PAGINATION
-================================= */
+/* PAGINATION */
 .pagination {
   margin-top: 40px;
   display: flex;
@@ -340,20 +296,4 @@ footer {
   border-radius: 6px;
   font-weight: bold;
   transition: 0.3s;
-}
-
-.page-number.active {
-  background: #246b45;
-  border: 2px solid #cce0cc;
-}
-
-.page-btn:hover,
-.page-number:hover {
-  background: #246b45;
-}
-
-.page-btn.disabled {
-  background: #a5cbb1;
-  cursor: not-allowed;
-  pointer-events: none;
 }
