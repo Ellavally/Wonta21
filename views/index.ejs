@@ -22,14 +22,14 @@
     #slider-section {
       display: flex;
       align-items: center;
-      justify-content: space-between;   /* ← NO OVERLAP */
+      justify-content: space-between;
       height: 95vh;
       width: 100%;
-      padding: 0 40px;                  /* more spacing */
-      gap: 40px;                        /* space between image + oval */
+      padding: 0 40px;
+      gap: 0;     /* ← NO GAP between image and oval */
     }
 
-    /* LEFT IMAGE – LARGE */
+    /* LEFT IMAGE */
     #image-container {
       flex: 70%;
       height: 100%;
@@ -47,7 +47,7 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT OVAL – NOW NEXT TO IMAGE (NO OVERLAP) */
+    /* RIGHT OVAL */
     #slider-text-box {
       flex: 30%;
       width: 380px;
@@ -64,8 +64,9 @@
       text-align: center;
 
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+
       position: relative;
-      left: 0;          /* ← removed overlap shift */
+      left: 0;  
     }
 
     #slider-title {
@@ -102,7 +103,7 @@
 
   <%- include('partials/header') %>
 
-  <!-- IMAGE LEFT + OVAL RIGHT (NO OVERLAP) -->
+  <!-- IMAGE LEFT + OVAL RIGHT touching (no gap, no overlap) -->
   <section id="slider-section">
 
     <div id="image-container">
