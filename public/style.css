@@ -107,22 +107,17 @@ header {
 }
 
 /* ===============================
-   ABOUT DROPDOWN MENU
+   ABOUT DROPDOWN MENU (OPTION A — GREEN)
 ================================= */
 
 .dropdown {
   position: relative;
 }
 
-.dropdown > a {
-  cursor: pointer;
-}
-
-/* Dropdown box */
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: #ffffff;
+  background: #2e8b57;        /* GREEN BACKGROUND */
   min-width: 220px;
   padding: 10px 0;
   top: 100%;
@@ -132,44 +127,36 @@ header {
   z-index: 1000;
 }
 
-/* Dropdown links */
 .dropdown-menu a {
   display: block;
   padding: 10px 15px;
-  color: #2e8b57;
+  color: #ffffff;            /* WHITE TEXT */
   font-weight: 500;
 }
 
 .dropdown-menu a:hover {
-  background: #2e8b57;
-  color: #ffffff;
+  background: #246b45;       /* DARKER GREEN */
+  color: #fff;
 }
 
-/* Show on hover (desktop only) */
+/* Show dropdown on hover (desktop) */
 @media (min-width: 769px) {
   .dropdown:hover .dropdown-menu {
     display: block;
   }
 }
 
-/* Mobile dropdown behavior */
+/* Mobile submenu */
 @media (max-width: 768px) {
   .dropdown-menu {
     position: relative;
-    background: none;
+    background: #2e8b57;
     box-shadow: none;
-    padding-left: 20px;
-    padding-top: 0;
+    padding-left: 15px;
   }
 
   .dropdown-menu a {
     padding: 8px 5px;
-    color: #ffffff;
-  }
-
-  .dropdown-menu a:hover {
-    background: none;
-    color: #cce0cc;
   }
 }
 
@@ -510,7 +497,7 @@ footer {
 }
 
 /* ===============================
-   FINAL FORCE (safety overrides)
+   FINAL FORCE
 ================================= */
 main.main-content {
   background: transparent !important;
