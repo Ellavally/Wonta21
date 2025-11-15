@@ -6,6 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Wonta Rural Development Association</title>
   <link rel="stylesheet" href="/style.css">
+
+  <!-- Smooth scrolling -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Internal navigation menu */
+    .about-nav {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      background: #f4f9f6;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+
+    .about-nav a {
+      color: #2e8b57;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .about-nav a:hover {
+      background: #2e8b57;
+      color: white;
+    }
+  </style>
+
 </head>
 
 <body data-page="about">
@@ -13,13 +49,24 @@
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
+
+    <!-- ===================================================== -->
+    <!-- 🔗 INTERNAL NAVIGATION LINKS -->
+    <!-- ===================================================== -->
+    <nav class="about-nav">
+      <a href="#glance">WRDA at a Glance</a>
+      <a href="#mission">Mission & Vision</a>
+      <a href="#leadership">WRDA Leadership</a>
+      <a href="#director">Director Message</a>
+    </nav>
+
 
     <!-- ===================================================== -->
     <!-- 1️⃣ WRDA AT A GLANCE -->
     <!-- ===================================================== -->
-    <section class="about-section">
+    <section class="about-section" id="glance">
       <h2>WRDA at a Glance</h2>
 
       <p>
@@ -32,7 +79,6 @@
         and build solutions that create long-term, meaningful change.
       </p>
 
-      <!-- Gallery -->
       <div class="moving-gallery">
         <img id="about-image2" src="/images/about2.jpg" alt="Development Program">
       </div>
@@ -48,8 +94,7 @@
     <!-- ===================================================== -->
     <!-- 2️⃣ MISSION & VISION -->
     <!-- ===================================================== -->
-
-    <section class="about-section">
+    <section class="about-section" id="mission">
       <h2>Mission & Vision</h2>
 
       <h3>Our Mission</h3>
@@ -77,71 +122,56 @@
 
 
     <!-- ===================================================== -->
-    <!-- 3️⃣ WRDA LEADERSHIP -->
+    <!-- 3️⃣ LEADERSHIP -->
     <!-- ===================================================== -->
-
-    <section class="about-section">
+    <section class="about-section" id="leadership">
       <h2>WRDA Leadership</h2>
 
       <div class="leadership-grid">
 
-        <!-- Managing Director -->
         <div class="leader-card">
           <img src="/images/kebede-nana.jpg" alt="Kebede Nana" class="leader-photo">
           <h4>Kebede Nana</h4>
           <p class="leader-position">Managing Director</p>
-          <p>
-            Provides strategic leadership and oversees programs focused on rural development,
-            community empowerment, and sustainable growth.
-          </p>
+          <p>Provides strategic leadership and oversees programs focused on rural development.</p>
         </div>
 
-        <!-- Deputy Manager -->
         <div class="leader-card">
           <img src="/images/zenebe-lema.jpg" alt="Zenebe Lema" class="leader-photo">
           <h4>Zenebe Lema</h4>
           <p class="leader-position">Deputy Manager</p>
-          <p>
-            Ensures efficient operations and supports the effective implementation of development projects.
-          </p>
+          <p>Supports effective implementation of development projects.</p>
         </div>
 
-        <!-- Finance Head -->
         <div class="leader-card">
           <img src="/images/ermias-nega.jpg" alt="Ermias Nega" class="leader-photo">
           <h4>Ermias Nega</h4>
           <p class="leader-position">Finance Head</p>
-          <p>
-            Oversees accurate financial reporting and transparent resource management.
-          </p>
+          <p>Ensures transparent resource management and accurate finance reporting.</p>
         </div>
 
-        <!-- Secretary -->
         <div class="leader-card">
           <img src="/images/bethelihem-kebede.jpg" alt="Bethelihem Kebede" class="leader-photo">
           <h4>Bethelihem Kebede</h4>
           <p class="leader-position">Secretary</p>
-          <p>
-            Manages communication, documentation, and administrative operations.
-          </p>
+          <p>Manages communication, documentation, and administrative operations.</p>
         </div>
 
-        <!-- Procurement Officer -->
         <div class="leader-card">
           <img src="/images/eyob-mamo.jpg" alt="Eyob Mamo" class="leader-photo">
           <h4>Eyob Mamo</h4>
           <p class="leader-position">Procurement Officer</p>
-          <p>
-            Oversees procurement processes and ensures efficient supply-chain coordination.
-          </p>
+          <p>Oversees procurement processes and supply-chain coordination.</p>
         </div>
 
       </div>
     </section>
 
 
-    <!-- Managing Director Message -->
-    <section class="about-section director-message">
+    <!-- ===================================================== -->
+    <!-- 4️⃣ DIRECTOR MESSAGE -->
+    <!-- ===================================================== -->
+    <section class="about-section director-message" id="director">
       <h3>Message from the Managing Director</h3>
 
       <div class="director-container">
@@ -150,8 +180,7 @@
         <div class="director-text">
           <p>
             “At WRDA, we believe real and lasting change begins within the community. Our programs are built on trust,
-            collaboration, and a shared vision for a better future. We continue to partner with communities to create 
-            solutions that empower rather than replace.”
+            collaboration, and a shared vision for a better future.”
           </p>
 
           <p class="director-name">— Kebede Nana, Managing Director</p>
@@ -161,11 +190,9 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <%- include('partials/footer') %>
 
-  <!-- JS -->
   <script src="/script.js"></script>
-
 </body>
 </html>
