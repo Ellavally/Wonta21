@@ -44,18 +44,26 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    /* RIGHT OVAL BOX */
+    /* OVAL TEXT BOX – WITH CLEAN CUT OVERLAP */
     #slider-text-box {
       flex: 35%;
       position: relative;
-      left: -80px;          /* pulls oval over the image */
+      left: -80px;          /* overlap onto image */
       z-index: 10;
 
       width: 460px;
       height: 340px;
 
-      background: #f2fff2;  /* soft eco-white background */
+      /* background (change anytime) */
+      background: #f2fff2;
+
+      /* Perfect oval */
       border-radius: 50% / 40%;
+
+      /* Cut cleanly where it overlaps */
+      clip-path: ellipse(50% 40% at 60% 50%);
+      overflow: hidden;
+
       padding: 55px;
 
       display: flex;
@@ -64,10 +72,10 @@
       align-items: center;
       text-align: center;
 
-      /* NO border on image side */
+      /* remove line on image side */
       border-right: none;
 
-      /* Soft shadow for depth */
+      /* Soft shadow */
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
     }
 
