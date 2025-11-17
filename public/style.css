@@ -192,7 +192,7 @@ header.main-header {
   object-fit: contain;
 }
 
-/* MOVING DESCRIPTION BAR */
+/* MOVING DESCRIPTION BAR — VERY SLOW */
 .partner-moving-text-wrapper {
   width: 100%;
   overflow: hidden;
@@ -206,11 +206,11 @@ header.main-header {
   display: inline-block;
   font-size: 20px;
   color: #014d21;
-  animation: scrollText 50s linear infinite; /* SLOW SPEED */
+  animation: scrollText 150s linear infinite; /* VERY, VERY SLOW */
 }
 
 @keyframes scrollText {
-  0% { transform: translateX(0%); }
+  0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
