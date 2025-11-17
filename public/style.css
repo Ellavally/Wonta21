@@ -20,15 +20,39 @@ html, body {
   color: #222;
 }
 
-h1 { font-size: 2.8rem; font-weight: 800; color: #003d00; margin-bottom: 20px; }
-h2 { font-size: 2.3rem; margin-bottom: 18px; color: #004d00; font-weight: 700; }
-h3 { font-size: 1.8rem; margin-bottom: 14px; font-weight: 600; color: #006600; }
-h4 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 600; }
+/* HEADINGS */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #003d00;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 18px;
+  color: #004d00;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #006600;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
 
 p {
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 15px;
+  color: #333;
 }
 
 li {
@@ -37,7 +61,7 @@ li {
   line-height: 1.8;
 }
 
-/* Page wrapper */
+/* PAGE WRAPPER */
 .main-content,
 .page-content {
   padding: 50px 20px;
@@ -47,90 +71,84 @@ li {
 }
 
 /* ============================
-   HEADER — MODERN & MATCHES FOOTER
+   MODERN HEADER (LINKS RIGHT)
 ============================ */
 header {
   width: 100%;
-  background: linear-gradient(135deg, #0b3a24, #145c37);
-  padding: 18px 30px;
+  background: #1a1a1a;
+  padding: 18px 40px;
   display: flex;
+  justify-content: space-between;  
   align-items: center;
-  justify-content: space-between;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  position: relative;
-  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-.logo h1 {
+header .logo h1 {
+  font-size: 22px;
   color: #ffffff;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  margin: 0;
 }
 
-/* Right-aligned navigation */
-nav {
+/* Desktop navigation */
+#navbar {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 28px;
 }
 
-/* Navigation links */
-nav a {
-  color: #ffffff;
+#navbar a {
+  color: #dcdcdc;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
-  color: #b7ffd5;
-  transform: translateY(-1px);
+#navbar a:hover,
+#navbar a.active {
+  color: #4caf50;
 }
 
-/* MOBILE MENU BUTTON */
+/* Mobile icon */
 .menu-toggle {
   display: none;
-  font-size: 34px;
+  font-size: 30px;
   color: #ffffff;
   cursor: pointer;
 }
 
-/* MOBILE NAVIGATION */
+/* ============================
+   RESPONSIVE NAVIGATION
+============================ */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: linear-gradient(135deg, #0d4a30, #176f45);
+  #navbar {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #1a1a1a;
+    width: 230px;
     padding: 20px;
-    margin-top: 15px;
-    border-radius: 12px;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 18px;
+    display: none;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
   }
 
-  nav.show {
+  #navbar.menu-open {
     display: flex;
   }
 
-  nav a {
-    font-size: 20px;
-    text-align: center;
+  .menu-toggle {
+    display: block;
   }
-}
-
-/* Remove old dropdown */
-.dropdown-menu {
-  display: none !important;
-  visibility: hidden !important;
 }
 
 /* ============================
@@ -156,7 +174,7 @@ nav a.active {
   object-fit: cover;
 }
 
-/* Slider arrows */
+/* Arrows */
 .arrow {
   position: absolute;
   top: 50%;
@@ -178,7 +196,7 @@ nav a.active {
 #prev-btn { left: 20px; }
 #next-btn { right: 20px; }
 
-/* Right info box */
+/* Right text box */
 #slider-text-box {
   flex: 0 0 350px;
   background: #e3ffe3;
@@ -225,7 +243,7 @@ nav a.active {
 }
 
 /* ============================
-   NEWS SECTION
+   NEWS CARDS
 ============================ */
 .news-grid {
   display: grid;
@@ -248,7 +266,7 @@ nav a.active {
 }
 
 /* ============================
-   PARTNERS SECTION
+   PARTNERS
 ============================ */
 .partners-grid {
   display: grid;
@@ -272,7 +290,7 @@ nav a.active {
 }
 
 /* ============================
-   FOOTER — MODERN DARK GRADIENT
+   MODERN FOOTER
 ============================ */
 footer {
   background: linear-gradient(135deg, #0b3a24, #145c37);
@@ -284,6 +302,7 @@ footer {
   box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.25);
 }
 
+/* Layout */
 .footer-content {
   max-width: 1250px;
   margin: auto;
@@ -291,6 +310,7 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 45px;
+  text-align: left;
 }
 
 .footer-about,
@@ -308,18 +328,23 @@ footer {
   font-weight: 700;
 }
 
+/* Footer text */
 .footer-about p,
 .footer-contact p {
   font-size: 16px;
+  line-height: 1.7;
   opacity: 0.95;
+  color: #ffffff;
 }
 
+/* Links */
 .footer-links a {
   display: block;
-  color: #ffffff;
   text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
   margin-bottom: 10px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -327,15 +352,31 @@ footer {
   padding-left: 6px;
 }
 
+/* Contact */
 .footer-contact a {
-  color: white;
+  color: #ffffff;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .footer-contact a:hover {
   color: #b7ffd5;
 }
 
+/* Social */
+.footer-social {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-social a:hover {
+  color: #b7ffd5;
+  padding-left: 6px;
+}
+
+/* Footer bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 35px;
@@ -348,7 +389,13 @@ footer {
   opacity: 0.95;
 }
 
-/* Mobile footer */
+/* Mobile */
 @media (max-width: 768px) {
-  .footer-content { text-align: center; }
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
 }
