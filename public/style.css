@@ -152,7 +152,7 @@ header.main-header {
 }
 
 /* ============================
-   PARTNERS — SHOW ALL LOGOS + ONE MOVING TEXT
+   PARTNERS — SHOW ALL LOGOS + ULTRA-SLOW MOVING TEXT
 ============================ */
 #partners-section {
   text-align: center;
@@ -192,7 +192,7 @@ header.main-header {
   object-fit: contain;
 }
 
-/* MOVING DESCRIPTION BAR — VERY SLOW */
+/* MOVING DESCRIPTION BAR */
 .partner-moving-text-wrapper {
   width: 100%;
   overflow: hidden;
@@ -206,7 +206,7 @@ header.main-header {
   display: inline-block;
   font-size: 20px;
   color: #014d21;
-  animation: scrollText 150s linear infinite; /* VERY, VERY SLOW */
+  animation: scrollText 250s linear infinite; /* ULTRA SLOW */
 }
 
 @keyframes scrollText {
