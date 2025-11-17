@@ -102,6 +102,99 @@
       line-height: 1.4;
       margin-bottom: 20px;
     }
+
+    /* ============================
+       NEW PARTNERS SINGLE SLIDER
+    ============================= */
+    #partners-section {
+      text-align: center;
+      margin: 90px auto;
+      padding: 20px;
+    }
+
+    #partners-section h2 {
+      font-size: 2.2rem;
+      color: #004d00;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .partner-slider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .partner-arrow {
+      background: #145c37;
+      color: white;
+      border: none;
+      font-size: 36px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .partner-arrow:hover {
+      background: #0b3a24;
+    }
+
+    .partner-display {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 16px;
+      width: 360px;
+      height: 320px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #partner-logo {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .moving-text-box {
+      width: 100%;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .moving-text {
+      white-space: nowrap;
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide-text 14s linear infinite;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    @keyframes slide-text {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @media (max-width: 600px) {
+      .partner-slider {
+        flex-direction: column;
+      }
+
+      .partner-arrow {
+        font-size: 32px;
+        width: 48px;
+        height: 48px;
+      }
+    }
   </style>
 </head>
 
@@ -126,6 +219,7 @@
 
   </section>
 
+  <!-- SLIDER SCRIPT -->
   <script>
     const slides = [
       { img: "/images/nebir.jpg", title: "Educational Projects", text: "Supporting rural development through sustainable programs." },
@@ -200,48 +294,83 @@
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section id="partners" style="margin-top: 90px; text-align:center;">
+    <!-- ============================
+         NEW PARTNERS SECTION
+    ============================= -->
+    <section id="partners-section">
       <h2>Our Partners</h2>
 
-      <p style="max-width:700px; margin:0 auto 40px; color:#444;">
-        We collaborate with committed organizations to bring sustainable development and empowerment to rural communities.
-      </p>
+      <div class="partner-slider">
 
-      <div class="partners-grid"
-           style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-                  gap:25px; max-width:1000px; margin:auto;">
+        <button class="partner-arrow" id="partner-prev">‹</button>
 
-        <!-- PARTNER 1 -->
-        <div class="partner-card"
-             style="background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.12); padding:25px;">
-          <img src="/images/partner1.png" style="width:100px; height:100px; object-fit:contain;">
-          <h3>Partner Organization 1</h3>
-          <p style="color:#666;">Working together on rural education and community support.</p>
+        <div class="partner-display">
+          <img id="partner-logo" src="/images/partner1.png" alt="Partner Logo">
+
+          <div class="moving-text-box">
+            <p id="partner-desc" class="moving-text">
+              Working together on rural education and community development.
+            </p>
+          </div>
         </div>
 
-        <!-- PARTNER 2 -->
-        <div class="partner-card"
-             style="background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.12); padding:25px;">
-          <img src="/images/partner2.png" style="width:100px; height:100px; object-fit:contain;">
-          <h3>Partner Organization 2</h3>
-          <p style="color:#666;">Supporting agricultural and livelihood initiatives.</p>
-        </div>
-
-        <!-- PARTNER 3 -->
-        <div class="partner-card"
-             style="background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.12); padding:25px;">
-          <img src="/images/partner3.png" style="width:100px; height:100px; object-fit:contain;">
-          <h3>Partner Organization 3</h3>
-          <p style="color:#666;">Improving access to healthcare and education.</p>
-        </div>
+        <button class="partner-arrow" id="partner-next">›</button>
 
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER (fixed layout match) -->
+  <!-- PARTNERS SLIDER SCRIPT -->
+  <script>
+    const partners = [
+      {
+        logo: "/images/partner1.png",
+        desc: "Working together on rural education and community development."
+      },
+      {
+        logo: "/images/partner2.png",
+        desc: "Supporting agriculture, food security, and sustainable farming training."
+      },
+      {
+        logo: "/images/partner3.png",
+        desc: "Improving healthcare access and community resilience programs."
+      },
+      {
+        logo: "/images/partner4.png",
+        desc: "Empowering women and youth through skills development initiatives."
+      }
+    ];
+
+    let partnerIndex = 0;
+
+    function updatePartner() {
+      document.getElementById("partner-logo").src = partners[partnerIndex].logo;
+      document.getElementById("partner-desc").textContent = partners[partnerIndex].desc;
+
+      const text = document.getElementById("partner-desc");
+      text.style.animation = "none";
+      void text.offsetWidth;
+      text.style.animation = null;
+    }
+
+    document.getElementById("partner-next").addEventListener("click", () => {
+      partnerIndex = (partnerIndex + 1) % partners.length;
+      updatePartner();
+    });
+
+    document.getElementById("partner-prev").addEventListener("click", () => {
+      partnerIndex = (partnerIndex - 1 + partners.length) % partners.length;
+      updatePartner();
+    });
+
+    setInterval(() => {
+      partnerIndex = (partnerIndex + 1) % partners.length;
+      updatePartner();
+    }, 5000);
+  </script>
+
+  <!-- FOOTER -->
   <%- include('partials/footer') %>
 
 </body>
