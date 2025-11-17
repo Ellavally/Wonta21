@@ -55,7 +55,7 @@ p {
 }
 
 /* ============================
-   HEADER — UPDATED & CLEAN
+   HEADER — DEEP GREEN + WHITE TEXT
 ============================ */
 header.main-header {
   width: 100%;
@@ -152,7 +152,7 @@ header.main-header {
 }
 
 /* ============================
-   PARTNERS — SHOW ALL LOGOS + ULTRA-SLOW MOVING TEXT
+   PARTNERS — ALL LOGOS SHOWN + ULTRA SLOW TEXT
 ============================ */
 #partners-section {
   text-align: center;
@@ -206,10 +206,10 @@ header.main-header {
   display: inline-block;
   font-size: 20px;
   color: #014d21;
-  animation: scrollText 450s linear infinite; /* EVEN MORE ULTRA SLOW */
+  animation: scrollText 10000s linear infinite; /* EXTREME ULTRA SLOW */
 }
 
-/* ULTRA SLOW SCROLL */
+/* ULTRA SLOW 10,000 SECOND SCROLL */
 @keyframes scrollText {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
@@ -228,7 +228,7 @@ header.main-header {
 }
 
 /* ============================
-   FOOTER — MODERN & MATCHED
+   FOOTER — CLEAN & MODERN
 ============================ */
 .main-footer {
   background: linear-gradient(135deg, #0b3a24, #145c37);
@@ -294,7 +294,7 @@ header.main-header {
   text-decoration: underline;
 }
 
-/* Bottom bar */
+/* Bottom */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
