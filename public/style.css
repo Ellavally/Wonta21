@@ -7,11 +7,66 @@
   box-sizing: border-box;
 }
 
+/* ============================
+   GLOBAL TEXT & TYPOGRAPHY
+============================ */
 html, body {
   width: 100%;
   overflow-x: hidden;
   font-family: Arial, sans-serif;
   background: #f6fff6;
+  font-size: 18px;           
+  line-height: 1.7;          
+  color: #222;               
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #003d00;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 18px;
+  color: #004d00;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #006600;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+li {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.main-content,
+.page-content {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: left;
 }
 
 /* ============================
@@ -43,6 +98,7 @@ header {
   cursor: pointer;
 }
 
+/* Navigation */
 nav {
   display: flex;
   gap: 25px;
@@ -62,7 +118,7 @@ nav a:hover {
   color: #d8ffd8;
 }
 
-/* Hide dropdown completely */
+/* Remove About dropdown entirely */
 .dropdown-menu {
   display: none !important;
   visibility: hidden !important;
@@ -144,12 +200,10 @@ nav a:hover {
   border-radius: 50% / 40%;
   padding: 30px;
   height: 260px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-
   box-shadow: 0 10px 35px rgba(0,0,0,0.2);
 }
 
@@ -165,7 +219,7 @@ nav a:hover {
   color: #333;
 }
 
-/* MOBILE SLIDER FIX */
+/* Mobile slider */
 @media (max-width: 768px) {
   #slider-section {
     flex-direction: column;
@@ -183,20 +237,6 @@ nav a:hover {
     padding: 10px;
     font-size: 22px;
   }
-}
-
-/* ============================
-   MAIN CONTENT
-============================ */
-.main-content {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #004d00;
 }
 
 /* ============================
@@ -251,17 +291,16 @@ h2 {
 }
 
 /* ============================
-   FOOTER (UPDATED PROFESSIONAL DESIGN)
+   FOOTER — PROFESSIONAL
 ============================ */
 footer {
   background: #2e8b57;
   color: #ffffff;
   margin-top: 80px;
   padding: 50px 20px 20px;
-  font-family: Arial, sans-serif;
 }
 
-/* --- MAIN FOOTER CONTENT --- */
+/* Main footer layout */
 .footer-content {
   max-width: 1200px;
   margin: auto;
@@ -272,7 +311,6 @@ footer {
   text-align: left;
 }
 
-/* Columns */
 .footer-about,
 .footer-links,
 .footer-contact {
@@ -280,7 +318,6 @@ footer {
   min-width: 260px;
 }
 
-/* Titles */
 .footer-about h3,
 .footer-links h4,
 .footer-contact h4 {
@@ -289,15 +326,13 @@ footer {
   font-weight: 700;
 }
 
-/* Descriptions */
 .footer-about p,
 .footer-contact p {
   font-size: 15px;
   line-height: 1.6;
-  opacity: 0.95;
 }
 
-/* Quick Links */
+/* Links */
 .footer-links a {
   display: block;
   text-decoration: none;
@@ -312,7 +347,6 @@ footer {
   margin-left: 4px;
 }
 
-/* Contact */
 .footer-contact a {
   color: #ffffff;
   font-weight: bold;
@@ -323,7 +357,7 @@ footer {
   color: #dfffe9;
 }
 
-/* Social Icons */
+/* Social icons */
 .footer-social {
   margin-top: 15px;
   display: flex;
@@ -356,7 +390,7 @@ footer {
   opacity: 0.9;
 }
 
-/* Mobile */
+/* Mobile footer */
 @media (max-width: 768px) {
   .footer-content {
     text-align: center;
