@@ -1,42 +1,114 @@
-<footer>
-  <div class="footer-content">
+/* ============================
+   PROFESSIONAL FOOTER STYLING
+============================ */
 
-    <!-- About -->
-    <div class="footer-about">
-      <h3>Wonta Rural Development Association</h3>
-      <p>Empowering rural communities through sustainable development, education, and local engagement.</p>
-    </div>
+footer {
+  background: #2e8b57; /* Green brand color */
+  color: #ffffff;
+  margin-top: 60px;
+  padding-top: 40px;
+  font-family: Arial, sans-serif;
+}
 
-    <!-- Links -->
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="/">Home</a>
-      <a href="/about">About Us</a>
-      <a href="/projects">Projects</a>
-      <a href="/news">News</a>
-      <a href="/gallery">Gallery</a>
-      <a href="/contact">Contact</a>
-    </div>
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 20px;
+}
 
-    <!-- Contact -->
-    <div class="footer-contact">
-      <h4>Contact Us</h4>
-      <p><strong>Email:</strong> <a href="mailto:wrda@yahoo.com">wrda@yahoo.com</a></p>
-      <p><strong>Phone:</strong> +251 911 770 597</p>
-      <p><strong>Address:</strong> Wonta, Ethiopia</p>
+/* Sections */
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 260px;
+}
 
-      <!-- Social Icons -->
-      <div class="footer-social">
-        <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">🌐 Facebook</a>
-        <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter">🌐 Twitter</a>
-        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">🌐 Instagram</a>
-        <a href="https://youtube.com" target="_blank" class="social-icon" aria-label="YouTube">🌐 YouTube</a>
-      </div>
-    </div>
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4 {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
 
-  </div>
+.footer-about p,
+.footer-contact p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
 
-  <div class="footer-bottom">
-    <p>&copy; <%= new Date().getFullYear() %> Wonta Rural Development Association | All Rights Reserved.</p>
-  </div>
-</footer>
+/* Quick Links */
+.footer-links a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #dfffe9;
+  margin-left: 4px;
+}
+
+/* Contact Links */
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-contact a:hover {
+  color: #dfffe9;
+}
+
+/* Social Icons */
+.footer-social {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-social .social-icon {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 0;
+  transition: 0.3s;
+}
+
+.footer-social .social-icon:hover {
+  color: #dfffe9;
+  margin-left: 4px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
+}
