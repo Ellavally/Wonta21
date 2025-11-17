@@ -62,6 +62,14 @@ nav a:hover {
   color: #d8ffd8;
 }
 
+/* Hide dropdown completely */
+.dropdown-menu {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 /* MOBILE NAVIGATION */
 @media (max-width: 768px) {
   .menu-toggle {
@@ -243,22 +251,118 @@ h2 {
 }
 
 /* ============================
-   FOOTER
+   FOOTER (UPDATED PROFESSIONAL DESIGN)
 ============================ */
 footer {
   background: #2e8b57;
-  padding: 40px 20px;
-  color: white;
-  text-align: center;
+  color: #ffffff;
   margin-top: 80px;
+  padding: 50px 20px 20px;
+  font-family: Arial, sans-serif;
 }
 
-footer a {
-  color: #d8ffd8;
+/* --- MAIN FOOTER CONTENT --- */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: left;
+}
+
+/* Columns */
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* Titles */
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* Descriptions */
+.footer-about p,
+.footer-contact p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Quick Links */
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #dfffe9;
+  margin-left: 4px;
+}
+
+/* Contact */
+.footer-contact a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #dfffe9;
+}
+
+/* Social Icons */
+.footer-social {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-social .social-icon {
+  color: white;
+  font-size: 15px;
   text-decoration: none;
   transition: 0.3s;
 }
 
-footer a:hover {
-  color: white;
+.footer-social .social-icon:hover {
+  color: #dfffe9;
+  margin-left: 4px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
 }
