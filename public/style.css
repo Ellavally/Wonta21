@@ -20,39 +20,15 @@ html, body {
   color: #222;
 }
 
-/* HEADINGS */
-h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #003d00;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 2.3rem;
-  margin-bottom: 18px;
-  color: #004d00;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.8rem;
-  margin-bottom: 14px;
-  font-weight: 600;
-  color: #006600;
-}
-
-h4 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
+h1 { font-size: 2.8rem; font-weight: 800; color: #003d00; margin-bottom: 20px; }
+h2 { font-size: 2.3rem; margin-bottom: 18px; color: #004d00; font-weight: 700; }
+h3 { font-size: 1.8rem; margin-bottom: 14px; font-weight: 600; color: #006600; }
+h4 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 600; }
 
 p {
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 15px;
-  color: #333;
 }
 
 li {
@@ -61,7 +37,7 @@ li {
   line-height: 1.8;
 }
 
-/* PAGE CONTENT WRAPPER */
+/* Page wrapper */
 .main-content,
 .page-content {
   padding: 50px 20px;
@@ -71,60 +47,57 @@ li {
 }
 
 /* ============================
-   HEADER
+   HEADER — MODERN & MATCHES FOOTER
 ============================ */
 header {
   width: 100%;
-  background: #2e8b57;
-  padding: 15px 0;
+  background: linear-gradient(135deg, #0b3a24, #145c37);
+  padding: 18px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 1000;
 }
 
 .logo h1 {
-  color: #fff;
-  margin-left: 20px;
+  color: #ffffff;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
-/* Mobile menu button */
-.menu-toggle {
-  display: none;
-  font-size: 32px;
-  color: white;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-/* Navigation */
+/* Right-aligned navigation */
 nav {
   display: flex;
-  gap: 25px;
-  margin-right: 20px;
+  align-items: center;
+  gap: 28px;
 }
 
+/* Navigation links */
 nav a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
   transition: 0.3s;
 }
 
-nav a.active,
-nav a:hover {
-  color: #d8ffd8;
+nav a:hover,
+nav a.active {
+  color: #b7ffd5;
+  transform: translateY(-1px);
 }
 
-/* Remove dropdown under ABOUT */
-.dropdown-menu {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
+/* MOBILE MENU BUTTON */
+.menu-toggle {
+  display: none;
+  font-size: 34px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 /* MOBILE NAVIGATION */
@@ -137,9 +110,11 @@ nav a:hover {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #2e8b57;
+    background: linear-gradient(135deg, #0d4a30, #176f45);
     padding: 20px;
-    gap: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    gap: 18px;
   }
 
   nav.show {
@@ -148,7 +123,14 @@ nav a:hover {
 
   nav a {
     font-size: 20px;
+    text-align: center;
   }
+}
+
+/* Remove old dropdown */
+.dropdown-menu {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 /* ============================
@@ -196,7 +178,7 @@ nav a:hover {
 #prev-btn { left: 20px; }
 #next-btn { right: 20px; }
 
-/* Right-side slider text box */
+/* Right info box */
 #slider-text-box {
   flex: 0 0 350px;
   background: #e3ffe3;
@@ -222,7 +204,7 @@ nav a:hover {
   color: #333;
 }
 
-/* MOBILE SLIDER */
+/* Mobile slider */
 @media (max-width: 768px) {
   #slider-section {
     flex-direction: column;
@@ -243,7 +225,7 @@ nav a:hover {
 }
 
 /* ============================
-   NEWS CARDS
+   NEWS SECTION
 ============================ */
 .news-grid {
   display: grid;
@@ -265,12 +247,8 @@ nav a:hover {
   object-fit: cover;
 }
 
-.news-card h3 {
-  margin-bottom: 10px;
-}
-
 /* ============================
-   PARTNERS
+   PARTNERS SECTION
 ============================ */
 .partners-grid {
   display: grid;
@@ -306,7 +284,6 @@ footer {
   box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Main footer layout */
 .footer-content {
   max-width: 1250px;
   margin: auto;
@@ -314,10 +291,8 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 45px;
-  text-align: left;
 }
 
-/* Columns */
 .footer-about,
 .footer-links,
 .footer-contact {
@@ -331,27 +306,20 @@ footer {
   font-size: 22px;
   margin-bottom: 18px;
   font-weight: 700;
-  color: #ffffff;
 }
 
-/* Paragraphs */
 .footer-about p,
 .footer-contact p {
   font-size: 16px;
-  line-height: 1.7;
   opacity: 0.95;
-  color: #ffffff;
 }
 
-/* Quick Links */
 .footer-links a {
   display: block;
-  text-decoration: none;
   color: #ffffff;
-  font-size: 16px;
+  text-decoration: none;
   margin-bottom: 10px;
-  transition: 0.3s ease;
-  padding-left: 0;
+  transition: 0.3s;
 }
 
 .footer-links a:hover {
@@ -359,39 +327,15 @@ footer {
   padding-left: 6px;
 }
 
-/* Contact Links */
 .footer-contact a {
-  color: #ffffff;
+  color: white;
   font-weight: bold;
-  text-decoration: none;
-  font-size: 16px;
 }
 
 .footer-contact a:hover {
   color: #b7ffd5;
 }
 
-/* Social icons */
-.footer-social {
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-social .social-icon {
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-social .social-icon:hover {
-  color: #b7ffd5;
-  padding-left: 6px;
-}
-
-/* Footer bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 35px;
@@ -402,16 +346,9 @@ footer {
 .footer-bottom p {
   font-size: 15px;
   opacity: 0.95;
-  color: #ffffff;
 }
 
-/* Mobile */
+/* Mobile footer */
 @media (max-width: 768px) {
-  .footer-content {
-    text-align: center;
-  }
-
-  .footer-social {
-    align-items: center;
-  }
+  .footer-content { text-align: center; }
 }
