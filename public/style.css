@@ -55,12 +55,12 @@ p {
 }
 
 /* ============================
-   HEADER (Perfect & All White Text)
+   HEADER — UPDATED & CLEAN
 ============================ */
 header.main-header {
   width: 100%;
   background: #2e8b57;
-  padding: 15px 0;
+  padding: 18px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
@@ -73,64 +73,74 @@ header.main-header {
   padding: 0 25px;
 }
 
-/* LOGO & TAGLINE — PURE WHITE */
-.header-logo h2 {
+/* LEFT SIDE */
+.header-about h3 {
   color: #ffffff !important;
   font-size: 28px;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
-.header-logo p {
-  color: #ffffff !important;
+.header-about p {
+  color: #eaffea !important;
   font-size: 15px;
+  line-height: 1.4;
 }
 
-/* MOBILE MENU ICON */
-.menu-toggle {
-  display: none;
-  font-size: 32px;
-  color: white !important;
-  cursor: pointer;
-}
-
-/* NAVIGATION */
-.header-nav {
+/* RIGHT SIDE — MENU */
+.header-links {
   display: flex;
   gap: 25px;
 }
 
-.header-nav a {
-  color: white !important;
+.header-links a {
+  color: #ffffff !important;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
   transition: 0.3s;
 }
 
-.header-nav a.active,
-.header-nav a:hover {
+.header-links a:hover,
+.header-links a.active {
   color: #d8ffd8 !important;
 }
 
-/* MOBILE HEADER */
-@media(max-width: 768px) {
-  .menu-toggle { display: block; }
+/* Mobile Button */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
 
-  .header-nav {
+/* Mobile Header */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-links {
     display: none;
     flex-direction: column;
     width: 100%;
     background: #2e8b57;
     padding: 20px;
+    margin-top: 15px;
   }
 
-  .header-nav.show {
+  .header-links.show {
     display: flex;
+  }
+
+  .header-links a {
+    padding: 10px 0;
+    font-size: 20px;
   }
 }
 
 /* ============================
-   MAIN CONTENT WRAPPER
+   MAIN CONTENT
 ============================ */
 .main-content,
 .page-content {
@@ -140,7 +150,7 @@ header.main-header {
 }
 
 /* ============================
-   FOOTER — MATCHED DESIGN
+   FOOTER — MODERN & MATCHED
 ============================ */
 .main-footer {
   background: linear-gradient(135deg, #0b3a24, #145c37);
@@ -191,7 +201,7 @@ header.main-header {
   padding-left: 6px;
 }
 
-/* Contact Section */
+/* Contact */
 .footer-contact p {
   font-size: 16px;
   color: #eaffea;
@@ -207,7 +217,7 @@ header.main-header {
   text-decoration: underline;
 }
 
-/* Footer Bottom */
+/* Bottom bar */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
@@ -220,7 +230,7 @@ header.main-header {
   font-size: 15px;
 }
 
-/* MOBILE FOOTER */
+/* Mobile Footer */
 @media(max-width: 700px) {
   .footer-content {
     text-align: center;
