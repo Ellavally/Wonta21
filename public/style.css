@@ -59,7 +59,7 @@ p {
 ============================ */
 header.main-header {
   width: 100%;
-  background: #2e8b57;
+  background: #014d21; /* DEEP GREEN */
   padding: 18px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
@@ -114,7 +114,9 @@ header.main-header {
   cursor: pointer;
 }
 
-/* Mobile Header */
+/* ============================
+   MOBILE HEADER
+============================ */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -124,7 +126,7 @@ header.main-header {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #2e8b57;
+    background: #014d21;
     padding: 20px;
     margin-top: 15px;
   }
