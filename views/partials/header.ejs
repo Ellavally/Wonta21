@@ -12,23 +12,13 @@
   <nav id="navbar">
     <a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
 
-    <!-- 🔽 UPDATED ABOUT US WITH DROPDOWN -->
-    <div class="dropdown">
-      <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">
-        About Us ▾
-      </a>
-      <div class="dropdown-menu">
-        <a href="/about#glance">WRDA at a Glance</a>
-        <a href="/about#mission">Mission & Vision</a>
-        <a href="/about#leadership">WRDA Leadership</a>
-        <a href="/about#director">Director Message</a>
-      </div>
-    </div>
+    <!-- ✅ ONLY ABOUT US (NO DROPDOWN) -->
+    <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">About Us</a>
 
     <a href="/projects" class="<%= activePage === 'projects' ? 'active' : '' %>">Projects</a>
     <a href="/news" class="<%= activePage === 'news' ? 'active' : '' %>">News</a>
 
-    <!-- ⭐ NEW GALLERY PAGE -->
+    <!-- ⭐ GALLERY PAGE -->
     <a href="/gallery" class="<%= activePage === 'gallery' ? 'active' : '' %>">Gallery</a>
 
     <a href="/contact" class="<%= activePage === 'contact' ? 'active' : '' %>">Contact</a>
