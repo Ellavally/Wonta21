@@ -1,105 +1,24 @@
-/* ===============================
-   HEADER (Modern Style)
-=============================== */
+<header class="main-header">
+  <div class="header-content">
 
-header {
-  background: #ffffff;
-  padding: 20px 40px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0 0 16px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    <!-- LEFT: Logo + Tagline -->
+    <div class="header-logo">
+      <h2>Wonta Rural Development Association</h2>
+      <p>Empowering rural communities through sustainable development.</p>
+    </div>
 
-/* Logo */
-header .logo h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #2b5d34;
-  margin: 0;
-  letter-spacing: 0.5px;
-}
+    <!-- Mobile Menu Button -->
+    <div id="menu-toggle" class="menu-toggle">☰</div>
 
-/* Navigation */
-nav {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-}
+    <!-- RIGHT: Navigation -->
+    <nav id="navbar" class="header-nav">
+      <a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
+      <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">About Us</a>
+      <a href="/projects" class="<%= activePage === 'projects' ? 'active' : '' %>">Projects</a>
+      <a href="/news" class="<%= activePage === 'news' ? 'active' : '' %>">News</a>
+      <a href="/gallery" class="<%= activePage === 'gallery' ? 'active' : '' %>">Gallery</a>
+      <a href="/contact" class="<%= activePage === 'contact' ? 'active' : '' %>">Contact</a>
+    </nav>
 
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: 0.25s ease;
-  font-weight: 500;
-}
-
-/* Hover */
-nav a:hover {
-  background: #eaf5ec;
-  color: #2b5d34;
-}
-
-/* Active Page */
-nav a.active {
-  background: #2b5d34;
-  color: #ffffff;
-  font-weight: 600;
-  box-shadow: 0 3px 8px rgba(43,93,52,0.25);
-}
-
-/* ===============================
-   MOBILE MENU TOGGLE
-=============================== */
-
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: 0.2s;
-}
-
-.menu-toggle:hover {
-  background: #f3f3f3;
-}
-
-/* ===============================
-   MOBILE RESPONSIVE NAV
-=============================== */
-
-@media (max-width: 840px) {
-  nav {
-    position: absolute;
-    top: 75px;
-    right: 0;
-    background: #ffffff;
-    width: 80%;
-    max-width: 260px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    transform: translateX(120%);
-    transition: 0.3s ease-in-out;
-  }
-
-  /* Mobile Menu Open State */
-  nav.open {
-    transform: translateX(0);
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
+  </div>
+</header>
