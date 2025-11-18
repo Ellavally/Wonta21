@@ -128,9 +128,10 @@ header.main-header {
   }
 
   /* Top-right floating menu */
+  @media (max-width: 768px) {
   .header-links {
     position: absolute;
-    top: 65px;
+    top: 50px;   /* moved upward */
     right: 25px;
     background: #014d21;
     display: none;
@@ -138,21 +139,13 @@ header.main-header {
     width: auto;
     padding: 12px 18px;
     border-radius: 8px;
-
-    /* SMALLER GAPS */
     gap: 8px;
   }
 
   .header-links.show {
     display: flex;
   }
-
-  .header-links a {
-    padding: 6px 0;   /* small spacing */
-    font-size: 17px;  /* slightly smaller */
-  }
 }
-
 /* ============================
    MAIN CONTENT
 ============================ */
