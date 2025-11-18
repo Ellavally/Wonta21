@@ -7,10 +7,10 @@
       <p>Empowering rural communities through sustainable development and local engagement.</p>
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- MOBILE MENU BUTTON -->
     <div id="menu-toggle" class="menu-toggle">☰</div>
 
-    <!-- RIGHT: Navigation -->
+    <!-- NAVIGATION -->
     <nav id="navbar" class="header-links">
       <a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
       <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">About Us</a>
@@ -23,3 +23,12 @@
   </div>
 </header>
 
+<!-- MOBILE MENU JS (Required) -->
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  menuToggle.addEventListener("click", () => {
+    navbar.classList.toggle("show");
+  });
+</script>
