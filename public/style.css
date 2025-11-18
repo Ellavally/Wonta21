@@ -100,7 +100,7 @@ header.main-header {
   color: #ffffff !important;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 400; /* not bold */
+  font-weight: 400;
   transition: 0.3s;
 }
 
@@ -109,7 +109,9 @@ header.main-header {
   color: #d8ffd8 !important;
 }
 
-/* MOBILE MENU BUTTON */
+/* ============================
+   MOBILE MENU BUTTON
+============================ */
 .menu-toggle {
   display: none;
   font-size: 32px;
@@ -122,30 +124,39 @@ header.main-header {
 ============================ */
 @media (max-width: 768px) {
 
+  /* 3-bar icon very high */
   .menu-toggle {
     display: block;
-    margin-left: 10px;
+    position: relative;
+    top: -30px;   /* SUPER HIGH */
+    right: 5px;
   }
 
-  /* Top-right floating menu */
-  @media (max-width: 768px) {
+  /* Dropdown menu box */
   .header-links {
     position: absolute;
-    top: 50px;   /* moved upward */
-    right: 25px;
+    top: 55px;     /* menu sits high as well */
+    right: 20px;
     background: #014d21;
     display: none;
     flex-direction: column;
     width: auto;
     padding: 12px 18px;
     border-radius: 8px;
-    gap: 8px;
+    gap: 8px;      /* closer spacing */
+    z-index: 999;
   }
 
   .header-links.show {
     display: flex;
   }
+
+  .header-links a {
+    font-size: 18px;
+    padding: 6px 0;
+  }
 }
+
 /* ============================
    MAIN CONTENT
 ============================ */
@@ -292,7 +303,6 @@ header.main-header {
   text-decoration: underline;
 }
 
-/* Bottom */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
@@ -305,7 +315,6 @@ header.main-header {
   font-size: 15px;
 }
 
-/* Mobile Footer */
 @media(max-width: 700px) {
   .footer-content {
     text-align: center;
