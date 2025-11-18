@@ -1,54 +1,57 @@
 // ===============================
-// MOBILE MENU TOGGLE (FINAL — CLEAN & OPTIMIZED)
+// MOBILE MENU TOGGLE (FINAL — CLEAN & FIXED)
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const navbar = document.getElementById("navbar");
   const header = document.querySelector("header");
 
-  // Ensure all required elements exist
   if (!menuToggle || !navbar || !header) return;
 
   // Toggle mobile menu
   menuToggle.addEventListener("click", () => {
-    navbar.classList.toggle("menu-open");
+    // Your CSS uses .show, so we toggle that
+    navbar.classList.toggle("show");
 
-    // Disable scroll when menu opens
-    document.body.style.overflow = navbar.classList.contains("menu-open") 
-      ? "hidden" 
+    // Disable page scroll only when visible
+    document.body.style.overflow = navbar.classList.contains("show")
+      ? "hidden"
       : "auto";
   });
 
   // Close menu when clicking any link
   navbar.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      navbar.classList.remove("menu-open");
+      navbar.classList.remove("show");
       document.body.style.overflow = "auto";
     });
   });
 
-  // Close menu when clicking outside header/nav
+  // Close menu when clicking outside (mobile only)
   document.addEventListener("click", (e) => {
-    if (!header.contains(e.target) && navbar.classList.contains("menu-open")) {
-      navbar.classList.remove("menu-open");
+    if (
+      !header.contains(e.target) &&
+      navbar.classList.contains("show") &&
+      window.innerWidth <= 768
+    ) {
+      navbar.classList.remove("show");
       document.body.style.overflow = "auto";
     }
   });
 });
 
-// Auto-close menu when switching to desktop width
+// Auto-close when resizing to desktop
 window.addEventListener("resize", () => {
   const navbar = document.getElementById("navbar");
-
   if (window.innerWidth > 768 && navbar) {
-    navbar.classList.remove("menu-open");
+    navbar.classList.remove("show");
     document.body.style.overflow = "auto";
   }
 });
 
 
 // ===============================
-// FLOATING IMAGE ANIMATION (IMPROVED SMOOTHNESS)
+// FLOATING IMAGE ANIMATION
 // ===============================
 function moveImageById(id, distance = 150, speed = 0.4) {
   const img = document.getElementById(id);
@@ -62,7 +65,7 @@ function moveImageById(id, distance = 150, speed = 0.4) {
     img.style.transform = `translateX(${pos}px)`;
 
     if (pos >= distance || pos <= 0) {
-      direction *= -1; // Reverse motion
+      direction *= -1;
     }
 
     requestAnimationFrame(animate);
@@ -78,7 +81,6 @@ function moveImageById(id, distance = 150, speed = 0.4) {
 window.addEventListener("load", () => {
   let page = document.body.dataset.page;
 
-  // If dataset missing, fallback to body class naming
   if (!page && document.body.classList.length > 0) {
     page = document.body.classList[0].replace("-page", "");
   }
