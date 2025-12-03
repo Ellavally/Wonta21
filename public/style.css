@@ -52,6 +52,7 @@ p {
   line-height: 1.8;
   margin-bottom: 15px;
   color: #333;
+  text-align: justify; /* globally justify paragraphs */
 }
 
 /* ============================
@@ -235,4 +236,25 @@ header.main-header {
   .footer-content {
     text-align: center;
   }
+}
+
+/* ============================
+   PROJECT CARD IMAGE FIX
+============================ */
+.project-card img {
+  width: 100%;            /* full card width */
+  height: 250px;          /* fixed uniform height */
+  object-fit: contain;    /* ensure full image is visible */
+  object-position: top;   /* align image top */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9; /* fills empty space if image is smaller */
+}
+
+/* ============================
+   PROJECT CARD TEXT
+============================ */
+.project-card p {
+  text-align: justify;   /* justify project descriptions */
+  line-height: 1.6;
 }
