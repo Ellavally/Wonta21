@@ -2,122 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Projects - Wonta Rural Development Association</title>
-
-  <!-- Load CSS BEFORE the header -->
+  <title>Our Projects | Wonta Rural Development Association</title>
   <link rel="stylesheet" href="/style.css">
 
-  <!-- JS -->
-  <script src="/script.js" defer></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Projects page styles */
+    .projects-section {
+      padding: 2rem 1rem;
+    }
+
+    .projects-section h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card {
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .impact-section {
+      background: #eef6f5;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      border-radius: 12px;
+    }
+
+    .impact-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .impact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .impact-card {
+      flex: 1 1 30%;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .impact-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      color: #2a7a68;
+    }
+
+    .impact-card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 900px) {
+      .impact-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
-<body>
+
+<body data-page="projects">
 
   <!-- Header -->
   <%- include('partials/header') %>
 
-  <!-- Main Content -->
-  <main class="main-content" style="max-width: 1200px; margin: auto; text-align: center; padding: 50px 20px;">
+  <main class="main-content">
 
-    <!-- Section 1: Introduction -->
-    <section style="text-align: center; margin-bottom: 50px;">
-      <h2 style="margin-bottom: 30px;">Our Projects</h2>
+    <!-- ===================================================== -->
+    <!-- 1️⃣ OUR PROJECTS -->
+    <!-- ===================================================== -->
+    <section class="projects-section" id="projects">
+      <h2>Our Projects</h2>
 
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 20px;">
-        At <strong>Wonta Rural Development Association</strong>, we are committed to sustainable rural development
-        through impactful programs in <strong>education, food security, agriculture, and women’s empowerment</strong>.
+      <p>
+        Wonta Rural Development Association (WRDA) implements integrated rural development programs in South Ethiopia,
+        working closely with communities to address pressing challenges in food security, livelihoods, education, health,
+        water, and women and youth empowerment. All our projects are designed with a community-led, bottom-up approach
+        to ensure sustainability and lasting impact.
       </p>
 
-      <p style="line-height: 1.8; font-size: 1.1em; margin-bottom: 40px;">
-        Each project is a step toward building self-reliant, thriving communities.
-        Our initiatives are designed hand in hand with local residents to ensure
-        that solutions are meaningful, long-lasting, and community-led.
-      </p>
-    </section>
-
-    <!-- Section 2: Project Gallery -->
-    <section style="text-align: center; margin-bottom: 50px;">
-      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 0 20px;">
-
-        <% projects.forEach(project => { %>
-          <div class="project-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-
-            <img src="<%= project.image %>"
-            alt="<%= project.title %>"
-            style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px;">
-
-            <h3 style="font-size: 1.5em; margin-top: 15px;"><%= project.title %></h3>
-            <h4 style="font-size: 1.2em; color: #2e8b57;"><%= project.category %></h4>
-
-            <p style="line-height: 1.8; margin: 10px 0;">
-              <%= project.description %>
-            </p>
-
-            <p><strong>Impact:</strong> <%= project.impact %></p>
-
-            <% if (project.link) { %>
-              <a href="<%= project.link %>" 
-                 class="btn" 
-                 style="background-color: #2e8b57; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-                Learn More
-              </a>
-            <% } %>
-
-          </div>
-        <% }) %>
-
+      <!-- Project Example 1 -->
+      <div class="project-card">
+        <img src="/images/project-food-security.jpg" alt="Food Security Program">
+        <h3>Food Security & Livelihoods</h3>
+        <p>
+          Supporting smallholder farmers with sustainable agricultural practices, irrigation systems, and income-generating 
+          activities to improve nutrition and household resilience.
+        </p>
       </div>
-    </section>
 
-    <!-- Section 3: Impact Summary -->
-    <section style="text-align: center; margin-bottom: 50px;">
-      <h2 style="margin-bottom: 30px;">Our Impact</h2>
-
-      <div class="impact-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-
-        <div>
-          <h3 style="font-size: 2em;">🏫 20+</h3>
-          <p>Schools supported</p>
-        </div>
-
-        <div>
-          <h3 style="font-size: 2em;">🍚 12,000+</h3>
-          <p>Households supported with food security</p>
-        </div>
-
-        <div>
-          <h3 style="font-size: 2em;">🌾 4,500+</h3>
-          <p>Farmers trained</p>
-        </div>
-
-        <div>
-          <h3 style="font-size: 2em;">👩‍🌾 600+</h3>
-          <p>Women empowered</p>
-        </div>
-
+      <!-- Project Example 2 -->
+      <div class="project-card">
+        <img src="/images/project-education.jpg" alt="Education Project">
+        <h3>Education Programs</h3>
+        <p>
+          Establishing ABE centers, Early Childhood Education Centers, and youth development initiatives to ensure
+          access to quality education nurtured and supported by the community.
+        </p>
       </div>
+
+      <!-- Project Example 3 -->
+      <div class="project-card">
+        <img src="/images/project-health.jpg" alt="Health Project">
+        <h3>Health & WASH</h3>
+        <p>
+          Medical outreach, health education, and clean water initiatives designed to improve community health and
+          prevent disease.
+        </p>
+      </div>
+
+      <!-- Project Example 4 -->
+      <div class="project-card">
+        <img src="/images/project-women-empowerment.jpg" alt="Women Empowerment">
+        <h3>Women & Youth Empowerment</h3>
+        <p>
+          Strengthening Women’s Self-Help Groups, Reflect groups, and youth networks to empower communities to manage
+          local development initiatives and improve livelihoods.
+        </p>
+      </div>
+
+      <!-- Project Example 5 -->
+      <div class="project-card">
+        <img src="/images/project-community-development.jpg" alt="Community Development">
+        <h3>Community Development</h3>
+        <p>
+          Supporting grassroots institutions such as SACCOs and cooperatives, building local capacity, and implementing 
+          community-led solutions to environmental and social challenges.
+        </p>
+      </div>
+
     </section>
 
-    <!-- Section 4: Call to Action -->
-    <section class="cta-section" style="text-align: center; background-color: #2e8b57; color: white; padding: 60px 20px; border-radius: 10px; margin-bottom: 50px;">
-      <h2>Join Our Mission</h2>
-
-      <p style="font-size: 1.1em; margin-bottom: 30px;">
-        Together, we can continue to improve food security, education, and sustainable livelihoods
-        for rural communities. Your support makes lasting change possible.
+    <!-- ===================================================== -->
+    <!-- 2️⃣ IMPACT -->
+    <!-- ===================================================== -->
+    <section class="impact-section" id="impact">
+      <h2>Our Impact</h2>
+      <p>
+        Over the past 25 years, WRDA has directly served more than 58,000 households and positively impacted over
+        293,000 community members. Our initiatives have strengthened local institutions, improved livelihoods,
+        and empowered women and youth to lead sustainable development within their communities.
       </p>
 
-      <a href="/contact" 
-         class="btn" 
-         style="background-color: white; color: #2e8b57; font-weight: bold; padding: 12px 30px; text-decoration: none; border-radius: 5px;">
-         Get Involved
-      </a>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <h3>58,720</h3>
+          <p>Households served directly by WRDA programs</p>
+        </div>
+        <div class="impact-card">
+          <h3>293,600</h3>
+          <p>Community members positively impacted across South Ethiopia</p>
+        </div>
+        <div class="impact-card">
+          <h3>11</h3>
+          <p>ABE Centers established</p>
+        </div>
+        <div class="impact-card">
+          <h3>5</h3>
+          <p>Early Childhood Education Centers supported by communities</p>
+        </div>
+        <div class="impact-card">
+          <h3>20–30</h3>
+          <p>Members per Women’s Self-Help and Reflect groups</p>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <%- include('partials/footer') %>
 
+  <script src="/script.js"></script>
 </body>
 </html>
