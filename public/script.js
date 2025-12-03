@@ -1,98 +1,253 @@
-// ===============================
-// MOBILE MENU TOGGLE (FINAL VERSION)
-// ===============================
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navbar = document.getElementById("navbar");
-  const header = document.querySelector("header");
-
-  if (!menuToggle || !navbar || !header) return;
-
-  // Toggle mobile menu
-  menuToggle.addEventListener("click", () => {
-    navbar.classList.toggle("menu-open");
-
-    // Lock/unlock scroll
-    document.body.style.overflow = navbar.classList.contains("menu-open") ? "hidden" : "auto";
-  });
-
-  // Close menu when clicking a link
-  navbar.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navbar.classList.remove("menu-open");
-      document.body.style.overflow = "auto";
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!header.contains(e.target) && navbar.classList.contains("menu-open")) {
-      navbar.classList.remove("menu-open");
-      document.body.style.overflow = "auto";
-    }
-  });
-});
-
-// Auto-close menu on desktop
-window.addEventListener("resize", () => {
-  const navbar = document.getElementById("navbar");
-  if (window.innerWidth > 768 && navbar) {
-    navbar.classList.remove("menu-open");
-    document.body.style.overflow = "auto";
-  }
-});
-
-
-// ===============================
-// FLOATING IMAGE ANIMATION
-// ===============================
-function moveImageById(id, distance = 150, speed = 0.4) {
-  const img = document.getElementById(id);
-  if (!img) return;
-
-  let pos = 0;
-  let direction = 1;
-
-  function animate() {
-    pos += direction * speed;
-    img.style.transform = `translateX(${pos}px)`;
-
-    if (pos >= distance || pos <= 0) direction *= -1;
-
-    requestAnimationFrame(animate);
-  }
-
-  requestAnimationFrame(animate);
+/* ============================
+   GLOBAL RESET
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ============================
+   GLOBAL TEXT & TYPOGRAPHY
+============================ */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: #f6fff6;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #222;
+}
 
-// ===============================
-// PAGE ANIMATION HANDLER
-// ===============================
-window.addEventListener("load", () => {
-  let page = document.body.dataset.page;
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #003d00;
+  margin-bottom: 20px;
+}
 
-  // Fallback if dataset missing
-  if (!page && document.body.classList.length > 0) {
-    page = document.body.classList[0].replace("-page", "");
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 18px;
+  color: #004d00;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #006600;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* ============================
+   LINK HOVER WIGGLE ANIMATION
+============================ */
+@keyframes link-wiggle {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ============================
+   HEADER — UPDATED & CLEAN
+============================ */
+header.main-header {
+  width: 100%;
+  background: #014d21; /* DEEP GREEN */
+  padding: 18px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.header-content {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+
+/* LEFT SIDE */
+.header-about h3 {
+  color: #ffffff !important;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.header-about p {
+  color: #eaffea !important;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* RIGHT SIDE — MENU */
+.header-links {
+  display: flex;
+  gap: 25px;
+}
+
+.header-links a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* ----------- HEADER HOVER EFFECT MATCHING FOOTER ----------- */
+.header-links a:hover,
+.header-links a.active {
+  color: #d8ffd8 !important;
+  animation: link-wiggle 0.35s ease-in-out;
+}
+
+/* Mobile Button */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ============================
+   MOBILE HEADER
+============================ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
   }
 
-  const animations = {
-    home: [
-      { id: "home-image1", distance: 60, speed: 0.25 },
-      { id: "home-image2", distance: 70, speed: 0.3 }
-    ],
-    about: [
-      { id: "about-image2", distance: 60, speed: 0.25 }
-    ],
-    projects: [],
-    contact: [],
-    news: []
-  };
-
-  if (animations[page]) {
-    animations[page].forEach(({ id, distance, speed }) =>
-      moveImageById(id, distance, speed)
-    );
+  .header-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #014d21;
+    padding: 20px;
+    margin-top: 15px;
   }
-});
+
+  .header-links.show {
+    display: flex;
+  }
+
+  .header-links a {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+}
+
+/* ============================
+   MAIN CONTENT
+============================ */
+.main-content,
+.page-content {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ============================
+   FOOTER — MODERN & MATCHED
+============================ */
+.main-footer {
+  background: linear-gradient(135deg, #0b3a24, #145c37);
+  color: white;
+  padding: 60px 30px 35px;
+  margin-top: 80px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -5px 30px rgba(0,0,0,0.25);
+}
+
+/* Grid Layout */
+.footer-content {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 45px;
+}
+
+/* Titles */
+.footer-content h3,
+.footer-content h4 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* About */
+.footer-about p {
+  color: #e3ffd8;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Links */
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: #eaffea;
+  font-size: 16px;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+}
+
+/* FOOTER HOVER (PATTERN WE USED FOR HEADER) */
+.footer-links a:hover {
+  color: #b6ffd2;
+  animation: link-wiggle 0.35s ease-in-out;
+}
+
+/* Contact */
+.footer-contact p {
+  font-size: 16px;
+  color: #eaffea;
+}
+
+.footer-contact a {
+  color: #b6ffd2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.footer-bottom p {
+  color: #d8ffe6;
+  font-size: 15px;
+}
+
+/* Mobile Footer */
+@media(max-width: 700px) {
+  .footer-content {
+    text-align: center;
+  }
+}

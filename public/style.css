@@ -59,7 +59,7 @@ p {
 ============================ */
 header.main-header {
   width: 100%;
-  background: #014d21; /* DEEP GREEN */
+  background: #014d21;
   padding: 18px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
@@ -98,12 +98,14 @@ header.main-header {
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  transition: 0.3s;
+  display: inline-block; /* needed for movement */
+  transition: 0.3s ease;
 }
 
 .header-links a:hover,
 .header-links a.active {
   color: #d8ffd8 !important;
+  transform: translateX(6px); /* match footer movement */
 }
 
 /* Mobile Button */
@@ -118,6 +120,7 @@ header.main-header {
    MOBILE HEADER
 ============================ */
 @media (max-width: 768px) {
+
   .menu-toggle {
     display: block;
   }
@@ -131,7 +134,8 @@ header.main-header {
     margin-top: 15px;
   }
 
-  .header-links.show {
+  /* FIXED — Mobile menu opens correctly */
+  .header-links.menu-open {
     display: flex;
   }
 
@@ -164,7 +168,6 @@ header.main-header {
   box-shadow: 0 -5px 30px rgba(0,0,0,0.25);
 }
 
-/* Grid Layout */
 .footer-content {
   max-width: 1300px;
   margin: auto;
@@ -173,7 +176,6 @@ header.main-header {
   gap: 45px;
 }
 
-/* Titles */
 .footer-content h3,
 .footer-content h4 {
   color: #ffffff;
@@ -181,21 +183,20 @@ header.main-header {
   margin-bottom: 12px;
 }
 
-/* About */
 .footer-about p {
   color: #e3ffd8;
   font-size: 16px;
   line-height: 1.7;
 }
 
-/* Links */
+/* Footer links animation */
 .footer-links a {
   display: block;
   text-decoration: none;
   color: #eaffea;
   font-size: 16px;
   margin-bottom: 8px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -203,7 +204,6 @@ header.main-header {
   padding-left: 6px;
 }
 
-/* Contact */
 .footer-contact p {
   font-size: 16px;
   color: #eaffea;
@@ -219,7 +219,6 @@ header.main-header {
   text-decoration: underline;
 }
 
-/* Bottom bar */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
@@ -232,7 +231,6 @@ header.main-header {
   font-size: 15px;
 }
 
-/* Mobile Footer */
 @media(max-width: 700px) {
   .footer-content {
     text-align: center;
