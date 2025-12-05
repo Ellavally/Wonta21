@@ -209,7 +209,7 @@ header.main-header {
 ============================ */
 #slider-text-box {
   flex: 0 0 350px;
-  background: #e3ffe3; /* desktop view */
+  background: #e3ffe3;
   border-radius: 50% / 40%;
   padding: 35px;
   height: 280px;
@@ -233,7 +233,7 @@ header.main-header {
 }
 
 /* ============================
-   SLIDER MOBILE FIX — TEXT OVER IMAGE (transparent oval)
+   SLIDER MOBILE FIX — TEXT OVER IMAGE
 ============================ */
 @media (max-width: 768px) {
   #slider-section {
@@ -258,10 +258,10 @@ header.main-header {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    background: transparent; /* fully transparent on mobile */
+    background: transparent !important; /* fully transparent */
+    box-shadow: none !important;       /* remove shadow */
     padding: 20px 25px;
     border-radius: 50% / 40%;
-    box-shadow: none; /* remove shadow for mobile */
     width: auto;
     height: auto;
     display: flex;
