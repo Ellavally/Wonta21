@@ -205,11 +205,11 @@ header.main-header {
 #next-btn { right: 18px; }
 
 /* ============================
-   TEXT BUBBLE — TRANSPARENT
+   TEXT BUBBLE
 ============================ */
 #slider-text-box {
   flex: 0 0 350px;
-  background: transparent; /* fully transparent */
+  background: #e3ffe3; /* desktop view */
   border-radius: 50% / 40%;
   padding: 35px;
   height: 280px;
@@ -233,7 +233,7 @@ header.main-header {
 }
 
 /* ============================
-   SLIDER MOBILE FIX — TEXT OVER IMAGE
+   SLIDER MOBILE FIX — TEXT OVER IMAGE (transparent oval)
 ============================ */
 @media (max-width: 768px) {
   #slider-section {
@@ -258,16 +258,17 @@ header.main-header {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    background: transparent; /* fully transparent */
+    background: transparent; /* fully transparent on mobile */
     padding: 20px 25px;
     border-radius: 50% / 40%;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: none; /* remove shadow for mobile */
     width: auto;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #004d00; /* keep text visible */
     z-index: 10;
   }
 
