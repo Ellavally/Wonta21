@@ -121,7 +121,6 @@ header.main-header {
    MOBILE HEADER
 ============================ */
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -238,16 +237,16 @@ header.main-header {
    SLIDER — MOBILE FIX (Text stays right)
 ============================ */
 @media (max-width: 768px) {
-
   #slider-section {
-    flex-direction: row;      /* keep side-by-side */
-    height: auto;
-    padding: 20px 0;
+    flex-direction: row;
+    flex-wrap: nowrap;           /* prevent text wrapping */
+    height: 40vh;
+    padding: 10px 5px;
   }
 
   #image-container {
-    flex: 1 1 50%;
-    height: 40vh;
+    flex: 0 0 55%;               /* image width */
+    height: 100%;
   }
 
   #slider-image {
@@ -257,8 +256,8 @@ header.main-header {
   }
 
   #slider-text-box {
-    flex: 1 1 50%;
-    width: 100%;
+    flex: 0 0 45%;               /* text width */
+    width: auto;
     height: auto;
     margin: 0;
     padding: 20px;
@@ -268,11 +267,10 @@ header.main-header {
     align-items: center;
     text-align: center;
     position: relative;
-    right: 0;
   }
 
   #slider-title {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   #slider-desc {
