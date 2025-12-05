@@ -233,7 +233,7 @@ header.main-header {
 }
 
 /* ============================
-   SLIDER MOBILE FIX — TEXT OVER IMAGE
+   SLIDER MOBILE FIX — TEXT AT BOTTOM
 ============================ */
 @media (max-width: 768px) {
   #slider-section {
@@ -255,9 +255,9 @@ header.main-header {
 
   #slider-text-box {
     position: absolute !important;
-    top: 50% !important;
+    bottom: 15px !important;       /* moved to bottom */
     right: 15px !important;
-    transform: translateY(-50%) !important;
+    transform: translateY(0) !important; /* remove center transform */
     background: rgba(0, 0, 0, 0.35) !important; /* semi-transparent overlay */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
     padding: 20px 25px !important;
