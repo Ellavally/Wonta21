@@ -258,8 +258,8 @@ header.main-header {
     top: 50% !important;
     right: 15px !important;
     transform: translateY(-50%) !important;
-    background: transparent !important; /* fully transparent */
-    box-shadow: none !important;       /* remove shadow */
+    background: rgba(0, 0, 0, 0.35) !important; /* semi-transparent overlay */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
     padding: 20px 25px !important;
     border-radius: 50% / 40% !important;
     width: auto !important;
@@ -268,11 +268,9 @@ header.main-header {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    color: #004d00 !important; /* text visible */
+    color: #ffffff !important; /* white text for visibility */
     z-index: 10 !important;
-
-    /* ADD TEXT SHADOW TO IMPROVE VISIBILITY */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* improve readability */
   }
 
   #slider-title {
