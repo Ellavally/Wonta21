@@ -83,7 +83,7 @@ header.main-header {
     margin-top: 15px;
   }
   .header-links.menu-open { display: flex; }
-  .header-links a { padding: 10px 0; font-size: 20px; }
+  .header-links a { padding: 10px 0; font-size: 18px; }
 }
 
 /* ============================
@@ -128,7 +128,7 @@ header.main-header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #004d00; /* Removed transparency */
+  background: #004d00; 
   color: white;
   border: none;
   padding: 16px;
@@ -146,7 +146,7 @@ header.main-header {
 ============================ */
 #slider-text-box {
   flex: 0 0 350px;
-  background: #004d00; /* solid background, no transparency */
+  background: #004d00; 
   border-radius: 20px;
   padding: 30px;
   height: auto;
@@ -162,37 +162,44 @@ header.main-header {
 #slider-desc { font-size: 1em; line-height: 1.4; }
 
 /* ============================
-   SLIDER MOBILE FIX
+   MOBILE VIEW TEXT ADJUSTMENTS
 ============================ */
 @media (max-width: 768px) {
+
+  /* Slider */
   #slider-section { flex-direction: column; height: 50vh; }
   #slider-text-box {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 350px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    text-align: center;
+    display: none; /* Hide the text bubble on mobile */
   }
-  #slider-title { font-size: 1.2em; }
-  #slider-desc { font-size: 0.95em; line-height: 1.35; }
-
   .arrow { width: 38px; height: 38px; padding: 0; font-size: 18px; top: 50%; }
+
+  /* Headings */
+  h1 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
+  h2 { font-size: 1.6rem; text-align: center; margin-bottom: 12px; }
+  h3 { font-size: 1.4rem; text-align: left; margin-bottom: 10px; }
+  h4 { font-size: 1.2rem; text-align: left; margin-bottom: 8px; }
+
+  /* Paragraphs */
+  p { font-size: 15px; line-height: 1.5; text-align: justify; margin-bottom: 12px; }
+
+  /* Project card text */
+  .project-card p { font-size: 14px; line-height: 1.5; }
+
+  /* Main content */
+  .main-content,
+  .page-content { padding: 30px 15px; font-size: 16px; line-height: 1.6; }
+
+  /* Footer text */
+  .footer-about p,
+  .footer-contact p,
+  .footer-links a { font-size: 14px; line-height: 1.5; text-align: center; }
 }
 
 /* ============================
    MAIN CONTENT
 ============================ */
 .main-content,
-.page-content {
-  padding: 50px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+.page-content { padding: 50px 20px; max-width: 1100px; margin: auto; }
 
 /* ============================
    PROJECT CARD IMAGE FIX
@@ -206,8 +213,6 @@ header.main-header {
   background-color: #f9f9f9;
   margin-bottom: 1rem;
 }
-
-.project-card p { text-align: justify; line-height: 1.6; }
 
 /* ============================
    FOOTER
