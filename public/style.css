@@ -254,22 +254,22 @@ header.main-header {
   }
 
   #slider-text-box {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
+    position: absolute !important;
+    top: 50% !important;
+    right: 15px !important;
+    transform: translateY(-50%) !important;
     background: transparent !important; /* fully transparent */
     box-shadow: none !important;       /* remove shadow */
-    padding: 20px 25px;
-    border-radius: 50% / 40%;
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #004d00; /* keep text visible */
-    z-index: 10;
+    padding: 20px 25px !important;
+    border-radius: 50% / 40% !important;
+    width: auto !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    color: #004d00 !important; /* keep text visible */
+    z-index: 10 !important;
   }
 
   #slider-title {
