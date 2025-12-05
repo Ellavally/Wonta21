@@ -74,7 +74,6 @@ header.main-header {
   padding: 0 25px;
 }
 
-/* LEFT SIDE */
 .header-about h3 {
   color: #ffffff !important;
   font-size: 28px;
@@ -88,7 +87,6 @@ header.main-header {
   line-height: 1.4;
 }
 
-/* RIGHT SIDE — MENU */
 .header-links {
   display: flex;
   gap: 25px;
@@ -109,7 +107,6 @@ header.main-header {
   transform: translateX(6px);
 }
 
-/* Mobile Button */
 .menu-toggle {
   display: none;
   font-size: 32px;
@@ -155,6 +152,7 @@ header.main-header {
   width: 100%;
   padding: 0;
   background: #f6fff6;
+  position: relative;
 }
 
 #image-container {
@@ -167,7 +165,12 @@ header.main-header {
   overflow: hidden;
 }
 
-/* Animations */
+#slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-28px); }
@@ -176,12 +179,6 @@ header.main-header {
 
 .floating {
   animation: float 6s ease-in-out infinite;
-}
-
-#slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* Arrows */
@@ -234,18 +231,17 @@ header.main-header {
 }
 
 /* ============================
-   SLIDER — MOBILE FIX (No white gap, text right)
+   SLIDER — MOBILE FIX (Text floats over image)
 ============================ */
 @media (max-width: 768px) {
   #slider-section {
     flex-direction: row;
-    flex-wrap: nowrap;
     height: 40vh;
     padding: 0;
   }
 
   #image-container {
-    flex: 0 0 55%;
+    flex: 1;
     height: 100%;
   }
 
@@ -256,18 +252,21 @@ header.main-header {
   }
 
   #slider-text-box {
-    flex: 0 0 45%;
-    width: auto;
-    height: 100%;
-    margin: 0;
-    padding: 25px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: rgba(227, 255, 227, 0.85); /* slightly transparent */
+    padding: 20px 25px;
     border-radius: 50% / 40%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
-    background: #e3ffe3;
+    z-index: 10;
   }
 
   #slider-title {
@@ -311,7 +310,6 @@ header.main-header {
   margin-bottom: 1rem;
 }
 
-/* PROJECT CARD TEXT */
 .project-card p {
   text-align: justify;
   line-height: 1.6;
@@ -383,17 +381,4 @@ header.main-header {
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.3);
-}
-
-.footer-bottom p {
-  color: #d8ffe6;
-  font-size: 15px;
-}
-
-@media(max-width: 700px) {
-  .footer-content {
-    text-align: center;
-  }
-}
+  margin-top: 40px
