@@ -31,6 +31,7 @@ p {
   margin-bottom: 15px;
   color: #333;
   text-align: justify;
+  hyphens: auto;
 }
 
 /* ============================
@@ -178,19 +179,38 @@ header.main-header {
   h4 { font-size: 1.4rem; text-align: left; margin-bottom: 12px; }
 
   /* Paragraphs */
-  p { font-size: 1.2rem; line-height: 1.6; text-align: justify; margin-bottom: 14px; }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;      /* Left align to avoid gaps */
+    margin-bottom: 14px;
+    hyphens: auto;         /* Smooth word breaks */
+  }
 
   /* Project card text */
-  .project-card p { font-size: 1.15rem; line-height: 1.6; }
+  .project-card p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    text-align: left;
+    hyphens: auto;
+  }
 
   /* Main content */
   .main-content,
-  .page-content { padding: 35px 20px; font-size: 1.2rem; line-height: 1.6; }
+  .page-content { 
+    padding: 35px 20px; 
+    font-size: 1.2rem; 
+    line-height: 1.6; 
+  }
 
   /* Footer text */
   .footer-about p,
   .footer-contact p,
-  .footer-links a { font-size: 1.1rem; line-height: 1.5; text-align: center; }
+  .footer-links a { 
+    font-size: 1.1rem; 
+    line-height: 1.5; 
+    text-align: left;      /* left for better readability */
+  }
 }
 
 /* ============================
