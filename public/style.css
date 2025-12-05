@@ -268,8 +268,11 @@ header.main-header {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    color: #004d00 !important; /* keep text visible */
+    color: #004d00 !important; /* text visible */
     z-index: 10 !important;
+
+    /* ADD TEXT SHADOW TO IMPROVE VISIBILITY */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   }
 
   #slider-title {
