@@ -234,18 +234,18 @@ header.main-header {
 }
 
 /* ============================
-   SLIDER — MOBILE FIX (Text stays right)
+   SLIDER — MOBILE FIX (No white gap, text right)
 ============================ */
 @media (max-width: 768px) {
   #slider-section {
     flex-direction: row;
-    flex-wrap: nowrap;           /* prevent text wrapping */
+    flex-wrap: nowrap;
     height: 40vh;
-    padding: 10px 5px;
+    padding: 0;
   }
 
   #image-container {
-    flex: 0 0 55%;               /* image width */
+    flex: 0 0 55%;
     height: 100%;
   }
 
@@ -256,17 +256,18 @@ header.main-header {
   }
 
   #slider-text-box {
-    flex: 0 0 45%;               /* text width */
+    flex: 0 0 45%;
     width: auto;
-    height: auto;
+    height: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 25px;
     border-radius: 50% / 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
+    background: #e3ffe3;
   }
 
   #slider-title {
